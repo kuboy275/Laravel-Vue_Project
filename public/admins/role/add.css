@@ -1,0 +1,6 @@
+.checkbox_wrapper,
+.checkbox_child,
+.check_all {
+    transform: scale(1.4);
+    margin-right: 5px;
+}

@@ -1,0 +1,53 @@
+.select2-selection__choice:hover {
+    background-position: right center;
+    transition: 0.5s;
+}
+
+.select2-selection__choice {
+    font-weight: bold;
+    background-image: linear-gradient(to right, #870000 0%, #190A05 51%, #870000 100%);
+    background-blend-mode: multiply;
+    background-size: 200% auto;
+}
+
+.select2-selection__choice:nth-child(2) {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da 51%, #314755 100%)
+}
+
+.select2-selection__choice:nth-child(3) {
+    background-image: linear-gradient(to right, #c21500 0%, #ffc500 51%, #c21500 100%)
+}
+
+.select2-selection__choice:nth-child(4) {
+    background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%);
+}
+
+.select2-selection__choice:nth-child(5) {
+    background-image: linear-gradient(to right, #f83600 0%, #f9d423 100%);
+}
+
+.select2-selection__choice:nth-child(6) {
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+}
+
+.select2-selection__choice__remove {
+    color: white!important;
+}
+
+.select2-selection__choice__remove:hover {
+    color: black!important;
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+}
+
+.object-fit img {
+    object-fit: cover;
+    box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.7);
+}
+
+.select2-selection__placeholder {
+    outline: none!important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    padding: 10px;
+}
