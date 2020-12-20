@@ -1102,7 +1102,9 @@ export default {
         Slide
     },
     data() {
-        return {};
+        return {
+            
+        };
     }
 };
 </script>
