@@ -51,12 +51,12 @@
                                 />
                                 MainShop
                             </b-nav-item>
-                            <b-nav-item class="link_nav" to="/posts">
+                            <b-nav-item class="link_nav" to="/MainGallery">
                                 <font-awesome-icon
                                     :icon="['fas', 'house-damage']"
                                     class="icon_nav_link"
                                 />
-                                Post
+                                MainGallery
                             </b-nav-item>
                             <b-nav-item class="link_nav" to="/posts">
                                 <font-awesome-icon

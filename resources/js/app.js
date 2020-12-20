@@ -1,9 +1,12 @@
 require('./bootstrap.js');
-
 window.Vue = require('vue');
+
+import mainCss from '../css/main.css';
+Vue.use(mainCss);
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
+
 
 import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue)
@@ -39,7 +42,8 @@ import MainInventory from './components/Inventory/MainInventory';
 import MainHome from './components/Home/MainHome';
 import MainShop from './components/Shop/MainShop';
 import SingleShop from './components/SingleShop/SingleShop';
-import MainContact from './components/Contact/MainContact'
+import MainContact from './components/Contact/MainContact';
+import MainGallery from './components/Gallery/MainGallery'
 
 
 const routes = [{
@@ -76,6 +80,11 @@ const routes = [{
         name: 'MainContact',
         path: '/MainContact',
         component: MainContact
+    },
+    {
+        name: 'MainGallery',
+        path: '/MainGallery',
+        component: MainGallery
     },
     {
         name: 'create',

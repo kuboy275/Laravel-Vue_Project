@@ -1,0 +1,159 @@
+/* CUSTOM GALLERY MAIN SHOW */
+
+.show-gallery .cate-gallery .card {
+    border: none;
+}
+
+.show-gallery .cate-gallery .card .card-header {
+    border-bottom: none;
+    background: none;
+    margin-bottom: 50px;
+}
+
+.show-gallery .cate-gallery .card .card-header ul {
+    justify-content: center;
+}
+
+.show-gallery .cate-gallery .card .card-header ul li a {
+    border: none;
+    color: black;
+    font-weight: 700;
+}
+
+.show-gallery .cate-gallery .card .card-header ul li a.active {
+    color: #0988FF;
+}
+
+
+/* ------------------------------------------ */
+
+
+/* CUSTOM SHOP SINGLE REVIEW MAIN SHOW */
+
+.review .card {
+    border: none;
+}
+
+.review .card .card-header {
+    border-bottom: none;
+    background: none;
+}
+
+.review .card .card-header ul li a {
+    border: none;
+    font-weight: 700;
+}
+
+
+/* ------------------------------------------ */
+
+
+/* CUSTOM SLIDE CAROUSEL REVIEW MAIN HOME */
+
+.customer-slide .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-button {
+    color: #888888;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 18px;
+    padding-right: 14px!important;
+    padding-bottom: 10px!important;
+    background-color: #ffffff;
+    border: 2px solid #e8e8e8;
+    cursor: pointer;
+}
+
+.customer-slide .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-button:focus {
+    outline: none;
+}
+
+.customer-slide .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-next {
+    padding-right: 0!important;
+    padding-left: 5px!important;
+}
+
+.customer-slide .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-button:hover {
+    filter: drop-shadow(0px 10px 15px rgba(9, 136, 255, 0.5));
+    background-color: #0988ff;
+    color: white;
+    border: none;
+}
+
+.customer-slide .VueCarousel .VueCarousel-navigation .VueCarousel-navigation--disabled {
+    cursor: not-allowed;
+}
+
+.customer-slide .VueCarousel .VueCarousel-navigation .VueCarousel-navigation--disabled:hover {
+    background-color: #ffffff;
+    border: 2px solid #e8e8e8;
+    filter: none;
+    color: #888888;
+}
+
+.customer-slide .VueCarousel .VueCarousel-pagination .VueCarousel-dot-container .VueCarousel-dot {
+    padding: 0!important;
+    background: none!important;
+    border: 2px solid #ff9600!important;
+    margin-right: 10px;
+}
+
+.customer-slide .VueCarousel .VueCarousel-pagination .VueCarousel-dot-container .VueCarousel-dot:focus {
+    outline: none;
+}
+
+.customer-slide .VueCarousel .VueCarousel-pagination .VueCarousel-dot-container .VueCarousel-dot--active {
+    border: 2px solid #0988ff!important;
+}
+
+.customer-slide .VueCarousel .VueCarousel-inner {
+    cursor: grab;
+}
+
+
+/* ------------------------------------------ */
+
+
+/* CUSTOM SLIDE CAROUSEL BLOG  MAIN HOME */
+
+.blog .slider .VueCarousel .VueCarousel-navigation {
+    position: absolute;
+    top: -70px;
+    right: 50px;
+}
+
+.blog .slider .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-prev {
+    left: -30px;
+    padding-right: 13px!important;
+}
+
+.blog .slider .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-next {
+    right: 10px;
+}
+
+.blog .slider .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-button {
+    color: white;
+    background: #ff9600;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.blog .slider .VueCarousel .VueCarousel-navigation .VueCarousel-navigation--disabled {
+    background: #2395ff;
+    cursor: not-allowed;
+}
+
+.blog .slider .VueCarousel .VueCarousel-navigation .VueCarousel-navigation-button:focus {
+    outline: none;
+}
+
+.blog .slider .VueCarousel .VueCarousel-inner {
+    cursor: grab;
+}
+
+.blog .slider .VueCarousel .VueCarousel-pagination {
+    display: none;
+}
+
+
+/* ------------------------------------------ */

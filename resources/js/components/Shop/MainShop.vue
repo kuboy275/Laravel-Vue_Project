@@ -9,6 +9,7 @@
                     </div>
                     <div class="col-lg-12">
                         <h5>Home || Shop View</h5>
+                        
                     </div>
                 </div>
             </div>
@@ -327,7 +328,6 @@
             </div>
             <!--  Item shop   -->
         </div>
-
         <!-- END SHOP MAIN  -->
     </div>
 </template>
@@ -405,7 +405,6 @@ export default {
 }
 .shop--car__item .item .content_item .link_item {
     list-style: none;
-    width: 60%;
 }
 .shop--car__item .item .content_item .link_item a {
     background-color: #0988ff;

@@ -413,24 +413,31 @@
                             [1024, 3]
                         ]"
                         :navigation-enabled="true"
-                        :navigation-next-label="navigationPrevLabel"
-                        :navigation-prev-label="navigationPrevLabel"
                         :mouse-drag="true"
                     >
                         <slide class="item-slide">
                             <div class="col-12">
                                 <div class="wrap-item-slide">
-                                                                <div class="icon-slide">
-                                    <font-awesome-icon
-                                        :icon="['fas', 'quote-right']"
-                                        class="icon"
-                                    />
-                                </div>
-                                 <h3 class="title">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptates, deserunt est quaerat odio, repudiandae animi, aut dolorum velit aliquid sapiente. Recusandae nul
+                                    <div class="icon-slide">
+                                        <font-awesome-icon
+                                            :icon="['fas', 'quote-right']"
+                                            class="icon"
+                                        />
+                                    </div>
+                                    <h3 class="title">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Tenetur voluptates,
+                                        deserunt est quaerat odio, repudiandae
+                                        animi, aut dolorum velit aliquid
+                                        sapiente. Recusandae nul
                                     </h3>
-                                    <div class="users d-flex align-items-center mt-4">
-                                        <img src="http://127.1:8000/storage/home/testimonial1.jpg" alt="">
+                                    <div
+                                        class="users d-flex align-items-center mt-4"
+                                    >
+                                        <img
+                                            src="http://127.1:8000/storage/home/testimonial1.jpg"
+                                            alt=""
+                                        />
                                         <div class="name ml-3">
                                             <h2>Michel Gelam Jone</h2>
                                             <p>CEO & Founder</p>
@@ -442,17 +449,26 @@
                         <slide class="item-slide">
                             <div class="col-12">
                                 <div class="wrap-item-slide">
-                                                                <div class="icon-slide">
-                                    <font-awesome-icon
-                                        :icon="['fas', 'quote-right']"
-                                        class="icon"
-                                    />
-                                </div>
-                                 <h3 class="title">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptates, deserunt est quaerat odio, repudiandae animi, aut dolorum velit aliquid sapiente. Recusandae nul
+                                    <div class="icon-slide">
+                                        <font-awesome-icon
+                                            :icon="['fas', 'quote-right']"
+                                            class="icon"
+                                        />
+                                    </div>
+                                    <h3 class="title">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Tenetur voluptates,
+                                        deserunt est quaerat odio, repudiandae
+                                        animi, aut dolorum velit aliquid
+                                        sapiente. Recusandae nul
                                     </h3>
-                                    <div class="users d-flex align-items-center mt-4">
-                                        <img src="http://127.1:8000/storage/home/testimonial1.jpg" alt="">
+                                    <div
+                                        class="users d-flex align-items-center mt-4"
+                                    >
+                                        <img
+                                            src="http://127.1:8000/storage/home/testimonial1.jpg"
+                                            alt=""
+                                        />
                                         <div class="name ml-3">
                                             <h2>Michel Gelam Jone</h2>
                                             <p>CEO & Founder</p>
@@ -464,17 +480,26 @@
                         <slide class="item-slide">
                             <div class="col-12">
                                 <div class="wrap-item-slide">
-                                                                <div class="icon-slide">
-                                    <font-awesome-icon
-                                        :icon="['fas', 'quote-right']"
-                                        class="icon"
-                                    />
-                                </div>
-                                 <h3 class="title">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptates, deserunt est quaerat odio, repudiandae animi, aut dolorum velit aliquid sapiente. Recusandae nul
+                                    <div class="icon-slide">
+                                        <font-awesome-icon
+                                            :icon="['fas', 'quote-right']"
+                                            class="icon"
+                                        />
+                                    </div>
+                                    <h3 class="title">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Tenetur voluptates,
+                                        deserunt est quaerat odio, repudiandae
+                                        animi, aut dolorum velit aliquid
+                                        sapiente. Recusandae nul
                                     </h3>
-                                    <div class="users d-flex align-items-center mt-4">
-                                        <img src="http://127.1:8000/storage/home/testimonial1.jpg" alt="">
+                                    <div
+                                        class="users d-flex align-items-center mt-4"
+                                    >
+                                        <img
+                                            src="http://127.1:8000/storage/home/testimonial1.jpg"
+                                            alt=""
+                                        />
                                         <div class="name ml-3">
                                             <h2>Michel Gelam Jone</h2>
                                             <p>CEO & Founder</p>
@@ -486,17 +511,26 @@
                         <slide class="item-slide">
                             <div class="col-12">
                                 <div class="wrap-item-slide">
-                                                                <div class="icon-slide">
-                                    <font-awesome-icon
-                                        :icon="['fas', 'quote-right']"
-                                        class="icon"
-                                    />
-                                </div>
-                                 <h3 class="title">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptates, deserunt est quaerat odio, repudiandae animi, aut dolorum velit aliquid sapiente. Recusandae nul
+                                    <div class="icon-slide">
+                                        <font-awesome-icon
+                                            :icon="['fas', 'quote-right']"
+                                            class="icon"
+                                        />
+                                    </div>
+                                    <h3 class="title">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Tenetur voluptates,
+                                        deserunt est quaerat odio, repudiandae
+                                        animi, aut dolorum velit aliquid
+                                        sapiente. Recusandae nul
                                     </h3>
-                                    <div class="users d-flex align-items-center mt-4">
-                                        <img src="http://127.1:8000/storage/home/testimonial1.jpg" alt="">
+                                    <div
+                                        class="users d-flex align-items-center mt-4"
+                                    >
+                                        <img
+                                            src="http://127.1:8000/storage/home/testimonial1.jpg"
+                                            alt=""
+                                        />
                                         <div class="name ml-3">
                                             <h2>Michel Gelam Jone</h2>
                                             <p>CEO & Founder</p>
@@ -508,17 +542,26 @@
                         <slide class="item-slide">
                             <div class="col-12">
                                 <div class="wrap-item-slide">
-                                                                <div class="icon-slide">
-                                    <font-awesome-icon
-                                        :icon="['fas', 'quote-right']"
-                                        class="icon"
-                                    />
-                                </div>
-                                 <h3 class="title">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptates, deserunt est quaerat odio, repudiandae animi, aut dolorum velit aliquid sapiente. Recusandae nul
+                                    <div class="icon-slide">
+                                        <font-awesome-icon
+                                            :icon="['fas', 'quote-right']"
+                                            class="icon"
+                                        />
+                                    </div>
+                                    <h3 class="title">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Tenetur voluptates,
+                                        deserunt est quaerat odio, repudiandae
+                                        animi, aut dolorum velit aliquid
+                                        sapiente. Recusandae nul
                                     </h3>
-                                    <div class="users d-flex align-items-center mt-4">
-                                        <img src="http://127.1:8000/storage/home/testimonial1.jpg" alt="">
+                                    <div
+                                        class="users d-flex align-items-center mt-4"
+                                    >
+                                        <img
+                                            src="http://127.1:8000/storage/home/testimonial1.jpg"
+                                            alt=""
+                                        />
                                         <div class="name ml-3">
                                             <h2>Michel Gelam Jone</h2>
                                             <p>CEO & Founder</p>
@@ -530,17 +573,26 @@
                         <slide class="item-slide">
                             <div class="col-12">
                                 <div class="wrap-item-slide">
-                                                                <div class="icon-slide">
-                                    <font-awesome-icon
-                                        :icon="['fas', 'quote-right']"
-                                        class="icon"
-                                    />
-                                </div>
-                                 <h3 class="title">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptates, deserunt est quaerat odio, repudiandae animi, aut dolorum velit aliquid sapiente. Recusandae nul
+                                    <div class="icon-slide">
+                                        <font-awesome-icon
+                                            :icon="['fas', 'quote-right']"
+                                            class="icon"
+                                        />
+                                    </div>
+                                    <h3 class="title">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Tenetur voluptates,
+                                        deserunt est quaerat odio, repudiandae
+                                        animi, aut dolorum velit aliquid
+                                        sapiente. Recusandae nul
                                     </h3>
-                                    <div class="users d-flex align-items-center mt-4">
-                                        <img src="http://127.1:8000/storage/home/testimonial1.jpg" alt="">
+                                    <div
+                                        class="users d-flex align-items-center mt-4"
+                                    >
+                                        <img
+                                            src="http://127.1:8000/storage/home/testimonial1.jpg"
+                                            alt=""
+                                        />
                                         <div class="name ml-3">
                                             <h2>Michel Gelam Jone</h2>
                                             <p>CEO & Founder</p>
@@ -552,17 +604,26 @@
                         <slide class="item-slide">
                             <div class="col-12">
                                 <div class="wrap-item-slide">
-                                                                <div class="icon-slide">
-                                    <font-awesome-icon
-                                        :icon="['fas', 'quote-right']"
-                                        class="icon"
-                                    />
-                                </div>
-                                 <h3 class="title">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur voluptates, deserunt est quaerat odio, repudiandae animi, aut dolorum velit aliquid sapiente. Recusandae nul
+                                    <div class="icon-slide">
+                                        <font-awesome-icon
+                                            :icon="['fas', 'quote-right']"
+                                            class="icon"
+                                        />
+                                    </div>
+                                    <h3 class="title">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. Tenetur voluptates,
+                                        deserunt est quaerat odio, repudiandae
+                                        animi, aut dolorum velit aliquid
+                                        sapiente. Recusandae nul
                                     </h3>
-                                    <div class="users d-flex align-items-center mt-4">
-                                        <img src="http://127.1:8000/storage/home/testimonial1.jpg" alt="">
+                                    <div
+                                        class="users d-flex align-items-center mt-4"
+                                    >
+                                        <img
+                                            src="http://127.1:8000/storage/home/testimonial1.jpg"
+                                            alt=""
+                                        />
                                         <div class="name ml-3">
                                             <h2>Michel Gelam Jone</h2>
                                             <p>CEO & Founder</p>
@@ -677,8 +738,6 @@
                             [1024, 3]
                         ]"
                         :navigation-enabled="true"
-                        :navigation-next-label="navigationPrevLabel"
-                        :navigation-prev-label="navigationPrevLabel"
                         :mouse-drag="true"
                     >
                         <slide class="item-slider">
@@ -689,11 +748,12 @@
                                     width="100%"
                                 />
                                 <div class="heart">
-                                        <font-awesome-icon
-                                                :icon="['fas', 'heart']"
-                                                class="icon"
-                                            /> <br>
-                                        <span>3k</span>
+                                    <font-awesome-icon
+                                        :icon="['fas', 'heart']"
+                                        class="icon"
+                                    />
+                                    <br />
+                                    <span>3k</span>
                                 </div>
                                 <div class="content bg-white p-4">
                                     <div
@@ -1308,14 +1368,14 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
 }
-.customer .customer-slide .VueCarousel-wrapper{
+.customer .customer-slide .VueCarousel-wrapper {
     overflow: unset;
 }
-.customer .customer-slide .item-slide .wrap-item-slide{
+.customer .customer-slide .item-slide .wrap-item-slide {
     border: 1px solid #e5e5e5;
     padding: 20px;
 }
-.customer .customer-slide .item-slide .icon-slide{
+.customer .customer-slide .item-slide .icon-slide {
     width: 70px;
     height: 70px;
     border-radius: 35px;
@@ -1326,35 +1386,34 @@ export default {
     margin-bottom: 20px;
     color: #16e48a;
 }
-.customer .customer-slide .item-slide:nth-child(odd) .icon-slide{
-   color: #fc09ff;
+.customer .customer-slide .item-slide:nth-child(odd) .icon-slide {
+    color: #fc09ff;
 }
-.customer .customer-slide .item-slide:nth-child(3n+1) .icon-slide{
-color: #ff9600;
+.customer .customer-slide .item-slide:nth-child(3n + 1) .icon-slide {
+    color: #ff9600;
 }
-.customer .customer-slide .item-slide .title{
-        font-size: 17px;
+.customer .customer-slide .item-slide .title {
+    font-size: 17px;
     line-height: 32px;
     color: #505050;
     font-weight: 600;
 }
-.customer .customer-slide .item-slide  .users img{
+.customer .customer-slide .item-slide .users img {
     width: 70px;
     height: 70px;
     border-radius: 35px;
 }
 
-.customer .customer-slide .item-slide  .users .name h2{
+.customer .customer-slide .item-slide .users .name h2 {
     font-size: 18px;
-line-height: 32px;
-color: #232628;
-font-weight: 700;
-
+    line-height: 32px;
+    color: #232628;
+    font-weight: 700;
 }
-.customer .customer-slide .item-slide  .users .name p{
+.customer .customer-slide .item-slide .users .name p {
     font-size: 14px;
-color: #0988ff;
-font-weight: 600;
+    color: #0988ff;
+    font-weight: 600;
 }
 /* CUSTOMER REVIEW MAIN HOME */
 
@@ -1418,7 +1477,7 @@ font-weight: 600;
 }
 .blog .title {
     position: relative;
-    top: -60px;
+    top: -30px;
 }
 .blog .title h1 {
     font-size: 55px;
@@ -1464,10 +1523,10 @@ font-weight: 600;
     filter: drop-shadow(0px 16px 16px rgba(186, 186, 186, 0.23));
     background-color: #ffffff;
 }
-.blog .slider .item-slider{
+.blog .slider .item-slider {
     position: relative;
 }
-.blog .slider .item-slider .heart{
+.blog .slider .item-slider .heart {
     position: absolute;
     top: 20px;
     left: 35px;
@@ -1478,10 +1537,9 @@ font-weight: 600;
     height: 80px;
     font-weight: 700;
 }
-.blog .slider .item-slider .heart .icon{
+.blog .slider .item-slider .heart .icon {
     margin-top: 15px;
 }
-
 
 .blog .slider .item-slider .content .comments .icon {
     font-size: 15px;

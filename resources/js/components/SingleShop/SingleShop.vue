@@ -19,48 +19,40 @@
         <div class="shop-single py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 shop-img__tabs">
-                        <div id="panle">
-                            <img
-                                src="http://127.1:8000/storage/inventory/featured-title-bg.jpg"
-                                width="100%"
-                                alt=""
-                            />
-                        </div>
-                        <div class="img_sub">
-                            <div class="col-3 pl-0">
-                                <a href="">
-                                    <img
-                                        src="http://127.1:8000/storage/inventory/car-img10.jpg"
-                                        width="100%"
-                                        alt=""
-                                /></a>
-                            </div>
-                            <div class="col-3 pl-0">
-                                <a href="">
-                                    <img
-                                        src="http://127.1:8000/storage/inventory/car-img10.jpg"
-                                        width="100%"
-                                        alt=""
-                                /></a>
-                            </div>
-                            <div class="col-3 pl-0">
-                                <a href="">
-                                    <img
-                                        src="http://127.1:8000/storage/inventory/car-img10.jpg"
-                                        width="100%"
-                                        alt=""
-                                /></a>
-                            </div>
-                            <div class="col-3 pl-0">
-                                <a href="">
-                                    <img
-                                        src="http://127.1:8000/storage/inventory/car-img10.jpg"
-                                        width="100%"
-                                        alt=""
-                                /></a>
-                            </div>
-                        </div>
+                    <div class="col-lg-6">
+                        <vueper-slides
+                            ref="vueperslides1"
+                            :arrows="false"
+                            :touchable="false"
+                            :fade="true"
+                            :autoplay="true"
+                            :bullets="false"
+                            @slide="$refs.vueperslides2.goToSlide($event.currentSlide.index, { emit: false })"
+                            fixed-height="400px">
+                            <vueper-slide
+                                v-for="(slide, i) in slides"
+                                :key="i"
+                                :image="slide.image">
+                            </vueper-slide>
+                        </vueper-slides>
+                        <vueper-slides
+                            class="no-shadow thumbnails"
+                            ref="vueperslides2"
+                            @slide="$refs.vueperslides1.goToSlide($event.currentSlide.index, { emit: false })"
+                            :visible-slides="slides.length"
+                            fixed-height="75px"
+                            :bullets="false"
+                            :touchable="false"
+                            :gap="2.5"
+                            :arrows="false">
+                            <vueper-slide
+                                v-for="(slide, i) in slides"
+                                :key="i"
+                                :image="slide.image"
+                                @click.native="$refs.vueperslides2.goToSlide(i)">
+                            </vueper-slide>
+                        </vueper-slides>
+                        
                     </div>
                     <div class="col-lg-6 shop-des">
                         <h2>Green Business Class Grand Sedan Automobile</h2>
@@ -94,11 +86,11 @@
         <div class="container">
             <hr />
         </div>
-        <div class="review">
+        <div class="review pb-5 mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <b-card no-body class="review_tab">
+                        <b-card no-body>
                             <b-tabs pills card>
                                 <b-tab title="Description" active>
                                     <b-card-text>
@@ -142,6 +134,26 @@
         <!-- **************************************** -->
     </div>
 </template>
+
+
+<script>
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
+export default {
+     components: { VueperSlides, VueperSlide },
+     data() {
+         return {
+  slides: [
+    { image:'http://127.1:8000/storage/home/car-img1.jpg'},
+    { image: 'http://127.1:8000/storage/home/car-img2.jpg'},
+    { image: 'http://127.1:8000/storage/inventory/featured-title-bg.jpg' },
+        { image:'http://127.1:8000/storage/home/car-img1.jpg'},
+  ]
+         }
+     },
+}
+</script>
+
 
 <style scoped>
 /* AREA */
@@ -229,5 +241,33 @@ input::-webkit-inner-spin-button {
     color: #646464;
 }
 
+/* ------------------------------------------ */
+
+
+/* CUSTOM SHOP SINGLE REVIEW MAIN SHOW */
+
+
+.thumbnails{
+    margin-top: 20px;
+}
+.thumbnails .vueperslide{
+    border: 4px solid #fff!important;
+}
+.thumbnails .vueperslide--active{
+    border-color: #0988ff!important;
+}
+.thumbnails .vueperslide {
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  transition: 0.3s ease-in-out;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.thumbnails .vueperslide--active {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  border-color: #000;
+}
 /* ------------------------------------------ */
 </style>
