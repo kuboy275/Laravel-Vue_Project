@@ -24,9 +24,7 @@
                 </div>
                 <div class="col-lg-9">
                     <div class="show-items">
-                        <div
-                            class="row align-items-center justify-content-between m-0 "
-                        >
+                        <div class="row align-items-center justify-content-between m-0">
                             <h3>Show all 19 Results</h3>
                             <b-dropdown
                                 id="dropdown-1"
@@ -43,9 +41,7 @@
                     <!--  Top show item   -->
                     <div class="shop--car__item mt-4">
                         <div class="row">
-                            <div
-                                class="col-lg-4 col-md-6 col-sm-12 col-12 item"
-                            >
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 item">
                                 <div class="item_img">
                                     <img
                                         src="http://127.1:8000/storage/inventory/car-img10.jpg"
@@ -61,7 +57,7 @@
                                     </h1>
                                     <b-nav-item
                                         class="link_item"
-                                        to="/SingleShop"
+                                        to="/MainCarDetail"
                                     >
                                         View To Car
                                         <font-awesome-icon
@@ -92,7 +88,7 @@
                                     </h1>
                                     <b-nav-item
                                         class="link_item"
-                                        to="/SingleShop"
+                                        to="/MainCarDetail"
                                     >
                                         View To Car
                                         <font-awesome-icon

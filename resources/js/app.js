@@ -41,9 +41,10 @@ import Footer from './components/Footer';
 import MainInventory from './components/Inventory/MainInventory';
 import MainHome from './components/Home/MainHome';
 import MainShop from './components/Shop/MainShop';
-import SingleShop from './components/SingleShop/SingleShop';
+import MainCarDetail from './components/CarDetail/MainCarDetail';
 import MainContact from './components/Contact/MainContact';
 import MainGallery from './components/Gallery/MainGallery'
+import RelatedProducts from './components/RelatedProduct/RelatedProduct';
 
 
 const routes = [{
@@ -72,9 +73,9 @@ const routes = [{
         component: MainShop
     },
     {
-        name: 'SingleShop',
-        path: '/SingleShop',
-        component: SingleShop
+        name: 'MainCarDetail',
+        path: '/MainCarDetail',
+        component: MainCarDetail
     },
     {
         name: 'MainContact',
@@ -85,6 +86,11 @@ const routes = [{
         name: 'MainGallery',
         path: '/MainGallery',
         component: MainGallery
+    },
+    {
+        name: 'RelatedProducts',
+        path: '/RelatedProducts',
+        component: RelatedProducts
     },
     {
         name: 'create',
