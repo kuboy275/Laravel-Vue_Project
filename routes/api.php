@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\CategoryController;
+use App\Http\Controllers\api\CustomerContact;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,4 @@ use App\Http\Controllers\api\CategoryController;
 Route::prefix('v1')->group(function(){
     Route::apiResource('category', CategoryController::class);
 });
+Route::apiResource('customer',CustomerContact::class);

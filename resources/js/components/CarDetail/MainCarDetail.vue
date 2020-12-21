@@ -15,11 +15,11 @@
         </div>
         <!-- END AREA MAIN HOME -->
         <!-- **************************************** -->
-        <!-- SHOP SINGLE MAIN -->
-        <div class="shop-single py-5">
+        <!-- CAR DETAIL MAIN -->
+        <div class="car-detail py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
                         <vueper-slides
                             ref="vueperslides1"
                             :arrows="false"
@@ -83,7 +83,7 @@
                         </div>
                         <!-- REVIEW -->
                     </div>
-                    <div class="col-lg-6 shop-des">
+                    <div class="col-lg-5 shop-des">
                         <div class="name-product">
                             <h1>Blue Dark Gradiant</h1>
                             <p>Sed ut perspiciatis unde omnis iste natus error</p>
@@ -99,17 +99,65 @@
                             />
                             <h3>Check Availability</h3>
                         </div>
+                        <div class="contact-product">
+                            <h5>Register for a price and test drive</h5>
+                            <b-nav-item to="/MainContact">
+                                Contact now
+                                <font-awesome-icon
+                                    :icon="['fas', 'angle-double-right']"
+                                    class="icon_nav_link"
+                                />
+                            </b-nav-item>
+                        </div>
+                        <div class="spec-title">
+                           Specification
+                        </div>
+                        <div class="spec-table">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>condition</td>
+                                        <td>New</td>
+                                    </tr>
+                                    <tr>
+                                        <td>body style</td>
+                                        <td>Midsize Cars</td>
+                                    </tr>
+                                    <tr>
+                                        <td>engine</td>
+                                        <td>Inline</td>
+                                    </tr>
+                                    <tr>
+                                        <td>engine</td>
+                                        <td>Inline</td>
+                                    </tr>
+                                    <tr>
+                                        <td>engine</td>
+                                        <td>Inline</td>
+                                    </tr>
+                                    <tr>
+                                        <td>engine</td>
+                                        <td>Inline</td>
+                                    </tr>
+                                    <tr>
+                                        <td>engine</td>
+                                        <td>Inline</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <!-- SHOP DECRIPTIONS && PRICE PRODUCT -->
                 </div>
             </div>
         </div>
+        <!-- END CAR DETAIL MAIN -->
+        <!-- **************************************** -->
         <div class="container mb-2 pb-5">
             <hr>
         </div>
         <RelatedProduct> </RelatedProduct>
-        <!-- END SHOP SINGLE MAIN -->
-        <!-- **************************************** -->
+
     </div>
 </template>
 
@@ -165,8 +213,110 @@ export default {
 }
 /* ------------------------------------------ */
 
-/* SHOP SINGLE  */
-
+/* CAR DETAIL  */
+.car-detail .shop-des .name-product h1{
+    font-size: 40px;
+    line-height: 28px;
+    color: #232628;
+    font-weight: 700;
+}
+.car-detail .shop-des .name-product p{
+    font-size: 14px;
+    line-height: 28px;
+    color: #888888;
+    font-weight: 400;
+}
+.car-detail .shop-des .price-product{
+    background-color: #0988ff;
+    padding: 30px;
+}
+.car-detail .shop-des .price-product span{
+    font-size: 14px;
+    line-height: 32px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.car-detail .shop-des .price-product h1{
+    font-size: 40px;
+    line-height: 32px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.car-detail .shop-des .check-product{
+    background-color: #EEF7FF;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+.car-detail .shop-des .check-product .icon{
+    color: #0988ff;
+    font-size: 40px;
+    margin-right: 20px;
+}
+.car-detail .shop-des .check-product h3{
+    font-size: 18px;
+    color: #232628;
+    font-weight: 600;
+}
+.car-detail .shop-des .spec-title{
+    background-image: url(http://127.1:8000/storage/inventory/widget-bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+    font-size: 40px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 20px;
+}
+.car-detail .shop-des .spec-table{
+    background: #F1F8FF;
+    padding: 30px;
+    font-size: 18px;
+    color: #232628;
+}
+.car-detail .shop-des .spec-table table tbody tr td {
+    border: none;
+    font-weight: 500;
+}
+.car-detail .shop-des .spec-table table tbody tr td:nth-child(1){
+    text-transform: uppercase;
+}
+.car-detail .shop-des .contact-product{
+    background-color: #0988ff;
+    padding: 20px 30px;
+    margin-top: 20px;
+}
+.car-detail .shop-des .contact-product h5{
+        font-size: 15px;
+        color: #ffffff;
+        font-weight: 600;
+}
+.car-detail .shop-des .contact-product .nav-item {
+    list-style: none;
+}
+.car-detail .shop-des .contact-product .nav-item .nav-link{
+        background: white;
+        width: 50%;
+        color: #0988ff;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 15px 18px;
+        margin-top: 15px;
+        border-radius: 5px;
+        animation: colorChange .3s infinite ;
+        text-transform: uppercase;
+}
+@keyframes colorChange{
+    50%{
+        color: #3867d6;
+    }
+    100%{
+        color: #0988ff; 
+    }
+}
 /* ------------------------------------------ */
 
 

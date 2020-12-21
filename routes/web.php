@@ -357,6 +357,20 @@ Route::prefix('admin')->group(function () {
 
     //----------------------------------------------------------------
 
+
+    // START ROUTE CUSTOMER CONTACT
+
+    Route::prefix('customer')->group(function(){
+        Route::get('/index',[
+            'as' => 'customer.index',
+            'uses'=> 'App\Http\Controllers\AdminCustomerContact@index'
+        ]);
+    });
+
+    // END ROUTE CUSTOMER CONTACT
+
+    //----------------------------------------------------------------
+
 });
 
 // END ROUTE ADMIN

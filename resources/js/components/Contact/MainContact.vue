@@ -96,7 +96,7 @@
                         <validation-observer
                             ref="observer"
                             v-slot="{ handleSubmit }">
-                            <b-form @submit.stop.prevent="handleSubmit(onSubmit)">
+                            <b-form @submit.prevent="handleSubmit(addCustomer)">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <validation-provider
@@ -219,18 +219,18 @@
 </template>
 
 <script>
-import {
-    ValidationObserver,
-    ValidationProvider,
-    extend,
-    localize
-} from "vee-validate";
-import en from "vee-validate/dist/locale/en.json";
-import * as rules from "vee-validate/dist/rules";
-Object.keys(rules).forEach(rule => {
-    extend(rule, rules[rule]);
-});
-localize("en", en);
+    import {
+        ValidationObserver,
+        ValidationProvider,
+        extend,
+        localize
+    } from "vee-validate";
+    import en from "vee-validate/dist/locale/en.json";
+    import * as rules from "vee-validate/dist/rules";
+    Object.keys(rules).forEach(rule => {
+        extend(rule, rules[rule]);
+    });
+    localize("en", en);
 export default {
     components: {
         ValidationObserver,
@@ -243,7 +243,7 @@ export default {
                 email: null,
                 phone:null,
                 message:null
-            }
+            },
         };
     },
     methods: {
@@ -262,8 +262,12 @@ export default {
                 this.$refs.observer.reset();
             });
         },
-        onSubmit() {
-            alert("Form submitted!");
+        addCustomer(){
+            let url = "http://127.0.0.1:8000/api/customer";
+            this.axios.post(url,this.form)
+                      .then(reponse=>{
+                          this.$router.push({name:"MainHome"});
+                });
         }
     }
 };
