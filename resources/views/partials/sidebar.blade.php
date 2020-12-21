@@ -34,6 +34,16 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
               <li class="nav-item">
+                <a href="{{ route('customer.index') }}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Customer Contact
+                    <span class="right badge badge-danger ">New</span>
+                  </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="{{ route('categories.index') }}" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
