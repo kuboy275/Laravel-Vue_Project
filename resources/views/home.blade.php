@@ -14,7 +14,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <h2> Chào mừng <a href="#"> {{ $users }} </a> đến với trang admin</h2>
-                <h2> <a href="{{ route('vue-router') }}"> Chuyển đến giao diện template vue</a> </h2>
+                <h2> <a href="/"> Chuyển đến giao diện template vue</a> </h2>
               </div>
             </div>
           </div>

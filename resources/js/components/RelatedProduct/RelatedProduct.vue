@@ -26,72 +26,12 @@
                                         Green Business Class Dark Sedan
                                         Automobile
                                     </h1>
-                                    <b-nav-item class="link_item" to="/MainCarDetail">
+                                    <a href="/MainCarDetail">
                                         View To Car
                                         <font-awesome-icon
                                             :icon="['fas','angle-double-right']"
                                             class="icon_link" />
-                                    </b-nav-item>
-                                </div>
-                            </div>
-                        </div>
-                    </slide>
-                    <slide class="item-slider">
-                        <div class="col-12">
-                            <div class="wrap-item">
-                                <img src="http://127.1:8000/storage/home/car-img1.jpg" alt="">
-                                <div class="content_item">
-                                    <span class="price"> $199 </span>
-                                    <h1 class="title">
-                                        Green Business Class Dark Sedan
-                                        Automobile
-                                    </h1>
-                                    <b-nav-item class="link_item" to="/MainCarDetail">
-                                        View To Car
-                                        <font-awesome-icon
-                                            :icon="['fas','angle-double-right']"
-                                            class="icon_link" />
-                                    </b-nav-item>
-                                </div>
-                            </div>
-                        </div>
-                    </slide>
-                    <slide class="item-slider">
-                        <div class="col-12">
-                            <div class="wrap-item">
-                                <img src="http://127.1:8000/storage/home/car-img1.jpg" alt="">
-                                <div class="content_item">
-                                    <span class="price"> $199 </span>
-                                    <h1 class="title">
-                                        Green Business Class Dark Sedan
-                                        Automobile
-                                    </h1>
-                                    <b-nav-item class="link_item" to="/MainCarDetail">
-                                        View To Car
-                                        <font-awesome-icon
-                                            :icon="['fas','angle-double-right']"
-                                            class="icon_link" />
-                                    </b-nav-item>
-                                </div>
-                            </div>
-                        </div>
-                    </slide>
-                    <slide class="item-slider">
-                        <div class="col-12">
-                            <div class="wrap-item">
-                                <img src="http://127.1:8000/storage/home/car-img1.jpg" alt="">
-                                <div class="content_item">
-                                    <span class="price"> $199 </span>
-                                    <h1 class="title">
-                                        Green Business Class Dark Sedan
-                                        Automobile
-                                    </h1>
-                                    <b-nav-item class="link_item" to="/MainCarDetail">
-                                        View To Car
-                                        <font-awesome-icon
-                                            :icon="['fas','angle-double-right']"
-                                            class="icon_link" />
-                                    </b-nav-item>
+                                    </a>
                                 </div>
                             </div>
                         </div>

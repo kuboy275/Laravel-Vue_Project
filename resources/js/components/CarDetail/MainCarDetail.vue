@@ -53,7 +53,8 @@
                             </vueper-slide>
                         </vueper-slides>
                         <!-- SLIDE IMAGES -->
-                        <div class="review pb-5">
+
+                        <div class="review pb-5 mt-5">
                             <div class="col-lg-12">
                                 <b-card no-body>
                                     <b-tabs pills card>
@@ -81,18 +82,21 @@
                                 </b-card>
                             </div>
                         </div>
+
                         <!-- REVIEW -->
                     </div>
+
+
                     <div class="col-lg-5 shop-des">
                         <div class="name-product">
-                            <h1>Blue Dark Gradiant</h1>
-                            <p>Sed ut perspiciatis unde omnis iste natus error</p>
+                            <h1> {{ product.name }}</h1>
+                            <p v-html="product.content"></p>
                         </div>
                         <div class="price-product">
                             <span>Maximum Price</span>
-                            <h1>$23,500</h1>
+                            <h1>{{ product.price | formatNumber}} $</h1>
                         </div>
-                        <div class="check-product">
+                        <div class="check-product"> 
                             <font-awesome-icon
                                 :icon="['fas', 'check-circle']"
                                 class="icon"
@@ -157,27 +161,43 @@
             <hr>
         </div>
         <RelatedProduct> </RelatedProduct>
-
     </div>
 </template>
 
 
 <script>
+
+
+import { image } from 'vee-validate/dist/rules'
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 import RelatedProduct from '../RelatedProduct/RelatedProduct'
+
+
 export default {
-     components: { VueperSlides, VueperSlide,RelatedProduct },
+     components: { VueperSlides, VueperSlide, RelatedProduct },
      data() {
          return {
-  slides: [
-    { image: 'http://127.1:8000/storage/home/car-img1.jpg'},
-    { image: 'http://127.1:8000/storage/home/car-img2.jpg'},
-    { image: 'http://127.1:8000/storage/home/car-img3.jpg' },
-    { image: 'http://127.1:8000/storage/home/car-img4.jpg'},
-  ]
-         }
+            slides: [],
+            product:"",
+         };
      },
+
+    async created() {
+          
+        this.$bus.$on("item",(products,mypath)=>{
+            this.product = products;
+            this.slides.push(mypath);
+        });
+
+
+
+     },
+     
+     methods: {
+
+     },
+
 }
 </script>
 

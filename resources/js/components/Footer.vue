@@ -70,45 +70,7 @@
                                         :icon="['fas', 'dot-circle']"
                                         class="icon_fter"
                                     />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
+                                 <router-link :to="{ name: 'PageNotFound' }">Create Post</router-link>
                                 </li>
                             </ul>
                         </div>
@@ -124,42 +86,7 @@
                                         About Companny
                                     </a>
                                 </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
-                                <li>
-                                    <font-awesome-icon
-                                        :icon="['fas', 'dot-circle']"
-                                        class="icon_fter"
-                                    />
-                                    <a href="#">
-                                        About Companny
-                                    </a>
-                                </li>
+
                             </ul>
                         </div>
                         <div class="col-lg-3 item">
@@ -232,7 +159,11 @@
         </div>
     </div>
 </template>
-
+<script>
+export default {
+    
+}
+</script>
 <style scoped>
     .footer {
         background-image: url(http://127.1:8000/storage/footer/footer-bg-light.jpg);

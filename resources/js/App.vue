@@ -4,16 +4,19 @@
     <transition name="fade">
       <router-view></router-view>
     </transition>
+    <CheckOnl> </CheckOnl>
     <Footer></Footer>
   </div>
 </template>
 <script>
     import Header from './components/Header';
     import Footer from './components/Footer';
+    import CheckOnl from './components/CheckOnl';
     export default{
         components: {
           Header,
-          Footer
+          Footer,
+          CheckOnl
         },
     }
 </script>

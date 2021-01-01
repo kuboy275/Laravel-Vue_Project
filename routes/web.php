@@ -3,12 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/vue',[
-    'as' => 'vue-router',
-    'uses' => 'App\Http\Controllers\VueController@index'
-]);
 
-Route::get('/',[
+
+Route::get('/home',[
     'as' => 'home',
     'uses'=>'App\Http\Controllers\AdminHomeController@index'
 ]);
@@ -377,6 +374,8 @@ Route::prefix('admin')->group(function () {
 
 //-------------------------------------------------------------------------------
 
-
-
+Route::get('/{any}',[
+    'as' => 'vue-router',
+    'uses' => 'App\Http\Controllers\VueController@index'
+])->where('any','.*');
 

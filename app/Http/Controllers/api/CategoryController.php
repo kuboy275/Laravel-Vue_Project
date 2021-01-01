@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Category as CategoryResources;
+use App\Http\Resources\CategoryCollection;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -16,14 +16,15 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::get();
-        $categoryResources = CategoryResources::collection($category);
-        return $categoryResources->additional([
-            'meta' => [
-                'VERSION' => '1.0.0',
-                // 'API_BASE_URL' => url()->current()
-            ],
-        ]);
+        $category = Category::all();
+        // return  $categoryResources->additional([
+        //     'meta' => [
+        //         'VERSION' => '1.0.0',
+        //         // 'API_BASE_URL' => url()->current()
+        //     ],
+        // ]);
+        // return api_success(array('categories'=> $categoryResources));
+        return new CategoryCollection($category);
     }
 
     /**
@@ -45,7 +46,9 @@ class CategoryController extends Controller
      */
     public function show( $id)
     {
-        return Category::find($id);
+        return api_success(
+            array('category' =>  Category::find($id))
+        );
     }
 
     /**

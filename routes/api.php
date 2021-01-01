@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\CustomerContact;
+use App\Http\Controllers\api\ProductsController;
+use App\Http\Controllers\api\ProductImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +28,11 @@ use App\Http\Controllers\api\CustomerContact;
     // Route::delete('category',[CategoryController::class,'destroy'] );
     //});
     
-Route::prefix('v1')->group(function(){
-    Route::apiResource('category', CategoryController::class);
-});
+// Route::prefix('v1')->group(function(){
+//     Route::apiResource('category', CategoryController::class);
+// });
+
+Route::apiResource('category', CategoryController::class);
 Route::apiResource('customer',CustomerContact::class);
+Route::apiResource('products',ProductsController::class);
+Route::apiResource('product-image',ProductImageController::class);
