@@ -204,3 +204,16 @@
 
 
 /* ------------------------------------------ */
+
+ul.paginate-links.languages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    margin-bottom: 200px;
+    list-style: none;
+}
+
+ul.paginate-links.languages li {
+    padding: 20px;
+}

@@ -88,130 +88,7 @@
         <!-- END FEATURES MAIN HOME -->
         <!-- **************************************** -->
         <!-- START SHOP MAIN HOME  -->
-        <div class="shop py-5">
-            <div class="title-home text-center">
-                <h1>Dreams <span> Cars </span></h1>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Cum, impedit dolorum. Quod iusto eaque alias
-                </p>
-            </div>
-            <div class="container">
-                <div class="row shop-items">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img1.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img2.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img3.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img4.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img5.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img6.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img7.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 item">
-                        <img
-                            src="http://127.1:8000/storage/home/car-img8.jpg"
-                            width="100%"
-                            alt=""
-                        />
-                        <div class="content p-3">
-                            <span class="price"> $1.5m </span>
-                            <h1>New Blue Mark</h1>
-                            <p>Sed ut perspiciatis unde omnis</p>
-                            <a href="#!" class="link_text"> View Details </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="layout-shop">
-                    <img
-                        src="http://127.1:8000/storage/home/layered-img1.png"
-                        width="80%"
-                        alt=""
-                    />
-                </div>
-            </div>
-        </div>
+        <DreamCar></DreamCar>
         <!-- END SHOP MAIN HOME -->
         <!-- *************************************** -->
         <!-- START SERVICES MAIN HOME -->
@@ -1096,16 +973,31 @@
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
+import DreamCar from './DreamCar';
 export default {
     components: {
         Carousel,
-        Slide
+        Slide,
+        DreamCar
     },
     data() {
         return {
-            
+            posts:[]
         };
-    }
+    },
+    created() {
+        this.getApiCategory();
+    },
+    methods: {
+        getApiCategory() {
+            let url = "http://127.0.0.1:8000/api/category";
+            this.axios.get(url).then(response => {
+                this.posts = response.data[0].categories
+                console.log(this.posts)
+            });
+        },
+
+    },
 };
 </script>
 
@@ -1204,74 +1096,7 @@ export default {
 
 /* FEATURES MAIN HOME */
 
-/* ---------------------------------- */
-.shop {
-    background-image: url(http://127.1:8000/storage/home/section-bg2.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.shop .shop-items .item {
-    margin-bottom: 30px;
-    z-index: 1;
-}
-.shop .shop-items .item .content {
-    filter: drop-shadow(0px 16px 16px rgba(212, 212, 212, 0.23));
-    background-color: #ffffff;
-    position: relative;
-}
-.shop .shop-items .item .content .price {
-    border-radius: 5px;
-    background-color: #0988ff;
-    font-size: 16px;
-    color: #ffffff;
-    font-weight: 700;
-    padding: 7px 14px;
-    position: absolute;
-    top: 0;
-    right: 15px;
-    transform: translateY(-50%);
-}
-.shop .shop-items .item .content h1 {
-    font-size: 20px;
-    color: #232628;
-    font-weight: 700;
-    margin-top: 15px;
-}
-.shop .shop-items .item .content p {
-    font-size: 14px;
-    line-height: 28px;
-    color: #888888;
-    font-weight: 400;
-    margin-bottom: 8px;
-}
-.shop .shop-items .item .content .link_text {
-    font-size: 14px;
-    color: #888888;
-    font-weight: 600;
-    padding-bottom: 1px;
-    border-bottom: 1px solid #cccccc;
-}
-.shop .shop-items .item .content .link_text:hover {
-    text-decoration: none;
-    color: #464545;
-    border-bottom: 1px solid #464545;
-}
 
-.shop {
-    position: relative;
-}
-.shop .layout-shop {
-    position: absolute;
-    top: 100px;
-    right: -15px;
-}
-@media (max-width: 991px) {
-    .shop .layout-shop {
-        display: none;
-    }
-}
-
-/* SHOP MAIN HOME */
 
 /* ---------------------------------- */
 .services .services-items .item {

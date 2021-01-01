@@ -4,11 +4,12 @@
         <div class="row">
             <div class="col-md-10"></div>
             <div class="col-md-2">
-                <router-link :to="{ name: 'create' }" class="btn btn-primary">Create Post</router-link>
+               
             </div>
         </div>
         <br />
   <paginate name="languages" :list="posts" :per="10">
+        <span>show </span>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -47,7 +48,7 @@
 
         <paginate-links for="languages"
             :show-step-links="true"
-            :step-links="{next: 'Next', prev: 'Prev'}">
+            :step-links="{next: '>', prev: '<'}">
         </paginate-links>  
     </div>
 </template>
@@ -65,14 +66,15 @@ export default {
     },
     methods: {
         getApiCategory() {
-            let url = "http://127.0.0.1:8000/api/v1/category?page=";
+            let url = "http://127.0.0.1:8000/api/category";
             this.axios.get(url).then(response => {
-                this.posts = response.data.data;
+                this.posts = response.data.categories
+                console.log(this.posts)
             });
         },
 
         deletePost(id) {
-            let url = `http://127.0.0.1:8000/api/v1/category/${id}`;
+            let url = `http://127.0.0.1:8000/api/category/${id}`;
             this.axios.delete(url).then(response => {
                 this.posts.splice(this.posts.indexOf(id), 1);
             });
@@ -81,13 +83,6 @@ export default {
 };
 </script>
 <style scoped>
-    ul.paginate-links.languages{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        list-style: none;
-        color: red;
-        cursor: pointer;
-    }
+
 
 </style>

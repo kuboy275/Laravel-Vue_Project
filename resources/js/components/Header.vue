@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row align-items-center p-3 nav_scroll">
                 <div class="col-lg-3 col-sm-5 col-8 text-center logo">
-                    <a href="/vue"> 
+                    <a href="/"> 
                         <img
                         src="http://127.0.0.1:8000/storage/header/logo-white@2x.png"
                         width="50%"
@@ -23,7 +23,7 @@
                             />
                         </div>
                         <b-navbar-nav>
-                            <b-nav-item class="link_nav" to="/vue">
+                            <b-nav-item class="link_nav" to="/">
                                 <font-awesome-icon
                                     :icon="['fas', 'house-damage']"
                                     class="icon_nav_link"
