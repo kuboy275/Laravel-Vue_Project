@@ -5,10 +5,19 @@ const EventBus = new Vue()
 Object.defineProperties(Vue.prototype, {
     $bus: {
         get: function() {
-            return EventBus
+            return EventBus;
         }
     }
-})
+});
+
+
+import Vuex from 'vuex';
+Vue.use(Vuex);
+import storeData from './store/store.js'
+
+const store = new Vuex.Store(
+    storeData
+)
 
 import mainCss from '../css/main.css';
 Vue.use(mainCss);
@@ -41,5 +50,5 @@ Vue.filter("formatNumber", function(value) {
 import router from './router.js'
 
 const app = new Vue(
-    Vue.util.extend({ router }, App)
+    Vue.util.extend({ router, store }, App)
 ).$mount('#app');

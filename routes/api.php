@@ -5,6 +5,7 @@ use App\Http\Controllers\api\CategoryController;
 use App\Http\Controllers\api\CustomerContact;
 use App\Http\Controllers\api\ProductsController;
 use App\Http\Controllers\api\ProductImageController;
+use App\Http\Controllers\api\SlideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,6 @@ Route::apiResource('category', CategoryController::class);
 Route::apiResource('customer',CustomerContact::class);
 Route::apiResource('products',ProductsController::class);
 Route::apiResource('product-image',ProductImageController::class);
+Route::apiResource('slide',SlideController::class);
+
+

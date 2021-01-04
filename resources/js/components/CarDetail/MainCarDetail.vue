@@ -89,12 +89,12 @@
 
                     <div class="col-lg-5 shop-des">
                         <div class="name-product">
-                            <h1> {{ product.name }}</h1>
-                            <p v-html="product.content"></p>
+                            <h1> {{ singleProduct.name }}</h1>
+                            <p v-html="singleProduct.content"></p>
                         </div>
                         <div class="price-product">
                             <span>Maximum Price</span>
-                            <h1>{{ product.price | formatNumber}} $</h1>
+                            <h1>{{ singleProduct.price | formatNumber}} $</h1>
                         </div>
                         <div class="check-product"> 
                             <font-awesome-icon
@@ -175,28 +175,75 @@ import RelatedProduct from '../RelatedProduct/RelatedProduct'
 
 
 export default {
+    name:"SingleProduct",
+
      components: { VueperSlides, VueperSlide, RelatedProduct },
+
      data() {
          return {
-            slides: [],
-            product:"",
+            slides: [
+            ],
          };
      },
 
-    async created() {
-          
-        this.$bus.$on("item",(products,mypath)=>{
-            this.product = products;
-            this.slides.push(mypath);
-        });
 
+     computed: {
+         singleProduct(){
+             return this.$store.getters.detailProduct;
+         },
+         imgProduct(){
+             return  this.$store.getters.getProductImage;
 
-
+         }
      },
-     
+
      methods: {
+        itemProduct(){
+              this.$store.dispatch("getProductById",this.$route.params.id);
+        },
+        itemPathImg(){
+            this.$store.dispatch("getApiProductImage",this.$route.params.id);
+        }
+     }, 
 
+     mounted() {
+         this.itemProduct();
+         this.itemPathImg();
      },
+
+     watch: {
+         imgProduct(){
+           const imgPath = this.$store.getters.getProductImage;
+           const product =  this.$store.getters.detailProduct;
+            for (let i = 0; i < imgPath.length; i++) {
+                if(imgPath[i].product_id === product.id){
+                    var path = new Object();
+                     path.image = imgPath[i].img_path;
+                     this.slides.push(path)
+                    console.log(path);
+                }
+            }
+         },
+         $route(to,from){
+             this.itemProduct();
+             this.itemPathImg();
+         }
+     },
+
+    // async created() {
+          
+    //     this.$bus.$on("item",(products,mypath)=>{
+    //         this.product = products;
+    //         this.slides.push(mypath);
+    //     });
+
+
+
+    //  },
+     
+    //  methods: {
+
+    //  },
 
 }
 </script>

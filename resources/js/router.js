@@ -43,7 +43,7 @@ const routes = [{
     },
     {
         name: 'MainCarDetail',
-        path: '/MainCarDetail',
+        path: '/MainCarDetail/:id',
         component: MainCarDetail,
     },
     {

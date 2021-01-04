@@ -160,8 +160,11 @@
     </div>
 </template>
 <script>
+import notfound from './404';
 export default {
-    
+    components:{
+        found :  notfound
+    }
 }
 </script>
 <style scoped>

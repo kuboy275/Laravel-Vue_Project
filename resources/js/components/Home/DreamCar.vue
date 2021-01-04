@@ -9,20 +9,26 @@
         </p>
       </div>
       <div class="container">
-<paginate name="itemPaginate" :list="dreams" :per="2"> 
+      <!-- <paginate name="itemPaginate" :list="dreams" :per="2">  -->
         <div class="row shop-items">
-          <div class="col-lg-3 col-md-4 col-sm-6 col-12 item"
-                v-for="dreamItem in paginated('itemPaginate')" :key="dreamItem.id">
+          <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-12 item"
+                v-for="dreamItem in paginated('itemPaginate')" :key="dreamItem.id"> -->
+               <div class="col-lg-3 col-md-4 col-sm-6 col-12 item"
+                v-for="dreamItem in dreams" :key="dreamItem.id">
                 <img v-bind:src="`http://127.0.0.1:8000${dreamItem.feature_img_path}`" width="100%"/>
             <div class="content p-3">
               <span class="price"> {{ dreamItem.price | formatNumber}} $ </span>
               <h1>{{ dreamItem.name }}</h1>
               <p v-html="dreamItem.content"></p>
-              <a href="#!" class="link_text"> View Details </a>
+              <!-- <router-link :to="`/MainCarDetail/${dreamItem.id}`" 
+                        >
+                  View TO Car
+              </router-link> -->
+              <a :href="`/MainCarDetail/${dreamItem.id}`" class="link_text"> view to car</a>
             </div>
           </div>
         </div>
-       </paginate>
+       <!-- </paginate> -->
         <div class="layout-shop">
           <img src="http://127.1:8000/storage/home/layered-img1.png" width="80%" alt="" />
         </div>
@@ -33,25 +39,55 @@
 
 <script>
 export default {
+  name:"HomeProductItem",
     data() {
         return {
-            dreams:[],
-            paginate:["itemPaginate"],
+            // dreams:[],
+            // paginate:["itemPaginate"],
         }
     },
-    created() {
-        this.getItemDream();
+
+    mounted() {
+        this.$store.dispatch("getApiProducts");
+        this.$store.dispatch("getApiProductImage");
     },
-    methods: {
-        getItemDream(){
-            const url = "http://127.0.0.1:8000/api/products";
-            axios
-                .get(url)
-                .then((reponse)=>{
-                    this.dreams = reponse.data.products;
-                })
+    computed: {
+        dreams(){
+            return this.$store.getters.getProducts;
+        },
+        prodcutImage(){
+            return this.$store.getters.getProductImage;
         }
     },
+      methods: {
+        getAllProduct(){
+           if(this.$route.params.id!=null){
+               this.$store.dispatch("getProductById",this.$route.params.id);
+            //    
+           }else{
+               this.$store.dispatch("getProducts");
+           }
+        },
+
+    },
+      watch: {
+        $route(to,from){
+            this.getAllProduct();
+        }
+    },
+    // created() {
+    //     this.getItemDream();
+    // },
+    // methods: {
+    //     getItemDream(){
+    //         const url = "http://127.0.0.1:8000/api/products";
+    //         axios
+    //             .get(url)
+    //             .then((reponse)=>{
+    //                 this.dreams = reponse.data.products;
+    //             })
+    //     }
+    // },
 }
 </script>
 
