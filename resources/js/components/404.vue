@@ -12,22 +12,43 @@
                         />
                     </router-link>
                 </li>
+                  <div v-for="category in getAllCategories" :key="category.id">
+                      <p>{{category.id}}</p>
+                  </div>
             </div>
         </div>
     </div>
 </template>
 
 
+<script>
+
+export default {
+    name:"list",
+    mounted() {
+        this.$store.dispatch("getApiCategory")
+    },
+    computed: {
+        getAllCategories(){
+            return this.$store.getters.getCategory; 
+        }
+    },
+    methods: {
+        
+    },
+}
+</script>
+
 <style scoped>
 
 .page-404{
-        background-image: url(http://127.1:8000/storage/home/404_page.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 130vh;
-        margin: 50px 0;
-        background-position: center;
-        position: relative;
+    background-image: url(http://127.1:8000/storage/home/404_page.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130vh;
+    margin: 50px 0;
+    background-position: center;
+    position: relative;
 }
 .page-404 .content{
     position: absolute;

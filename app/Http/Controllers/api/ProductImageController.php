@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ProductImage;
 use App\Http\Resources\ProductsImage as ProductsImageResouces;
+use App\Http\Resources\ProductsImageCollection;
+
 
 class ProductImageController extends Controller
 {
@@ -17,8 +19,9 @@ class ProductImageController extends Controller
     public function index()
     {
         $productImage = ProductImage::get();
-        $productImageResources = ProductsImageResouces::collection($productImage);
-        return $productImageResources;
+        // $productImageResources = ProductsImageResouces::collection($productImage);
+        // return $productImageResources;
+        return new ProductsImageCollection($productImage);
     }
 
     /**

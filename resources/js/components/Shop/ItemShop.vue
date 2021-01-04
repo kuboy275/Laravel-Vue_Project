@@ -27,7 +27,7 @@
                             <div class="col-lg-4 col-md-6 col-sm-12 col-12 item" 
                                 v-for="product in products" :key="product.id" >
                                 <div class="item_img">
-                                    <img v-bind:src=" `http://127.0.0.1:8000${product.feature_img_path}` " 
+                                    <img :src=" `http://127.0.0.1:8000${product.feature_img_path}` " 
                                     width="100%" height="100%" />
                                 </div>
                                 <div class="content_item">
@@ -35,16 +35,21 @@
                                     <h1 class="title">
                                         {{ product.name }}
                                     </h1>
-                                    <b-nav-item class="link_item"
+                                    <!-- <b-nav-item class="link_item"
                                                  to="/MainCarDetail"
                                                  @click="addEvent(product.id)"   >
                                         View To Car
                                         <font-awesome-icon :icon="['fas','angle-double-right']"
                                                             class="icon_link" />
-                                    </b-nav-item>
+                                    </b-nav-item> -->
+                                    <router-link :to="`/MainCarDetail/${product.id}`" 
+                                                @click="addEvent(product.id)">
+                                        View TO Car
+                                    </router-link>
                                 </div>
+                  
                             </div>
-
+              <!-- <img :src="`${imgPath.id}`" alt=""> -->
                         </div>
                     </div>
                 </div>
@@ -58,46 +63,99 @@
 <script>
 
 export default {
-    props: {
-        products: Array,
+    name:"ItemsProducts",
+
+    // props: {
+    //     product: Array,
+    // },
+
+    mounted() {
+        this.$store.dispatch("getApiProducts");
+        this.$store.dispatch("getApiProductImage");
     },
-    data() {
-        return {
-            imgPath:{},
-            
+
+    computed: {
+        products(){
+            return this.$store.getters.getProducts;
+        },
+        prodcutImage(){
+            return this.$store.getters.getProductImage;
         }
     },
-    created() {
-        this.getDataPath();
 
-    },
     methods: {
-        addEvent(id){
-            var item = this.products.find(item => item.id === id);
-            for (let i = 0; i < this.imgPath.length; i++) {
-                if(this.imgPath[i].product_id === item.id){
-                     var path = new Object();
-                     path.image = this.imgPath[i].img_path;
-                     console.log(this.path);
-                    this.$bus.$emit("item",item,path)
-                }
-            }
-
-
+        getAllProduct(){
+           if(this.$route.params.id!=null){
+               this.$store.dispatch("getProductById",this.$route.params.id);
+            //    
+           }else{
+               this.$store.dispatch("getProducts");
+           }
         },
-        getDataPath(){
-            const url = "http://127.0.0.1:8000/api/product-image";
-            axios
-                .get(url)
-                .then(reponse =>{
-                    this.imgPath = reponse.data;
-                    console.log(this.imgPath);
-                })
-                .catch((error)=>{
-                    console.log("Loi Api img path:")
-                })
+
+        getPathImage(){
+
+            for (let i = 0; i < this.productImage.length; i++) {
+                console.log(this.prodcutImage[i].product_id);
+            }
+            // if(this.$route.params.id!=null){
+            //     this.$store.dispatch("getApiProductImage",this.$route.params.id);
+            // }else{
+            //     console.log("deo lay duoc anh dau th ngu");
+            // }
         },
     },
+
+    watch: {
+        $route(to,from){
+            this.getAllProduct();
+            this.getPathImage();
+        }
+    },
+
+
+
+
+
+
+
+    // data() {
+    //     return {
+    //         imgPath:{},
+            
+    //     }
+    // },
+    // created() {
+    //     this.getDataPath();
+
+    // },
+    // methods: {
+    //     addEvent(id){
+    //         var item = this.products.find(item => item.id === id);
+    //         for (let i = 0; i < this.imgPath.length; i++) {
+    //             if(this.imgPath[i].product_id === item.id){
+    //                  var path = new Object();
+    //                  path.image = this.imgPath[i].img_path;
+    //                  console.log(this.path);
+    //                 this.$bus.$emit("item",item,path)
+    //             }
+    //         }
+
+
+    //     },
+    //     getDataPath(){
+    //         const url = "http://127.0.0.1:8000/api/product-image";
+    //         axios
+    //             .get(url)
+    //             .then(reponse =>{
+    //                 this.imgPath = reponse.data.productImage;
+    //                 console.log(this.imgPath);  
+    //             })
+    //             .catch((error)=>{
+    //                 console.log("Loi Api img path:")
+    //             })
+    //     },
+    // },
 }
 </script>
 

@@ -17,7 +17,8 @@
         <!-- END AREA MAIN  -->
 
         <!-- START SHOP MAIN  -->
-            <ItemShop :products="products"> </ItemShop>
+            <!-- <ItemShop :products="product"> </ItemShop> -->
+            <ItemShop> </ItemShop>
         <!-- END SHOP MAIN  -->
     </div>
 </template>
@@ -28,25 +29,25 @@ export default {
     components:{
         ItemShop
     },
-    data() {
-        return {
-            products:[],
-        }
-    },
-    created() {
-        this.getApiProducts();
+    // data() {
+    //     return {
+    //         product:[],
+    //     }
+    // },
+    // created() {
+    //     this.getApiProducts();
 
-    },
-    methods: {
-        getApiProducts(){
-            let url = "http://127.0.0.1:8000/api/products";
-            this.axios.get(url)
-            .then(reponse => {
-                this.products=reponse.data.products
-                console.log(this.products);
-            });
-        }
-    },
+    // },
+    // methods: {
+    //     getApiProducts(){
+    //         let url = "http://127.0.0.1:8000/api/products";
+    //         this.axios.get(url)
+    //         .then(reponse => {
+    //             this.products=reponse.data.products
+    //             console.log(this.products);
+    //         });
+    //     }
+    // },
 };
 </script>
 
