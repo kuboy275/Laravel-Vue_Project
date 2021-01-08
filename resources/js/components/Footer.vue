@@ -36,30 +36,50 @@
                                 corrupti sint eos reiciendis?
                             </p>
                             <div class="social d-flex align-items-center">
+                                <!-- <div class="social_item" 
+                                    v-for="link in links" :key="link.id" >
+                                    <div  v-if="link.config_key === 'facebook' ">
+                                        <a :href="`${link.config_value}`">
+                                            <font-awesome-icon
+                                            :icon="['fab', 'facebook-f']"
+                                            class="icon_social"/>
+                                        </a>
+                                    </div>
+                                </div> -->
+                    
+
                                 <div class="social_item">
-                                    <font-awesome-icon
-                                        :icon="['fab', 'facebook-f']"
-                                        class="icon_social"
-                                    />
+                                    <a :href="`${facebook}`">
+                                        <font-awesome-icon
+                                            :icon="['fab', 'facebook-f']"
+                                            class="icon_social"
+                                        />
+                                    </a>
                                 </div>
                                 <div class="social_item">
-                                    <font-awesome-icon
-                                        :icon="['fab', 'twitter']"
-                                        class="icon_social"
-                                    />
+                                    <a :href="`${twitter}`">
+                                        <font-awesome-icon
+                                            :icon="['fab', 'twitter']"
+                                            class="icon_social"
+                                        />
+                                    </a>
                                 </div>
                                 <div class="social_item">
-                                    <font-awesome-icon
-                                        :icon="['fab', 'instagram']"
-                                        class="icon_social"
-                                    />
+                                    <a :href="`${instagram}`">
+                                        <font-awesome-icon
+                                            :icon="['fab', 'instagram']"
+                                            class="icon_social"
+                                        />
+                                    </a>
                                 </div>
                                 <div class="social_item">
-                                    <font-awesome-icon
-                                        :icon="['fab', 'google']"
-                                        class="icon_social"
-                                    />
-                                </div>
+                                    <a :href="`${googlePlus}`">
+                                        <font-awesome-icon
+                                            :icon="['fab', 'google-plus-g']"
+                                            class="icon_social"
+                                        />
+                                    </a>
+                                </div>                               
                             </div>
                         </div>
                         <div class="col-lg-3 item">
@@ -160,11 +180,47 @@
     </div>
 </template>
 <script>
-import notfound from './404';
+
 export default {
-    components:{
-        found :  notfound
-    }
+
+    data() {
+        return {
+            facebook:'',
+            twitter:'',
+            instagram:'',
+            googlePlus:'',
+        }
+    },
+
+    mounted() {
+        this.$store.dispatch("getApiLinks");
+    },
+
+    computed: {
+        links(){
+            return this.$store.getters.getLinks;
+        }
+    },
+
+    watch: {
+        links(){
+            for (let i = 0; i <this.links.length; i++) {
+                if(this.links[i].config_key === "facebook"){
+                    this.facebook = this.links[i].config_value;
+                };
+                if(this.links[i].config_key === "twitter"){
+                    this.twitter = this.links[i].config_value;
+                };
+                if(this.links[i].config_key === "instagram"){
+                    this.instagram = this.links[i].config_value;
+                };
+                if(this.links[i].config_key === "googlePlus"){
+                    this.googlePlus = this.links[i].config_value;
+                }                
+            }
+        }
+    },
+
 }
 </script>
 <style scoped>
@@ -249,8 +305,16 @@ export default {
         margin-right: 10px;
         opacity: 1;
         cursor: pointer;
+        position: relative;
+        
     }
-    
+    .footer_main .item:nth-child(1) .social .social_item a{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
     .footer_main .item:nth-child(1) .social .social_item:hover {
         opacity: 0.8;
     }

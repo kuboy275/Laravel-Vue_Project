@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-lg-6 mt-5 d-flex align-items-center">
                         <img
-                            src="http://127.1:8000/storage/home/icon-boxes-img.jpg"
+                            v-lazy="`http://127.1:8000/storage/home/icon-boxes-img.jpg`"
                             width="100%"
                             alt=""
                         />
@@ -282,42 +282,42 @@
                 <div class="row align-items-center text-center">
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            src="http://127.1:8000/storage/home/client-logo1.png"
+                            v-lazy="`http://127.1:8000/storage/home/client-logo1.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            src="http://127.1:8000/storage/home/client-logo2.png"
+                            v-lazy="`http://127.1:8000/storage/home/client-logo2.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            src="http://127.1:8000/storage/home/client-logo3.png"
+                            v-lazy="`http://127.1:8000/storage/home/client-logo3.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            src="http://127.1:8000/storage/home/client-logo4.png"
+                            v-lazy="`http://127.1:8000/storage/home/client-logo4.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            src="http://127.1:8000/storage/home/client-logo5.png"
+                            v-lazy="`http://127.1:8000/storage/home/client-logo5.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            src="http://127.1:8000/storage/home/client-logo6.png"
+                            v-lazy="`http://127.1:8000/storage/home/client-logo6.png`"
                             width="80%"
                             alt=""
                         />
@@ -381,7 +381,7 @@
                         <slide class="item-slider">
                             <div class="col-12">
                                 <img
-                                    src="http://127.1:8000/storage/home/blog-thumb1.jpg"
+                                    v-lazy="`http://127.1:8000/storage/home/blog-thumb1.jpg`"
                                     alt=""
                                     width="100%"
                                 />

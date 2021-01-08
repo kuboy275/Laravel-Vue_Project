@@ -33,6 +33,7 @@
                     <th>Name Customer</th>
                     <th>Email Customer</th>
                     <th>Phone Number </th>
+                    <th>Type Car </th>
                     <th>Message</th>
                     <th> </th>
                   </tr>
@@ -47,6 +48,7 @@
                     <td style="vertical-align: inherit;" > {{ $customer->name }} </td>
                     <td style="vertical-align: inherit;" > {{ $customer->email }} </td>
                     <td style="vertical-align: inherit;" > {{ $customer->phone }}</td>
+                    <td style="vertical-align: inherit;" > {{ $customer->type_car }}</td>
                     <td style="vertical-align: inherit;" > {{ $customer->message }} </td>
                     <td style="vertical-align: inherit">
                       {{-- <a href="" class="btn btn-info">Sửa</a>

@@ -79,8 +79,28 @@
                     </div>
                     <!--  INPUT NUMBER PHONE -->
                     <div class="col-lg-6">
+                        <validation-provider
+                            name="type_car"
+                            :rules="{
+                                required: true,
+                                min: 10 , }"
+                            v-slot="validationContext">
+                            <b-form-group>
+                                <b-form-input
+                                    name="type_car"
+                                    v-model="form.type_car"
+                                    :state="getValidationState(validationContext)"
+                                    aria-describedby="input-1-live-feedback"
+                                ></b-form-input>
+                                <!-- <b-form-invalid-feedback
+                                    id="input-1-live-feedback">{{validationContext.errors[0]}}
+                                </b-form-invalid-feedback> -->
+                            </b-form-group>
+                        </validation-provider>
                     </div>
-                    <!--  INPUT NUMBER PHONE -->
+                    <!--  INPUT TYPE CAR -->
+
+                    <!--  INPUT MESSAGE -->
                     <div class="col-lg-12">
                         <validation-provider
                             name="message"
@@ -137,13 +157,16 @@ export default {
                 name: null,
                 email: null,
                 phone:null,
-                message:null
+                message:null,
+                type_car : ""
             },
         };
     },
 
     created() {
-        console.log(this.form);
+        this.$bus.$on("name",nameProduct=>{
+            this.form.type_car = nameProduct;
+        })
     },
 
     methods: {
@@ -157,6 +180,7 @@ export default {
                 name: null,
                 email: null,
                 phone:null,
+                typecar:null,
                 message:null,
             };
 

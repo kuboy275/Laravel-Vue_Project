@@ -8,6 +8,7 @@ export default {
         productImage: [],
         detailProduct: [],
         sliders: [],
+        links: []
     },
     getters: {
         getCategory(state) {
@@ -24,6 +25,9 @@ export default {
         },
         getSlide(state) {
             return state.sliders;
+        },
+        getLinks(state) {
+            return state.links;
         }
     },
     actions: {
@@ -61,6 +65,12 @@ export default {
                 .then((response) => {
                     context.commit('slideCustomer', response.data.slide);
                 })
+        },
+        getApiLinks(context) {
+            axios.get("http://127.0.0.1:8000/api/links")
+                .then((response) => {
+                    context.commit("links", response.data.links);
+                })
         }
     },
     mutations: {
@@ -82,6 +92,10 @@ export default {
 
         slideCustomer(state, payload) {
             return state.sliders = payload;
+        },
+
+        links(state, payload) {
+            return state.links = payload;
         }
 
     }

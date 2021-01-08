@@ -42,14 +42,14 @@
                                         <font-awesome-icon :icon="['fas','angle-double-right']"
                                                             class="icon_link" />
                                     </b-nav-item> -->
-                                    <router-link :to="`/MainCarDetail/${product.id}`" 
-                                                @click="addEvent(product.id)">
-                                        View TO Car
+                                    <router-link class="link_item" :to="`/MainCarDetail/${product.id}`">
+                                        View To Car
+                                        <font-awesome-icon :icon="['fas','angle-double-right']"
+                                                            class="icon_link" />
                                     </router-link>
                                 </div>
                   
                             </div>
-              <!-- <img :src="`${imgPath.id}`" alt=""> -->
                         </div>
                     </div>
                 </div>
@@ -63,11 +63,8 @@
 <script>
 
 export default {
-    name:"ItemsProducts",
 
-    // props: {
-    //     product: Array,
-    // },
+    name:"ItemsProducts",
 
     mounted() {
         this.$store.dispatch("getApiProducts");
@@ -86,37 +83,19 @@ export default {
     methods: {
         getAllProduct(){
            if(this.$route.params.id!=null){
-               this.$store.dispatch("getProductById",this.$route.params.id);
-            //    
+               this.$store.dispatch("getProductById",this.$route.params.id);  
            }else{
                this.$store.dispatch("getProducts");
            }
         },
 
-        getPathImage(){
-
-            for (let i = 0; i < this.productImage.length; i++) {
-                console.log(this.prodcutImage[i].product_id);
-            }
-            // if(this.$route.params.id!=null){
-            //     this.$store.dispatch("getApiProductImage",this.$route.params.id);
-            // }else{
-            //     console.log("deo lay duoc anh dau th ngu");
-            // }
-        },
     },
 
     watch: {
         $route(to,from){
             this.getAllProduct();
-            this.getPathImage();
         }
     },
-
-
-
-
-
 
 
     // data() {

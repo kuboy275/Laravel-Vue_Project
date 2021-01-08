@@ -6,6 +6,7 @@ use App\Http\Controllers\api\CustomerContact;
 use App\Http\Controllers\api\ProductsController;
 use App\Http\Controllers\api\ProductImageController;
 use App\Http\Controllers\api\SlideController;
+use App\Http\Controllers\api\LinksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,5 +39,5 @@ Route::apiResource('customer',CustomerContact::class);
 Route::apiResource('products',ProductsController::class);
 Route::apiResource('product-image',ProductImageController::class);
 Route::apiResource('slide',SlideController::class);
-
+Route::apiResource('links',LinksController::class);
 

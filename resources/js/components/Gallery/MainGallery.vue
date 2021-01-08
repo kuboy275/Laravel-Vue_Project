@@ -1,18 +1,7 @@
 <template>
     <div>
         <!-- START AREA MAIN HOME -->
-        <div class="area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Inventory</h1>
-                    </div>
-                    <div class="col-lg-12">
-                        <h5>Home || Inventory</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Banner v-bind:title="title"></Banner>
         <!-- END AREA MAIN HOME -->
         <!-- **************************************** -->
         <!-- GALLERY TITLE MAIN  -->
@@ -37,182 +26,77 @@
         <!-- SHOW GALLERY MAIN -->
         <div class="show-gallery pb-5 mb-5">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="cate-gallery mb-5">
-                            <b-card no-body>
-                                <b-tabs card>
-                                    <b-tab no-body title="Show All">
-                                        <div class="img-show">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="item">
-                                                        <b-card-img
-                                                            src="https://picsum.photos/600/200/?image=21"
-                                                        >
-                                                        </b-card-img>
-                                                        <div
-                                                            class="layout-item"
-                                                        >
-                                                            <b-nav-item
-                                                                class="link_nav"
-                                                                to="/SingleShop"
-                                                            >
-                                                                <font-awesome-icon
-                                                                    :icon="[
-                                                                        'fas',
-                                                                        'plus'
-                                                                    ]"
-                                                                    class="icon"
-                                                                />
-                                                            </b-nav-item>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="item">
-                                                        <b-card-img
-                                                            src="https://picsum.photos/600/200/?image=21"
-                                                        >
-                                                        </b-card-img>
-                                                        <div
-                                                            class="layout-item"
-                                                        >
-                                                            <b-nav-item
-                                                                class="link_nav"
-                                                                to="/SingleShop"
-                                                            >
-                                                                <font-awesome-icon
-                                                                    :icon="[
-                                                                        'fas',
-                                                                        'plus'
-                                                                    ]"
-                                                                    class="icon"
-                                                                />
-                                                            </b-nav-item>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="item">
-                                                        <b-card-img
-                                                            src="https://picsum.photos/600/200/?image=21"
-                                                        >
-                                                        </b-card-img>
-                                                        <div
-                                                            class="layout-item"
-                                                        >
-                                                            <b-nav-item
-                                                                class="link_nav"
-                                                                to="/SingleShop"
-                                                            >
-                                                                <font-awesome-icon
-                                                                    :icon="[
-                                                                        'fas',
-                                                                        'plus'
-                                                                    ]"
-                                                                    class="icon"
-                                                                />
-                                                            </b-nav-item>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <div class="item">
-                                                        <b-card-img
-                                                            src="https://picsum.photos/600/200/?image=21"
-                                                        >
-                                                        </b-card-img>
-                                                        <div
-                                                            class="layout-item"
-                                                        >
-                                                            <b-nav-item
-                                                                class="link_nav"
-                                                                to="/SingleShop"
-                                                            >
-                                                                <font-awesome-icon
-                                                                    :icon="[
-                                                                        'fas',
-                                                                        'plus'
-                                                                    ]"
-                                                                    class="icon"
-                                                                />
-                                                            </b-nav-item>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                <div class="cate-gallery mb-5">
+                    <b-card no-body>
+                        <b-tabs card >
+                            <b-tab :title="category.name"  v-for="category in categories" :key="category.id" >
+        
+                                <div class="row"  >
+                                <!-- eslint-disable -->
+                                <!-- comment o tren dung de tat thong bao warning khi dung v-for va v-if -->
+                                    <div class="col-lg-4 img-block" 
+                                        v-for="productImg in productImgByCategory" :key="productImg.id" 
+                                        v-if="productImg.category_id === category.id" >
+                                        <div class="item">
+
+                                            <b-card-img 
+                                                :src="`http://127.0.0.1:8000${productImg.feature_img_path}`" >
+                                            </b-card-img>
+
+                                            <div class="layout-item">
+                                                <b-nav-item class="link_nav" 
+                                                            :to="`/MainCarDetail/${productImg.id}`" >
+                                                    <font-awesome-icon :icon="['fas','plus']" class="icon" />
+                                                </b-nav-item>
                                             </div>
+
                                         </div>
-                                    </b-tab>
-                                    <b-tab no-body title="Moka">
-                                        <div class="img-show">
-                                            <div class="row">
-                                                <div class="col-4 item">
-                                                    <b-card-img
-                                                        src="https://picsum.photos/600/200/?image=21"
-                                                    >
-                                                    </b-card-img>
-                                                    <div class="layout-item">
-                                                        <b-nav-item
-                                                            class="link_nav"
-                                                            to="/MainShop"
-                                                        >
-                                                            <font-awesome-icon
-                                                                :icon="[
-                                                                    'fas',
-                                                                    'plus'
-                                                                ]"
-                                                                class="icon"
-                                                            />
-                                                        </b-nav-item>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </b-tab>
-                                </b-tabs>
-                            </b-card>
-                        </div>
-                    </div>
+                                    </div>
+                                </div>
+                                
+                            </b-tab>
+                        </b-tabs>
+                    </b-card>
                 </div>
             </div>
         </div>
-
         <!-- **************************************** -->
     </div>
 </template>
 
-<style scope>
-/* AREA */
 
-.area {
-    margin-top: 40px;
-    background-position: center;
-    background-image: url(http://127.1:8000/storage/inventory/featured-title-bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    height: 350px;
-    text-align: center;
-}
-.area h1 {
-    font-size: 85px;
-    color: #ffffff;
-    font-weight: 700;
-}
-.area h5 {
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: 600;
-}
-@media (max-width: 767px) {
-    .area h1 {
-        font-size: 75px;
-    }
-}
-/* ------------------------------------------ */
+<script>
+import Banner from '../Banner';
+export default {
+    components:{
+        Banner
+    },
+    data() {
+        return {
+            title:"Gallery"
+        }
+    },
 
+    computed: {
+
+        categories(){
+            return this.$store.getters.getCategory;
+        },
+
+        productImgByCategory(){
+            return this.$store.getters.getProducts;        
+        },
+
+
+    },
+    mounted() {
+        this.$store.dispatch("getApiCategory");
+        this.$store.dispatch("getApiProducts");
+    },
+}
+</script>
+
+<style scoped>
 /* Gallery title */
 .title-gallery {
     position: relative;
@@ -249,8 +133,7 @@
     position: relative;
     margin-bottom: 30px;
 }
-.show-gallery .cate-gallery .item .card-img {
-}
+
 .show-gallery .cate-gallery .item .layout-item {
     position: absolute;
     top: 0;
