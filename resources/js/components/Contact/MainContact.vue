@@ -28,9 +28,7 @@
                             </div>
                             <div class="text">
                                 <h2>Location</h2>
-                                <span>
-                                    121 King Street, Melbourne <br />
-                                    Victoria 3000, USA
+                                <span v-html="location">
                                 </span>
                             </div>
                         </div>
@@ -44,11 +42,8 @@
                                 />
                             </div>
                             <div class="text">
-                                <h2>EMail</h2>
-                                <span
-                                    >supportcar@gmail.com <br />
-                                    infospeedy.net
-                                </span>
+                                <h2>Email</h2>
+                                <span> {{ email }} <br> {{ page }}  </span>
                             </div>
                         </div>
                     </div>
@@ -62,10 +57,7 @@
                             </div>
                             <div class="text">
                                 <h2>Phone Us</h2>
-                                <span>
-                                    +812 (345) 789 99 <br />
-                                    +001 (234) 566 55
-                                </span>
+                                <span> {{ phone }} <br>{{ phone1 }} </span>
                             </div>
                         </div>
                     </div>
@@ -116,7 +108,45 @@ import FormContact from './FormContact'
 export default {
     components:{
         FormContact
-    }
+    },
+    data() {
+        return {
+            location:'',
+            phone:'',
+            phone1:'',
+            email:'',
+            page:'',
+        }
+    },
+    computed: {
+        links(){
+            return this.$store.getters.getLinks;
+        }
+    },
+    watch: {
+        links(){
+            for (let i = 0; i <this.links.length; i++) {
+                if(this.links[i].config_key === "location"){
+                    this.location = this.links[i].config_value;
+                };
+                if(this.links[i].config_key === "phone"){
+                    this.phone = this.links[i].config_value;
+                };
+                if(this.links[i].config_key === "phone1"){
+                    this.phone1 = this.links[i].config_value;
+                };
+                if(this.links[i].config_key === "email"){
+                    this.email = this.links[i].config_value;
+                };
+                if(this.links[i].config_key === "website"){
+                    this.page = this.links[i].config_value;
+                };                
+            }
+        }
+    },
+    mounted() {
+         this.$store.dispatch("getApiLinks");
+    },
    
 };
 </script>

@@ -15,7 +15,7 @@
                 v-for="dreamItem in paginated('itemPaginate')" :key="dreamItem.id"> -->
                <div class="col-lg-3 col-md-4 col-sm-6 col-12 item"
                 v-for="dreamItem in dreams" :key="dreamItem.id">
-                <img v-bind:src="`http://127.0.0.1:8000${dreamItem.feature_img_path}`" width="100%"/>
+                <img v-lazy="`http://127.0.0.1:8000${dreamItem.feature_img_path}`" width="100%"/>
             <div class="content p-3">
               <span class="price"> {{ dreamItem.price | formatNumber}} $ </span>
               <h1>{{ dreamItem.name }}</h1>

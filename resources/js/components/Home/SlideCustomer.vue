@@ -28,7 +28,7 @@
                     {{ slide.description }}
                   </h3>
                   <div class="users d-flex align-items-center mt-4">
-                    <img :src="`${slide.image_path}`" alt="" />
+                    <img v-lazy="`${slide.image_path}`" alt="" />
                     <div class="name ml-3">
                       <h2>{{ slide.name }}</h2>
                       <p>Customer</p>

@@ -25,6 +25,17 @@ Vue.use(mainCss);
 import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue)
 
+import VueLazyload from 'vue-lazyload';
+Vue.use(VueLazyload, {
+    preLoad: 1.3,
+    error: 'http://127.1:8000/storage/footer/error.jpg',
+    loading: 'http://127.1:8000/storage/footer/id-loading-1.gif',
+    attempt: 1,
+    throttleWait: 1000,
+    listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend', 'touchmove']
+})
+
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -40,6 +51,7 @@ import VueAxios from 'vue-axios';
 import axios from 'axios';
 import App from './App.vue';
 Vue.use(VueAxios, axios);
+
 
 var numeral = require("numeral");
 Vue.filter("formatNumber", function(value) {
