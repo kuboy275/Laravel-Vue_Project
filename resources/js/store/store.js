@@ -8,7 +8,8 @@ export default {
         productImage: [],
         detailProduct: [],
         sliders: [],
-        links: []
+        links: [],
+        productsLatest: []
     },
     getters: {
         getCategory(state) {
@@ -28,6 +29,9 @@ export default {
         },
         getLinks(state) {
             return state.links;
+        },
+        getProductslatest(state) {
+            return state.productsLatest;
         }
     },
     actions: {
@@ -71,6 +75,12 @@ export default {
                 .then((response) => {
                     context.commit("links", response.data.links);
                 })
+        },
+        getApiProductsLatest(context) {
+            axios.get("/api/product-latest")
+                .then((response) => {
+                    context.commit("productsLatest", response.data.data.products)
+                })
         }
     },
     mutations: {
@@ -96,6 +106,10 @@ export default {
 
         links(state, payload) {
             return state.links = payload;
+        },
+
+        productsLatest(state, data) {
+            return state.productsLatest = data
         }
 
     }

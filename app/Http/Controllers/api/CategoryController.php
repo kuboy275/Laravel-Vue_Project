@@ -17,15 +17,9 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        // return  $categoryResources->additional([
-        //     'meta' => [
-        //         'VERSION' => '1.0.0',
-        //         // 'API_BASE_URL' => url()->current()
-        //     ],
-        // ]);
-        // return api_success(array('categories'=> $categoryResources));
         return new CategoryCollection($category);
     }
+
 
     /**
      * Store a newly created resource in storage.

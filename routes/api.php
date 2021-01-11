@@ -36,7 +36,10 @@ use App\Http\Controllers\api\LinksController;
 
 Route::apiResource('category', CategoryController::class);
 Route::apiResource('customer',CustomerContact::class);
+
 Route::apiResource('products',ProductsController::class);
+Route::get('/product-latest', [ProductsController::class,'latest']);
+
 Route::apiResource('product-image',ProductImageController::class);
 Route::apiResource('slide',SlideController::class);
 Route::apiResource('links',LinksController::class);

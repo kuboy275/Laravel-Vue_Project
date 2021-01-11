@@ -13,8 +13,8 @@
                                 text="Defaut Shorting"
                                 class="m-md-2 bg-dark"
                             >
-                                <b-dropdown-item>First Action</b-dropdown-item>
-                                <b-dropdown-item>Second Action</b-dropdown-item>
+                                <b-dropdown-item @click="sortLowest">Price Tang</b-dropdown-item>
+                                <b-dropdown-item @click="sortHighest">Price Giam</b-dropdown-item>
                                 <b-dropdown-item>Third Action</b-dropdown-item>
                             </b-dropdown>
                         </div>
@@ -23,11 +23,10 @@
                     <!--  Top show item   -->
                     <div class="shop--car__item mt-4">
                         <div class="row">
-
                             <div class="col-lg-4 col-md-6 col-sm-12 col-12 item" 
                                 v-for="product in products" :key="product.id" >
                                 <div class="item_img">
-                                    <img :src=" `http://127.0.0.1:8000${product.feature_img_path}` " 
+                                    <img v-lazy=" `${product.feature_img_path}` " 
                                     width="100%" height="100%" />
                                 </div>
                                 <div class="content_item">
@@ -89,9 +88,31 @@ export default {
            }
         },
 
+        sortLowest(){
+
+            this.products.sort(
+                function(a,b){
+                    return a.price - b.price
+                }
+            )
+        },
+        sortHighest(){
+
+            this.products.sort(
+                function(a,b){
+                    return b.price - a.price
+                }
+            )
+
+        }
+
+
     },
 
     watch: {
+        products(){
+            
+        },
         $route(to,from){
             this.getAllProduct();
         }

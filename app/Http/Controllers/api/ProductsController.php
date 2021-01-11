@@ -20,6 +20,10 @@ class ProductsController extends Controller
         $products = Product::all();
         return new ProductsCollection($products);
     }
+    public function latest(){
+        $products = Product::latest()->paginate(8);
+        return new ProductsCollection($products);
+    }
 
     /**
      * Store a newly created resource in storage.
