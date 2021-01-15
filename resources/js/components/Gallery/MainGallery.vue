@@ -40,7 +40,7 @@
                                         <div class="item">
 
                                             <b-card-img 
-                                                :src="`http://127.0.0.1:8000${productImg.feature_img_path}`" >
+                                                v-lazy="`${productImg.feature_img_path}`" >
                                             </b-card-img>
 
                                             <div class="layout-item">

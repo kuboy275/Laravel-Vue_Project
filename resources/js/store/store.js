@@ -9,9 +9,12 @@ export default {
         detailProduct: [],
         sliders: [],
         links: [],
-        productsLatest: []
+        productsLatest: [],
+        tags: [],
+        productsTag: [],
     },
     getters: {
+
         getCategory(state) {
             return state.category;
         },
@@ -32,6 +35,12 @@ export default {
         },
         getProductslatest(state) {
             return state.productsLatest;
+        },
+        getTags(state) {
+            return state.tags;
+        },
+        getproductsTag(state) {
+            return state.productsTag;
         }
     },
     actions: {
@@ -81,6 +90,18 @@ export default {
                 .then((response) => {
                     context.commit("productsLatest", response.data.data.products)
                 })
+        },
+        getApiTags(context) {
+            axios.get("/api/tags")
+                .then((response) => {
+                    context.commit("tags", response.data.tags)
+                })
+        },
+        getApiProductsTag(context) {
+            axios.get("/api/product-tag")
+                .then((response) => {
+                    context.commit("product_tag", response.data.product_tag);
+                })
         }
     },
     mutations: {
@@ -110,6 +131,13 @@ export default {
 
         productsLatest(state, data) {
             return state.productsLatest = data
+        },
+
+        tags(state, data) {
+            return state.tags = data
+        },
+        product_tag(state, data) {
+            return state.productsTag = data;
         }
 
     }

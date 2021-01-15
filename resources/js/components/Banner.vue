@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style  scoped>
+<style>
 /* AREA */
 
 .area {
