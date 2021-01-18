@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header></Header>
+       <Loader :start="spin.val"/>
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -12,12 +13,27 @@
     import Header from './components/Header';
     import Footer from './components/Footer';
     import CheckOnl from './components/CheckOnl';
+    import Loader from './components/Loader.vue';
     export default{
         components: {
           Header,
           Footer,
-          CheckOnl
+          CheckOnl,
+          Loader
         },
+        data() {
+          return {
+             spin:{
+               val : false
+             }
+          }
+        },
+        provide(){
+          return {
+            myLoader : this.spin
+          }
+        }
+                
     }
 </script>
 

@@ -28,8 +28,8 @@ Vue.use(BootstrapVue)
 import VueLazyload from 'vue-lazyload';
 Vue.use(VueLazyload, {
     preLoad: 1.3,
-    error: 'http://127.1:8000/storage/footer/error.jpg',
-    loading: 'http://127.1:8000/storage/footer/id-loading-1.gif',
+    error: 'storage/footer/error.jpg',
+    loading: 'storage/footer/id-loading-1.gif',
     attempt: 1,
     throttleWait: 1000,
     listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend', 'touchmove']

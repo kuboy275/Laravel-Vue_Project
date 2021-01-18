@@ -140,7 +140,7 @@ export default {
         },
         handleScroll() {
             const navScroll = document.querySelector(".nav_scroll");
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 navScroll.classList.add("active");
             } else {
                 navScroll.classList.remove("active");
@@ -161,7 +161,7 @@ export default {
     width: 100%;
     z-index: 999;
     top: 0;
-    transition: all 1s ease;
+    transition: all .5s ease;
     padding: 15px !important;
 }
 .hambeger {

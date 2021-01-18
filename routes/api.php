@@ -7,6 +7,8 @@ use App\Http\Controllers\api\ProductsController;
 use App\Http\Controllers\api\ProductImageController;
 use App\Http\Controllers\api\SlideController;
 use App\Http\Controllers\api\LinksController;
+use App\Http\Controllers\api\TagsController;
+use App\Http\Controllers\api\ProductsTagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +38,12 @@ use App\Http\Controllers\api\LinksController;
 
 Route::apiResource('category', CategoryController::class);
 Route::apiResource('customer',CustomerContact::class);
+
 Route::apiResource('products',ProductsController::class);
+Route::get('/product-latest', [ProductsController::class,'latest']);
+
 Route::apiResource('product-image',ProductImageController::class);
 Route::apiResource('slide',SlideController::class);
 Route::apiResource('links',LinksController::class);
-
+Route::resource('tags', TagsController::class);
+Route::resource('product-tag', ProductsTagController::class);

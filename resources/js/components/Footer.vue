@@ -149,7 +149,7 @@
                 <div class="row">
                     <div class="coppy_right">
                         <hr>
-                        <a href="#top" class="onTop">
+                        <a href="#" class="onTop">
                             <font-awesome-icon
                                 :icon="['fas', 'arrow-up']"
                                 class="icon_onTop"
