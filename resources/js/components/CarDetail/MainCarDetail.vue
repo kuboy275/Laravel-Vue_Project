@@ -1,18 +1,7 @@
 <template>
   <div>
     <!-- START AREA MAIN HOME -->
-    <div class="area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1>Speedy Shop</h1>
-          </div>
-          <div class="col-lg-12">
-            <h5>Home || Speedy Shop Grid</h5>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Banner :title="title"/>
     <!-- END AREA MAIN HOME -->
     <!-- **************************************** -->
     <!-- CAR DETAIL MAIN -->
@@ -32,7 +21,7 @@
               "
               fixed-height="400px"
             >
-              <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image">
+              <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image" v-lazy="slide.image">
               </vueper-slide>
             </vueper-slides>
             <vueper-slides
@@ -57,6 +46,10 @@
               </vueper-slide>
             </vueper-slides>
             <!-- SLIDE IMAGES -->
+
+            <TagDetail :singleProduct="this.singleProduct"/>
+
+            <!-- TODO: COMPONENT CHILD TAG DETAIL -->
 
             <div class="review pb-5 mt-5">
               <div class="col-lg-12">
@@ -102,13 +95,16 @@
             <div class="contact-product">
               <h5>Register for a price and test drive</h5>
               <b-nav-item to="/MainContact" @click="busNameProduct(singleProduct.name)">
-                Contact now
-                <font-awesome-icon
-                  :icon="['fas', 'angle-double-right']"
-                  class="icon_nav_link"
-                />
+                <span class="text"> contact now</span>
+                <span class="round">
+                  <font-awesome-icon
+                    :icon="['fas', 'angle-double-right']"
+                    class="icon_nav_link"
+                  />
+                </span>
               </b-nav-item>
             </div>
+
             <!-- END RENDER SINGLE PRODUCTS-->
 
             <div class="spec-title">Specification</div>
@@ -120,16 +116,24 @@
                     <td>New</td>
                   </tr>
                   <tr>
+                    <td>transimission</td>
+                    <td>Manual</td>
+                  </tr>
+                  <tr>
                     <td>body style</td>
                     <td>Midsize Cars</td>
                   </tr>
                   <tr>
-                    <td>engine</td>
-                    <td>Inline</td>
+                    <td>fuel</td>
+                    <td>Regular Unleaded</td>
                   </tr>
                   <tr>
-                    <td>engine</td>
-                    <td>Inline</td>
+                    <td>interior fabric</td>
+                    <td>Alkantara</td>
+                  </tr>
+                  <tr>
+                    <td>vin</td>
+                    <td>W3SMLQK512</td>
                   </tr>
                 </tbody>
               </table>
@@ -146,78 +150,28 @@
     </div>
     <!-- END RELATED PRODUCTS MAIN -->
     <!-- **************************************** -->
-    <div class="related mb-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h1 class="title-related mb-5">Related Products</h1>
-          </div>
-          <div class="col-lg-12 pt-3 mb-5">
-            <carousel
-              :perPageCustom="[
-                [100, 1],
-                [768, 1],
-                [1024, 3],
-              ]"
-              :navigation-enabled="true"
-              :mouse-drag="true"
-            >
-              <!-- TODO: RENDER DATA BY RELATED PRODUCTS -->
-               <!-- eslint-disable -->
-              <slide
-                class="item-slider"
-                v-for="related in productsRelated"
-                :key="related.id"
-                v-if="related.category_id === singleProduct.category_id 
-                && related.name != singleProduct.name "
-              >
-                <div class="col-12">
-                  <div class="wrap-item">
-                    <img
-                      v-lazy="`http://127.0.0.1:8000${related.feature_img_path}`"
-                      alt=""
-                    />
-                    <div class="content_item">
-                      <span class="price">
-                        {{ related.price | formatNumber }} $
-                      </span>
-                      <h1 class="title">
-                        {{ related.name }}
-                      </h1>
-                      <a :href="`/MainCarDetail/${related.id}`">
-                        View To Car
-                        <font-awesome-icon
-                          :icon="['fas', 'angle-double-right']"
-                          class="icon_link"
-                        />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </slide>
-              <!-- END RENDER -->
-            </carousel>
-          </div>
-        </div>
-      </div>
-    </div>
+    <RelatedProducts  :singleProduct="this.singleProduct"/>
   </div>
 </template>
 
 <script>
-import { image } from "vee-validate/dist/rules";
+// import { image } from "vee-validate/dist/rules";
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
-import { Carousel, Slide } from "vue-carousel";
+
+import TagDetail from './TagDetail';
+import Banner from '../Banner';
+import RelatedProducts from './RelatedProducts';
 
 export default {
   name: "SingleProduct",
 
-  components: { VueperSlides, VueperSlide, Carousel, Slide },
+  components: { VueperSlides, VueperSlide, TagDetail , Banner, RelatedProducts },
 
   data() {
     return {
       slides: [],
+      title:"Product Detail"
     };
   },
 
@@ -229,9 +183,7 @@ export default {
       return this.$store.getters.getProductImage;
     },
     // add data products relateds
-    productsRelated() {
-      return this.$store.getters.getProducts;
-    },
+
   },
 
   methods: {
@@ -241,9 +193,7 @@ export default {
     itemPathImg() {
       this.$store.dispatch("getApiProductImage");
     },
-    getProductsRelated() {
-      this.$store.dispatch("getApiProducts");
-    },
+
     busNameProduct(name) {
       var nameProduct = name;
       this.$bus.$emit("name", nameProduct);
@@ -252,7 +202,7 @@ export default {
   },
 
   mounted() {
-    this.getProductsRelated();
+
     this.itemProduct();
     this.itemPathImg();
   },
@@ -261,7 +211,6 @@ export default {
     imgProduct() {
       const imgPath = this.$store.getters.getProductImage;
       const product = this.$store.getters.detailProduct;
-      const related = this.$store.getters.getProducts;
       for (let i = 0; i < imgPath.length; i++) {
         if (imgPath[i].product_id === product.id) {
           var path = new Object();
@@ -344,7 +293,9 @@ export default {
 }
 .car-detail .shop-des .spec-table table tbody tr td {
   border: none;
-  font-weight: 500;
+  font-size: 14px;
+  color: #888888;
+  font-weight: 600;
 }
 .car-detail .shop-des .spec-table table tbody tr td:nth-child(1) {
   text-transform: uppercase;
@@ -363,24 +314,67 @@ export default {
   list-style: none;
 }
 .car-detail .shop-des .contact-product .nav-item .nav-link {
-  background: white;
+  background: #fa8231;
   width: 50%;
-  color: #0988ff;
-  font-size: 14px;
-  font-weight: 700;
   padding: 15px 18px;
   margin-top: 15px;
-  border-radius: 5px;
-  animation: colorChange 0.3s infinite;
+  border-radius: 30px;
   text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+    color: #ffffff;
 }
-@keyframes colorChange {
-  50% {
-    color: #3867d6;
-  }
-  100% {
-    color: #0988ff;
-  }
+.car-detail .shop-des .contact-product .nav-item .nav-link::after{
+    content: "";
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    width: 37px;
+    height: 38px;
+    position: absolute;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+ background-color: #fd9644;
+}
+.car-detail .shop-des .contact-product .nav-item .nav-link:hover::after{
+    right: 100%;
+    width: 50%;    
+}
+.car-detail .shop-des .contact-product .nav-item .nav-link span{
+  position: relative;
+  z-index: 3;
+}
+.car-detail .shop-des .contact-product .nav-item .nav-link .text{
+
+  font-size: 14px;
+  font-weight: 700;
+}
+.car-detail .shop-des .contact-product .nav-item .nav-link .round{
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-out;
+  z-index: 2;
+  background-color: transparent;
+}
+.car-detail .shop-des .contact-product .nav-item .nav-link .round .icon_nav_link{
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  transition: all 0.3s;
+}
+.car-detail .shop-des .contact-product .nav-item .nav-link:hover .icon_nav_link{
+  margin-left: 5px;
 }
 /* ------------------------------------------ */
 
@@ -410,52 +404,4 @@ export default {
 }
 /* ------------------------------------------ */
 
-.related .title-related {
-  font-size: 55px;
-  letter-spacing: -2px;
-  line-height: 40px;
-  color: #232628;
-  font-weight: 700;
-  margin-left: 18px;
-}
-
-/* CUSTOM SLIDE IN RELATED */
-.related .item-slider .wrap-item img {
-  width: 100%;
-}
-.related .item-slider .wrap-item .content_item {
-  filter: drop-shadow(0px 16px 16px rgba(186, 186, 186, 0.33));
-  background-color: #ffffff;
-  padding: 20px;
-  margin-bottom: 30px;
-}
-.related .item-slider .wrap-item .content_item .price {
-  font-size: 22px;
-  letter-spacing: -1px;
-  line-height: 35px;
-  color: #555555;
-  font-weight: 400;
-}
-.related .item-slider .wrap-item .content_item .title {
-  font-size: 18px;
-  letter-spacing: -1px;
-  line-height: 35px;
-  color: #232628;
-  font-weight: 700;
-}
-.related .item-slider .wrap-item .content_item .link_item {
-  list-style: none;
-}
-.related .item-slider .wrap-item .content_item .link_item a {
-  background-color: #0988ff;
-  border-radius: 5px;
-  padding: 15px;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  margin-right: 5px;
-}
-/* ---------------------------------- */
 </style>

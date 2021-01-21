@@ -1,18 +1,7 @@
 <template>
     <div>
         <!-- START AREA MAIN HOME -->
-        <div class="area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Inventory</h1>
-                    </div>
-                    <div class="col-lg-12">
-                        <h5>Home || Inventory</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <Banner :title="title" />
         <!-- END AREA MAIN HOME -->
         <!-- **************************************** -->
         <div class="contact-info py-5">
@@ -104,9 +93,11 @@
 </template>
 
 <script>
-import FormContact from './FormContact'
+import FormContact from './FormContact';
+import Banner from '../Banner';
 export default {
     components:{
+        Banner,
         FormContact
     },
     data() {
@@ -116,6 +107,7 @@ export default {
             phone1:'',
             email:'',
             page:'',
+            title : 'Contact us'
         }
     },
     computed: {
@@ -154,32 +146,7 @@ export default {
 <style scoped>
 /* AREA */
 
-.area {
-    margin-top: 40px;
-    background-position: center;
-    background-image: url(http://127.1:8000/storage/inventory/featured-title-bg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    height: 350px;
-    text-align: center;
-}
-.area h1 {
-    font-size: 85px;
-    color: #ffffff;
-    font-weight: 700;
-}
-.area h5 {
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: 600;
-}
-@media (max-width: 767px) {
-    .area h1 {
-        font-size: 75px;
-    }
-}
+
 /* ------------------------------------------ */
 .contact-info .items .info-item {
     display: flex;

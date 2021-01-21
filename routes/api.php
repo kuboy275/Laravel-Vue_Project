@@ -9,6 +9,7 @@ use App\Http\Controllers\api\SlideController;
 use App\Http\Controllers\api\LinksController;
 use App\Http\Controllers\api\TagsController;
 use App\Http\Controllers\api\ProductsTagController;
+use App\Http\Controllers\api\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,4 @@ Route::apiResource('slide',SlideController::class);
 Route::apiResource('links',LinksController::class);
 Route::resource('tags', TagsController::class);
 Route::resource('product-tag', ProductsTagController::class);
+Route::resource('posts', PostController::class);

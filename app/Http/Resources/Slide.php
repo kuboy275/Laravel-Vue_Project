@@ -19,7 +19,8 @@ class Slide extends JsonResource
             'name'          => $this->name,
             'description'   => $this->description,
             'image_path'    =>$this->image_path,
-            'image_name'    =>$this->image_name
+            'image_name'    =>$this->image_name,
+            'post_id'       =>$this->post_id,
         ];
     }
 }

@@ -2,14 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/clear-cache', function() {
-//     $exitCode = Artisan::call('config:clear');
-//     $exitCode = Artisan::call('cache:clear');
-//     $exitCode = Artisan::call('config:cache');
-//     return 'DONE'; //Return anything
-// });
-
-
 Route::get('/home',[
     'as' => 'home',
     'uses'=>'App\Http\Controllers\AdminHomeController@index'
@@ -372,6 +364,40 @@ Route::prefix('admin')->group(function () {
     // END ROUTE CUSTOMER CONTACT
 
     //----------------------------------------------------------------
+
+
+    // START ROUTE POST BLOG
+
+    Route::prefix('post')->group(function(){
+        Route::get('/index',[
+            'as' => 'post.index',
+            'uses' => 'App\Http\Controllers\AdminPostController@index'
+        ]);
+        Route::get('/create',[
+            'as' => 'post.create',
+            'uses' => 'App\Http\Controllers\AdminPostController@create' 
+        ]);
+        Route::post('/store',[
+            'as' => 'post.store',
+            'uses' => 'App\Http\Controllers\AdminPostController@store'
+        ]);
+        Route::get('/edit/{id}',[
+            'as' => 'post.edit',
+            'uses' => 'App\Http\Controllers\AdminPostController@edit'
+        ]);
+        Route::post('/update/{id}',[
+            'as' => 'post.update',
+            'uses' => 'App\Http\Controllers\AdminPostController@update'
+        ]);
+        Route::get('/delete/{id}',[
+            'as' => 'post.delete',
+            'uses' => 'App\Http\Controllers\AdminPostController@delete'
+        ]);
+
+    });
+
+
+    // END ROUTE POST BLOG
 
 });
 

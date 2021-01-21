@@ -12,6 +12,8 @@ export default {
         productsLatest: [],
         tags: [],
         productsTag: [],
+        posts: [],
+        postDetail: [],
     },
     getters: {
 
@@ -41,6 +43,12 @@ export default {
         },
         getproductsTag(state) {
             return state.productsTag;
+        },
+        getPosts(state) {
+            return state.posts;
+        },
+        getPostDetail(state) {
+            return state.postDetail;
         }
     },
     actions: {
@@ -66,12 +74,7 @@ export default {
                 })
         },
 
-        getProductById(context, payload) {
-            axios.get("http://127.0.0.1:8000/api/products/" + payload)
-                .then((response) => {
-                    context.commit('detailProduct', response.data)
-                })
-        },
+
 
         getApiSlideCustomer(context) {
             axios.get("http://127.0.0.1:8000/api/slide")
@@ -101,6 +104,27 @@ export default {
             axios.get("/api/product-tag")
                 .then((response) => {
                     context.commit("product_tag", response.data.product_tag);
+                })
+        },
+
+        getProductById(context, payload) {
+            axios.get("http://127.0.0.1:8000/api/products/" + payload)
+                .then((response) => {
+                    context.commit('detailProduct', response.data)
+                })
+        },
+
+        getApiPosts(context) {
+            axios.get("/api/posts")
+                .then((response) => {
+                    context.commit("posts", response.data.posts);
+                })
+        },
+
+        getApiPostDetail(context, payload) {
+            axios.get("/api/posts/" + payload)
+                .then((response) => {
+                    context.commit('detailPost', response.data)
                 })
         }
     },
@@ -138,7 +162,16 @@ export default {
         },
         product_tag(state, data) {
             return state.productsTag = data;
+        },
+
+        posts(state, data) {
+            return state.posts = data;
+        },
+
+        detailPost(state, data) {
+            state.postDetail = data;
         }
+
 
     }
 
