@@ -2,9 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import CreateComponent from './components/CreateComponent.vue';
-import IndexComponent from './components/IndexComponent.vue';
-import EditComponent from './components/EditComponent.vue';
+
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MainInventory from './components/Inventory/MainInventory';
@@ -15,6 +13,8 @@ import MainContact from './components/Contact/MainContact';
 import MainGallery from './components/Gallery/MainGallery'
 import RelatedProducts from './components/RelatedProduct/RelatedProduct';
 import PageNotFound from './components/404.vue';
+import Blog from './components/Blog/MainBlog';
+import BlogDetail from './components/Blog/BlogDetail';
 
 const routes = [{
         name: 'header',
@@ -62,25 +62,23 @@ const routes = [{
         component: RelatedProducts
     },
     {
+        name: 'MainBlog',
+        path: '/MainBlog',
+        component: Blog
+    },
+    {
+        name: 'BlogDetail',
+        path: '/blog-detail/:id',
+        component: BlogDetail
+    },
+    {
         name: 'PageNotFound',
         path: '/PageNotFound',
         component: PageNotFound
     },
-    {
-        name: 'create',
-        path: '/create',
-        component: CreateComponent
-    },
-    {
-        name: 'posts',
-        path: '/posts',
-        component: IndexComponent
-    },
-    {
-        name: 'edit',
-        path: '/edit/:id',
-        component: EditComponent
-    }
+
+
+
 ];
 
 const router = new VueRouter({ mode: 'history', routes: routes });

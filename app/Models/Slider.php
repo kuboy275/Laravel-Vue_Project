@@ -11,4 +11,6 @@ class Slider extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded =[];
+
+
 }

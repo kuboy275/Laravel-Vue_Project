@@ -26,13 +26,12 @@
               <span class="price"> {{ dreamItem.price | formatNumber }} $ </span>
               <h1>{{ dreamItem.name }}</h1>
               <p v-html="dreamItem.content"></p>
-              <!-- <router-link :to="`/MainCarDetail/${dreamItem.id}`" 
-                        >
-                  View TO Car
-              </router-link> -->
+
               <a :href="`/MainCarDetail/${dreamItem.id}`" class="link_text">
-                view to car</a
-              >
+                  <svg><rect /></svg>
+                  view to car
+              </a>
+
             </div>
           </div>
         </div>
@@ -104,6 +103,7 @@ export default {
 .shop .shop-items .item img {
   height: 150px;
   object-fit: cover;
+  width: 100%;
 }
 .shop .shop-items .item .content {
   filter: drop-shadow(0px 16px 16px rgba(212, 212, 212, 0.23));
@@ -135,18 +135,50 @@ export default {
   font-weight: 400;
   margin-bottom: 8px;
 }
+
 .shop .shop-items .item .content .link_text {
-  font-size: 14px;
-  color: #888888;
+  width: 140px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #464545;
+  position: relative;
+  text-decoration: none;
+  padding: 10px;
   font-weight: 600;
-  padding-bottom: 1px;
-  border-bottom: 1px solid #cccccc;
 }
-.shop .shop-items .item .content .link_text:hover {
+.shop .shop-items .item .content .link_text svg,
+.shop .shop-items .item .content .link_text svg rect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+}
+.shop .shop-items .item .content .link_text svg rect{
+  stroke-width: 5;
+  stroke: #464545;
+  stroke-dashoffset: -210;
+  transition: 0.7s all ease;
+  stroke-dasharray: 85 400;
+
+}
+.shop .shop-items .item:hover .link_text svg rect , 
+.shop .shop-items .item .content .link_text:hover svg rect
+{
+  stroke-dasharray: 50 0;
+  stroke-width: 3px;
+  stroke-dashoffset: 0;
+  stroke: #535c68;
+}
+/* .shop .shop-items .item .content .link_text:hover {
   text-decoration: none;
   color: #464545;
   border-bottom: 1px solid #464545;
-}
+} */
 
 .shop {
   position: relative;

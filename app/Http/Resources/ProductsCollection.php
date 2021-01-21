@@ -15,7 +15,7 @@ class ProductsCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'statusCode' => "200",
+            'statusCode' => 200,
             'products'=>$this->collection,
         ];
     }

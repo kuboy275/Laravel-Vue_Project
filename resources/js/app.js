@@ -30,6 +30,7 @@ Vue.use(VueLazyload, {
     preLoad: 1.3,
     error: 'storage/footer/error.jpg',
     loading: 'storage/footer/id-loading-1.gif',
+    loader: 'storage/footer/id-loading-1.gif',
     attempt: 1,
     throttleWait: 1000,
     listenEvents: ['scroll', 'wheel', 'mousewheel', 'resize', 'animationend', 'transitionend', 'touchmove']
