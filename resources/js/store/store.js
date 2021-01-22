@@ -126,6 +126,10 @@ export default {
                 .then((response) => {
                     context.commit('detailPost', response.data)
                 })
+        },
+
+        postApiContact(context, payload) {
+            axios.post("/api/customer", payload)
         }
     },
     mutations: {

@@ -29,7 +29,7 @@ export default {
 .area {
     margin-top: 40px;
     background-position: center;
-    background-image: url(http://127.1:8000/storage/inventory/featured-title-bg.jpg);
+    background-image: url(/photos/header/featured-title-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

@@ -19,7 +19,9 @@
         <div class="container-fluid">
           <div class="row">
               <div class="col-lg-12 mb-5">
-
+                
+                @can('link-add')
+                  
                 <div class="btn-group bg-success ">
                   <button class="btn text-white">Add</button>
                   <button class="btn dropdown-toggle text-white" data-toggle="dropdown">
@@ -31,6 +33,8 @@
 
                   </ul>
                 </div>
+
+                @endcan
 
               </div>
 
@@ -55,10 +59,16 @@
                     <td style="vertical-align: inherit;" > {{ $link->config_key }} </td>
                     <td style="vertical-align: inherit;" > {{ $link->config_value }} </td>
                     <td style="vertical-align: inherit">
-                      <a href="{{ route('links.edit' , ['id'=>$link->id]) .'?type='.$link->type }}" class="btn btn-info">Sửa</a>
+                      @can('link-edit')
+                        <a href="{{ route('links.edit' , ['id'=>$link->id]) .'?type='.$link->type }}" class="btn btn-info">Sửa</a>
+                      @endcan
+                      @can('link-delete')
+                        
                       <a href="{{ route('links.delete' , ['id'=>$link->id]) }}"
-                         data-url="{{ route('links.delete' , ['id'=>$link->id]) }}"
-                         class="btn btn-danger action_delete">Xóa</a>
+                        data-url="{{ route('links.delete' , ['id'=>$link->id]) }}"
+                        class="btn btn-danger action_delete">Xóa</a>
+                        
+                      @endcan
                     </td>
                   </tr>
                     <?php $stt++ ; ?>

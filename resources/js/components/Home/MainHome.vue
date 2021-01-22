@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-lg-6 mt-5 d-flex align-items-center">
                         <img
-                            v-lazy="`http://127.1:8000/storage/home/icon-boxes-img.jpg`"
+                            v-lazy="`/photos/home/icon-boxes-img.jpg`"
                             width="100%"
                             alt=""
                         />
@@ -105,7 +105,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 item">
                         <div class="icon-item">
                             <img
-                                src="http://127.1:8000/storage/home/icon-box-icon1@2x.png"
+                                src="/photos/home/icon-box-icon1@2x.png"
                                 width="90%"
                                 alt=""
                             />
@@ -120,7 +120,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 item">
                         <div class="icon-item">
                             <img
-                                src="http://127.1:8000/storage/home/icon-box-icon2@2x.png"
+                                src="/photos/home/icon-box-icon2@2x.png"
                                 width="90%"
                                 alt=""
                             />
@@ -135,7 +135,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 item">
                         <div class="icon-item">
                             <img
-                                src="http://127.1:8000/storage/home/icon-box-icon3@2x.png"
+                                src="photos/home/icon-box-icon3@2x.png"
                                 width="90%"
                                 alt=""
                             />
@@ -150,7 +150,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6 col-12 item">
                         <div class="icon-item">
                             <img
-                                src="http://127.1:8000/storage/home/icon-box-icon4@2x.png"
+                                src="/photos/home/icon-box-icon4@2x.png"
                                 width="90%"
                                 alt=""
                             />
@@ -173,14 +173,14 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-12 col-sm-12 col-12 item">
                         <img
-                            src="http://127.1:8000/storage/home/layered-img4.jpg"
+                            src="/photos/home/layered-img4.jpg"
                             width="100%"
                             alt=""
                             class="item-img"
                         />
                         <div class="layout-img">
                             <img
-                                src="http://127.1:8000/storage/home/layered-img3.png"
+                                src="/photos/home/layered-img3.png"
                                 width="80%"
                                 alt=""
                             />
@@ -282,42 +282,42 @@
                 <div class="row align-items-center text-center">
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            v-lazy="`http://127.1:8000/storage/home/client-logo1.png`"
+                            v-lazy="`/photos/home/client-logo1.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            v-lazy="`http://127.1:8000/storage/home/client-logo2.png`"
+                            v-lazy="`/photos/home/client-logo2.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            v-lazy="`http://127.1:8000/storage/home/client-logo3.png`"
+                            v-lazy="`/photos/home/client-logo3.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            v-lazy="`http://127.1:8000/storage/home/client-logo4.png`"
+                            v-lazy="`/photos/home/client-logo4.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            v-lazy="`http://127.1:8000/storage/home/client-logo5.png`"
+                            v-lazy="`/photos/home/client-logo5.png`"
                             width="80%"
                             alt=""
                         />
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                         <img
-                            v-lazy="`http://127.1:8000/storage/home/client-logo6.png`"
+                            v-lazy="`/photos/home/client-logo6.png`"
                             width="80%"
                             alt=""
                         />
@@ -377,7 +377,7 @@ export default {
 
 /* ---------------------------------- */
 .features {
-    background-image: url(http://127.1:8000/storage/home/section-bg1.png);
+    background-image: url(/photos/home/section-bg1.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -470,7 +470,7 @@ export default {
 
 /* ---------------------------------- */
 .faq {
-    background-image: url(http://127.1:8000/storage/home/section-bg4.jpg);
+    background-image: url(/photos/home/section-bg4.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 70px 0;

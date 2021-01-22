@@ -26,10 +26,18 @@ function actionDelete(event) {
                         )
                     };
                 },
-                error: function() {}
+                error: function(err) {
+                    Swal.fire(
+                        'No! 403',
+                        'Bạn không có quyền xóa (By Admin)',
+                        'error'
+                    )
+                }
             });
         }
     });
+
+
 }
 
 $(function() {

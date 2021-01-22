@@ -69,7 +69,7 @@ export default {
 <style scoped>
 /* ---------------------------------- */
 .customer {
-    background-image: url(http://127.1:8000/storage/home/section-bg5.png);
+    background-image: url(/photos/home/section-bg5.png);
     background-size: cover;
     background-repeat: no-repeat;
 }

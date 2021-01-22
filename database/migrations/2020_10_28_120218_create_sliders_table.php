@@ -34,5 +34,4 @@ class CreateSlidersTable extends Migration
         Schema::dropIfExists('sliders');
     }
 
-
 }

@@ -19,7 +19,7 @@
             :key="dreamItem.id"
           >
             <img
-              v-lazy="`http://127.0.0.1:8000${dreamItem.feature_img_path}`"
+              v-lazy="dreamItem.feature_img_path"
               width="100%"
             />
             <div class="content p-3">
@@ -37,7 +37,7 @@
         </div>
         <!-- </paginate> -->
         <div class="layout-shop">
-          <img src="http://127.1:8000/storage/home/layered-img1.png" width="80%" alt="" />
+          <img src="/photos/home/layered-img1.png" width="80%" alt="" />
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@ export default {
 <style scoped>
 /* ---------------------------------- */
 .shop {
-  background-image: url(http://127.1:8000/storage/home/section-bg2.jpg);
+  background-image: url(/photos/home/section-bg2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

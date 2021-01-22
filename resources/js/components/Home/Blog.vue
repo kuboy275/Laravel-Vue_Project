@@ -6,7 +6,7 @@
           <div class="row align-items-center">
             <div class="col-lg-6 col-md-6 col-sm-12">
               <img
-                src="http://127.1:8000/storage/home/action-box-img.jpg"
+                src="/photos/home/action-box-img.jpg"
                 width="100%"
                 alt=""
               />
@@ -74,7 +74,7 @@
                     </div>
                     <div class="user d-flex align-items-center">
                       <img
-                        src="http://127.1:8000/storage/home/testimonial1.jpg"
+                        src="/photos/home/testimonial1.jpg"
                         width="40px"
                         alt=""
                       />
@@ -152,12 +152,12 @@ export default {
 /* ---------------------------------- */
 
 .blog {
-  background-image: url(http://127.1:8000/storage/home/section-bg6.jpg);
+  background-image: url(/photos/home/section-bg6.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
 .blog .cta {
-  background-image: url(http://127.1:8000/storage/home/action-box-bg.png);
+  background-image: url(/photos/home/action-box-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   transform: translateY(-50%);
