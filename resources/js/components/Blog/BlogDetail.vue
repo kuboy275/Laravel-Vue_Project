@@ -14,7 +14,7 @@
               <h1>{{ postDetail.title }}</h1>
               <p>{{ postDetail.body }}</p>
               <div class="promotext">
-                <img src="/storage/gallery/quote-icon.png" alt="" />
+                <img src="/photos/gallery/quote-icon.png" alt="" />
                 <h5>Must explain to you how all this mistaken idea of denouncing pl</h5>
                 <div class="name-text">
                   <span class="line"></span>
@@ -25,7 +25,7 @@
             <div class="this-car">
               <div class="row align-items-center">
                 <div class="col-6">
-                  <img src="/storage/gallery/inner-img.jpg" />
+                  <img src="/photos/gallery/inner-img.jpg" />
                 </div>
                 <div class="col-6">
                   <h1>Why Use This Cars</h1>
@@ -36,7 +36,7 @@
             <div class="auth">
               <div class="row align-items-center">
                 <div class="col-sm-4 col-12">
-                  <img src="/storage/gallery/team-member1.jpg" />
+                  <img src="/photos/gallery/team-member1.jpg" />
                 </div>
                 <div class="col-sm-8 col-12">
                   <h1>Nikoas Zakiloa</h1>

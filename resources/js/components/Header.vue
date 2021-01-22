@@ -5,10 +5,7 @@
       <div class="row align-items-center p-3 nav_scroll">
         <div class="col-lg-3 col-sm-5 col-8 text-center logo">
           <a href="/">
-            <img
-              src="http://127.0.0.1:8000/storage/header/logo-white@2x.png"
-              width="50%"
-            />
+            <img src="/photos/header/logo-white@2x.png" width="50%" />
           </a>
         </div>
         <div class="col-lg-6 menu_link">
@@ -52,6 +49,13 @@
                 />
                 Blog
               </b-nav-item>
+              <b-nav-item class="link_nav" to="/about">
+                <font-awesome-icon
+                  :icon="['fas', 'house-damage']"
+                  class="icon_nav_link"
+                />
+                About
+              </b-nav-item>
             </b-navbar-nav>
           </b-navbar>
         </div>
@@ -69,17 +73,14 @@
         <div class="col-lg-5 col-md-6 col-sm-7 col-12">
           <div class="content">
             <div class="content_text d-flex align-items-end">
-              <img
-                src="http://127.0.0.1:8000/storage/header/slider-small-car.png"
-                alt=""
-              />
+              <img src="photos/header/slider-small-car.png" alt="" />
               <h4 class="mb-0 ml-4">dream cars provider</h4>
             </div>
             <div class="content_title">
               <h1 class="mt-4">
                 Best Vehicles For <span>Dreams</span>
                 <img
-                  src="http://127.0.0.1:8000/storage/header/slider-text.png"
+                  src="photos/header/slider-text.png"
                   class="mt-5"
                   width="100%"
                   alt=""
@@ -165,7 +166,7 @@ export default {
   cursor: pointer;
 }
 .container-fluid {
-  background-image: url(http://127.1:8000/storage/header/slider-bg.jpg);
+  background-image: url(/photos/header/slider-bg.jpg);
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -253,10 +254,10 @@ export default {
   border-radius: 30px;
   display: inline-block;
   transition: all 0.5s;
-    font-weight: 700;
+  font-weight: 700;
 }
 .content .link-white {
-  background: #0988FF;
+  background: #0988ff;
   color: #ffffff;
 }
 .content .link:hover {
@@ -278,29 +279,12 @@ export default {
   transition: all 0.5s;
 }
 .content .link-white::after {
-  background: #0988FF;
+  background: #0988ff;
 }
 .content .link-animation:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-/* .content button {
-  border: none;
-  outline: none;
-  background-color: #0988ff;
-  border-radius: 5px;
-  padding: 15px 35px;
-  color: #ffffff;
-  font-size: 14px;
-
-  text-align: center;
-  text-transform: uppercase;
-  opacity: 1;
-  transition: all 0.5s ease-in-out;
-} */
-/* .content button:hover {
-  opacity: 0.8;
-} */
 
 @media (max-width: 1220px) {
   .form_search {

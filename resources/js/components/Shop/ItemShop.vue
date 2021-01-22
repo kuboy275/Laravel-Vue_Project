@@ -2,20 +2,15 @@
   <div>
     <div class="container py-5 mb-5">
       <div class="row">
-        <div class="col-lg-3"></div>
-        <div class="col-lg-9">
+        <div class="col-lg-0"></div>
+        <div class="col-lg-12">
           <div class="show-items">
             <div class="row align-items-center justify-content-between m-0">
-              <h3>Show all 19 Results</h3>
-              <b-dropdown id="dropdown-1" text="Defaut Shorting" class="m-md-2 bg-dark">
-                <b-dropdown-item @click="sortLowest">Price Tang</b-dropdown-item>
-                <b-dropdown-item @click="sortHighest">Price Giam</b-dropdown-item>
-                <b-dropdown-item>Third Action</b-dropdown-item>
+              <h3>Show all 9 Results</h3>
+              <b-dropdown id="dropdown-1" text="Shorting" class="m-md-2 bg-dark">
+                <b-dropdown-item @click="sortLowest">Price Lowest</b-dropdown-item>
+                <b-dropdown-item @click="sortHighest">Price Highest</b-dropdown-item>
               </b-dropdown>
-              <select>
-                <option value="">ABCV</option>
-                <option value="">ABCV 1</option>
-              </select>
             </div>
           </div>
 
@@ -24,7 +19,7 @@
             class="paginate-products"
             name="productsItem"
             :list="products"
-            :per="3"
+            :per="9"
           >
             <div class="shop--car__item mt-4">
               <div class="row">
@@ -70,6 +65,9 @@
 <script>
 export default {
   name: "ItemsProducts",
+
+  props:{
+  },
 
   data() {
     return {

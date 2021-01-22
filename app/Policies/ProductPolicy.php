@@ -57,6 +57,7 @@ class ProductPolicy
         $product = Product::find($id);
 
         // check permission , if id of user match user_id in product talbe when will licensed edit 
+        // Kiểm tra đúng user id tạo sản phẩm phải trùng với id đăng nhập khi đó mới cho  update
         if( $user->checkPermissionAccess('Products_edit') && $user->id === $product->user_id ){
             return true;
         }

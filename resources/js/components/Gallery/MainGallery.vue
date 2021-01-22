@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-12 text-center">
             <h1>Photo <span> Gallery </span></h1>
-            <img src="http://127.1:8000/storage/gallery/title-gallery.PNG"/>
+            <img src="/photos/gallery/title-gallery.PNG"/>
             <p>
               Lorem ipsum harum laborum ullam dolore aspernatur soluta, et, ab pariatur
               provident

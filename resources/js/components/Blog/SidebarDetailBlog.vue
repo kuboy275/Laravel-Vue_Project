@@ -104,7 +104,7 @@ export default {
   text-decoration: none;
 }
 .sale {
-  background-image: url(/storage/gallery/sidebar-bg.jpg);
+  background-image: url(/photos/gallery/sidebar-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 500px;

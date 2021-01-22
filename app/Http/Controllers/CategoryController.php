@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Components\Recusive;
 use Illuminate\Support\Str;
-use App\Repositories\CategoryRepository;
+// use App\Repositories\CategoryRepository;
 use App\Http\Requests\categoryAddRequest;
 
 class CategoryController extends Controller

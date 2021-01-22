@@ -15,11 +15,17 @@ import RelatedProducts from './components/RelatedProduct/RelatedProduct';
 import PageNotFound from './components/404.vue';
 import Blog from './components/Blog/MainBlog';
 import BlogDetail from './components/Blog/BlogDetail';
+import About from './components/About.vue';
 
 const routes = [{
         name: 'header',
         path: '/header',
         component: Header
+    },
+    {
+        name: 'About',
+        path: '/about',
+        component: About
     },
     {
         name: 'footer',
