@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- START AREA MAIN HOME -->
-    <Banner :title="title"/>
+    <Banner :title="title" />
     <!-- END AREA MAIN HOME -->
     <!-- **************************************** -->
     <!-- CAR DETAIL MAIN -->
@@ -21,7 +21,12 @@
               "
               fixed-height="400px"
             >
-              <vueper-slide v-for="(slide, i) in slides" :key="i" :image="slide.image" v-lazy="slide.image">
+              <vueper-slide
+                v-for="(slide, i) in slides"
+                :key="i"
+                :image="slide.image"
+                v-lazy="slide.image"
+              >
               </vueper-slide>
             </vueper-slides>
             <vueper-slides
@@ -47,7 +52,7 @@
             </vueper-slides>
             <!-- SLIDE IMAGES -->
 
-            <TagDetail :singleProduct="this.singleProduct"/>
+            <TagDetail :singleProduct="this.singleProduct" />
 
             <!-- TODO: COMPONENT CHILD TAG DETAIL -->
 
@@ -94,8 +99,8 @@
             </div>
             <div class="contact-product">
               <h5>Register for a price and test drive</h5>
-              <b-nav-item to="/MainContact" @click="busNameProduct(singleProduct.name)">
-                <span class="text"> contact now</span>
+              <b-nav-item  @click="addToCart()">
+                <span class="text"> Add to cart</span>
                 <span class="round">
                   <font-awesome-icon
                     :icon="['fas', 'angle-double-right']"
@@ -104,7 +109,7 @@
                 </span>
               </b-nav-item>
             </div>
-
+            
             <!-- END RENDER SINGLE PRODUCTS-->
 
             <div class="spec-title">Specification</div>
@@ -150,7 +155,7 @@
     </div>
     <!-- END RELATED PRODUCTS MAIN -->
     <!-- **************************************** -->
-    <RelatedProducts  :singleProduct="this.singleProduct"/>
+    <RelatedProducts :singleProduct="this.singleProduct" />
   </div>
 </template>
 
@@ -159,19 +164,19 @@
 import { VueperSlides, VueperSlide } from "vueperslides";
 import "vueperslides/dist/vueperslides.css";
 
-import TagDetail from './TagDetail';
-import Banner from '../Banner';
-import RelatedProducts from './RelatedProducts';
+import TagDetail from "./TagDetail";
+import Banner from "../Banner";
+import RelatedProducts from "./RelatedProducts";
 
 export default {
   name: "SingleProduct",
 
-  components: { VueperSlides, VueperSlide, TagDetail , Banner, RelatedProducts },
+  components: { VueperSlides, VueperSlide, TagDetail, Banner, RelatedProducts },
 
   data() {
     return {
       slides: [],
-      title:"Product Detail"
+      title: "Product Detail",
     };
   },
 
@@ -182,8 +187,10 @@ export default {
     imgProduct() {
       return this.$store.getters.getProductImage;
     },
+    cartItem() {
+      return this.$store.getters.cart;
+    },
     // add data products relateds
-
   },
 
   methods: {
@@ -199,14 +206,20 @@ export default {
       this.$bus.$emit("name", nameProduct);
     },
     // đẩy data name product sang contact components theo cách events bus (no vueX );
+
+    addToCart() {
+      console.log(this.singleProduct);
+      this.$store.dispatch("addProductToCart", {
+        product : this.singleProduct,
+        quantity: 1,
+      });
+    },
   },
 
   mounted() {
-
     this.itemProduct();
     this.itemPathImg();
   },
-  created() {},
   watch: {
     imgProduct() {
       const imgPath = this.$store.getters.getProductImage;
@@ -276,7 +289,7 @@ export default {
   font-weight: 600;
 }
 .car-detail .shop-des .spec-title {
-  background-image: url(http://127.1:8000/storage/inventory/widget-bg2.jpg);
+  background-image: url(/photos/inventory/widget-bg2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 30px;
@@ -322,39 +335,38 @@ export default {
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
-    color: #ffffff;
+  color: #ffffff;
 }
-.car-detail .shop-des .contact-product .nav-item .nav-link::after{
-    content: "";
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    width: 37px;
-    height: 38px;
-    position: absolute;
-    right: 3px;
-    top: 50%;
-    transform: translateY(-50%);
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
- background-color: #fd9644;
+.car-detail .shop-des .contact-product .nav-item .nav-link::after {
+  content: "";
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  width: 37px;
+  height: 38px;
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  background-color: #fd9644;
 }
-.car-detail .shop-des .contact-product .nav-item .nav-link:hover::after{
-    right: 100%;
-    width: 50%;    
+.car-detail .shop-des .contact-product .nav-item .nav-link:hover::after {
+  right: 100%;
+  width: 50%;
 }
-.car-detail .shop-des .contact-product .nav-item .nav-link span{
+.car-detail .shop-des .contact-product .nav-item .nav-link span {
   position: relative;
   z-index: 3;
 }
-.car-detail .shop-des .contact-product .nav-item .nav-link .text{
-
+.car-detail .shop-des .contact-product .nav-item .nav-link .text {
   font-size: 14px;
   font-weight: 700;
 }
-.car-detail .shop-des .contact-product .nav-item .nav-link .round{
+.car-detail .shop-des .contact-product .nav-item .nav-link .round {
   border-radius: 50%;
   width: 38px;
   height: 38px;
@@ -366,14 +378,14 @@ export default {
   z-index: 2;
   background-color: transparent;
 }
-.car-detail .shop-des .contact-product .nav-item .nav-link .round .icon_nav_link{
+.car-detail .shop-des .contact-product .nav-item .nav-link .round .icon_nav_link {
   position: absolute;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   transition: all 0.3s;
 }
-.car-detail .shop-des .contact-product .nav-item .nav-link:hover .icon_nav_link{
+.car-detail .shop-des .contact-product .nav-item .nav-link:hover .icon_nav_link {
   margin-left: 5px;
 }
 /* ------------------------------------------ */
@@ -403,5 +415,4 @@ export default {
   border-color: #000;
 }
 /* ------------------------------------------ */
-
 </style>

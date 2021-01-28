@@ -2,6 +2,7 @@
   <div>
     <Header></Header>
        <Loader :start="spin.val"/>
+       <MiniCart/>
     <transition name="fade">
       <router-view></router-view>
     </transition>
@@ -14,12 +15,14 @@
     import Footer from './components/Footer';
     import CheckOnl from './components/CheckOnl';
     import Loader from './components/Loader.vue';
+    import MiniCart from './components/MiniCart'
     export default{
         components: {
           Header,
           Footer,
           CheckOnl,
-          Loader
+          Loader,
+          MiniCart,
         },
         data() {
           return {

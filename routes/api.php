@@ -10,7 +10,8 @@ use App\Http\Controllers\api\LinksController;
 use App\Http\Controllers\api\TagsController;
 use App\Http\Controllers\api\ProductsTagController;
 use App\Http\Controllers\api\PostController;
-
+use App\Http\Controllers\PassportAuthController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -49,3 +50,10 @@ Route::apiResource('links',LinksController::class);
 Route::resource('tags', TagsController::class);
 Route::resource('product-tag', ProductsTagController::class);
 Route::resource('posts', PostController::class);
+
+
+Route::post('register', [PassportAuthController::class, 'register']);
+Route::post('login', [PassportAuthController::class, 'login']);
+// Route::get('user',[PassportAuthController::class, 'index']);
+
+Route::post('cart',[CartController::class,'store']);

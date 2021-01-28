@@ -6,11 +6,20 @@
         <div class="col-lg-12">
           <div class="show-items">
             <div class="row align-items-center justify-content-between m-0">
-              <h3>Show all 9 Results</h3>
-              <b-dropdown id="dropdown-1" text="Shorting" class="m-md-2 bg-dark">
-                <b-dropdown-item @click="sortLowest">Price Lowest</b-dropdown-item>
-                <b-dropdown-item @click="sortHighest">Price Highest</b-dropdown-item>
-              </b-dropdown>
+              <div class="col-4">
+                <h3>Show all 9 Results</h3>
+              </div>
+              <div class="col-8 text-right">
+                <input
+                  class="search_name"
+                  placeholder="Search Name"
+                  v-model="filterText"
+                />
+                <b-dropdown id="dropdown-1" text="Shorting" class="m-md-2 bg-dark">
+                  <b-dropdown-item @click="sortLowest">Price Lowest</b-dropdown-item>
+                  <b-dropdown-item @click="sortHighest">Price Highest</b-dropdown-item>
+                </b-dropdown>
+              </div>
             </div>
           </div>
 
@@ -18,7 +27,7 @@
           <paginate
             class="paginate-products"
             name="productsItem"
-            :list="products"
+            :list="filteredProducts"
             :per="9"
           >
             <div class="shop--car__item mt-4">
@@ -66,12 +75,12 @@
 export default {
   name: "ItemsProducts",
 
-  props:{
-  },
+  props: {},
 
   data() {
     return {
       paginate: ["productsItem"],
+      filterText: "",
     };
   },
 
@@ -82,6 +91,13 @@ export default {
   computed: {
     products() {
       return this.$store.getters.getProducts;
+    },
+    filteredProducts() {
+      let filter = new RegExp(this.filterText, "i");
+      return this.products.filter((el) => el.name.match(filter));
+    },
+    singleProduct() {
+      return this.$store.getters.detailProduct;
     },
   },
 
@@ -243,4 +259,14 @@ export default {
   --n: 4;
 }
 /* ------------------------------------------ */
+
+.search_name {
+  outline: none;
+  color: #0988ff;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  border: 3px solid #0988ff;
+}
 </style>

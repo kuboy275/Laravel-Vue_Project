@@ -1,6 +1,8 @@
 const mix = require('laravel-mix');
 const { max } = require('lodash');
 
+
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

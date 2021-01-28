@@ -60,10 +60,14 @@
           </b-navbar>
         </div>
         <div class="col-xl-3 col-sm-12 d-flex justify-content-center">
-          <b-nav-form class="form_search">
+          <!-- <b-nav-form class="form_search">
             <b-form-input placeholder="Search here"></b-form-input>
             <font-awesome-icon :icon="['fas', 'search']" class="icon_search" />
-          </b-nav-form>
+          </b-nav-form> -->
+          <!-- <h1>Hi {{ name }}</h1> -->
+          <!-- <p>{{ secretMessage }}</p> -->
+          <input type="button" value="Logout" @click="logout" />
+          <!-- <a href=""  @click="logout"> Logout </a> -->
         </div>
         <div class="hambeger" @click="openMenu">
           <font-awesome-icon :icon="['fas', 'hamburger']" />
@@ -107,14 +111,33 @@
 </template>
 
 <script>
+import AuthService from './services/AuthService' ;
 export default {
   data() {
-    return {};
+    return {
+      name: "",
+      secretMessage:"",
+    };
   },
-  created() {
+  // computed: {
+  //   name() {
+  //     return this.$store.getters.getUser.name;
+  //   },
+  // },
+  async created() {
     window.addEventListener("scroll", this.handleScroll);
+    if (!this.$store.getters.isLoggedIn) {
+      this.$router.push("/sign");
+    }
+    this.name = this.$store.getters.getUser.name;
+    this.secretMessage = await AuthService.getSecretContent();
+
   },
   methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/sign");
+    },
     openMenu() {
       const meunLink = document.querySelector(".menu_link");
       meunLink.classList.add("active");

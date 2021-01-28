@@ -10,6 +10,7 @@ Object.defineProperties(Vue.prototype, {
     }
 });
 
+Vue.config.productionTip = false;
 
 import Vuex from 'vuex';
 Vue.use(Vuex);
@@ -19,8 +20,10 @@ const store = new Vuex.Store(
     storeData
 )
 
+axios.defaults.headers.common['Authorization'] = `Bearer ${store.state.token}`;
 import mainCss from '../css/main.css';
 Vue.use(mainCss);
+
 
 import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue)
@@ -61,6 +64,7 @@ Vue.filter("formatNumber", function(value) {
 });
 
 import router from './router.js'
+import Vue from 'vue';
 
 const app = new Vue(
     Vue.util.extend({ router, store }, App)
