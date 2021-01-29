@@ -60,10 +60,6 @@
           </b-navbar>
         </div>
         <div class="col-xl-3 col-sm-12 d-flex justify-content-center">
-          <!-- <b-nav-form class="form_search">
-            <b-form-input placeholder="Search here"></b-form-input>
-            <font-awesome-icon :icon="['fas', 'search']" class="icon_search" />
-          </b-nav-form> -->
           <!-- <h1>Hi {{ name }}</h1> -->
           <!-- <p>{{ secretMessage }}</p> -->
           <input type="button" value="Logout" @click="logout" />
@@ -211,31 +207,6 @@ export default {
   color: #0987ff;
   font-size: 16px;
   display: none;
-}
-.form_search {
-  width: 220px;
-  height: 50px;
-  border-radius: 5px;
-  border: 2px solid white;
-}
-.form_search .icon_search {
-  color: #f4f4f4;
-  font-size: 14px;
-  cursor: pointer;
-}
-.form_search input:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-.form_search input {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  color: #f4f4f4;
-}
-.form_search input::placeholder {
-  color: #f4f4f4;
 }
 
 .content .content_text h4 {

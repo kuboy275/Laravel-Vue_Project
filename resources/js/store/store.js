@@ -48,6 +48,7 @@ export default {
             });
             return total;
         },
+
         isLoggedIn(state) {
             return state.token;
         },
@@ -92,12 +93,28 @@ export default {
     },
     actions: {
 
+        SEARCH_PRODUCTS({ commit }, query) {
+            let params = {
+                query
+            };
+            axios.get(`/api/search`, { params })
+                .then(res => {
+                    commit('products', res.data.products)
+                }).catch(err => {
+                    console.log(err)
+                })
+        },
+
         removeProductFromCart(context, product) {
             context.commit("REMOVE_PRODUCT_FROM_CART", product);
         },
 
         removeAllCart(context) {
             context.commit("REMOVE_ALL");
+        },
+
+        cartQuantity({ commit, dispatch }, { product, quantity }) {
+            commit('UPDATE_CART_QUANTITY', { product, quantity });
         },
 
         login: ({ commit, dispatch }, { token, user }) => {
@@ -202,6 +219,8 @@ export default {
                 return item.product.id !== product.id
             })
         },
+
+
 
         ADD_TO_CART(state, { product, quantity }) {
 

@@ -42,6 +42,7 @@ Route::apiResource('category', CategoryController::class);
 Route::apiResource('customer',CustomerContact::class);
 
 Route::apiResource('products',ProductsController::class);
+Route::get('/search',[ProductsController::class,'search']);
 Route::get('/product-latest', [ProductsController::class,'latest']);
 
 Route::apiResource('product-image',ProductImageController::class);
