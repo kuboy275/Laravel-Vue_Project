@@ -6,11 +6,28 @@
         <div class="col-lg-12">
           <div class="show-items">
             <div class="row align-items-center justify-content-between m-0">
-              <h3>Show all 9 Results</h3>
-              <b-dropdown id="dropdown-1" text="Shorting" class="m-md-2 bg-dark">
-                <b-dropdown-item @click="sortLowest">Price Lowest</b-dropdown-item>
-                <b-dropdown-item @click="sortHighest">Price Highest</b-dropdown-item>
-              </b-dropdown>
+              <div class="col-4">
+                <h3>Show all 9 Results</h3>
+              </div>
+            
+              <div class="col-5 d-flex align-items-center justify-content-end">
+                <b-nav-form class="form_search">
+                  <b-form-input
+                    v-model="query"
+                    @keyup.enter="searchProducts"
+                    placeholder="Search here"
+                  ></b-form-input>
+                  <font-awesome-icon
+                    @click="searchProducts"
+                    :icon="['fas', 'search']"
+                    class="icon_search"
+                  />
+                </b-nav-form>
+                <b-dropdown id="dropdown-1" text="Shorting" class="m-md-2 bg-dark">
+                  <b-dropdown-item @click="sortLowest">Price Lowest</b-dropdown-item>
+                  <b-dropdown-item @click="sortHighest">Price Highest</b-dropdown-item>
+                </b-dropdown>
+              </div>
             </div>
           </div>
 
@@ -18,7 +35,7 @@
           <paginate
             class="paginate-products"
             name="productsItem"
-            :list="products"
+            :list="groupedProducts"
             :per="9"
           >
             <div class="shop--car__item mt-4">
@@ -63,29 +80,47 @@
 </template>
 
 <script>
+import _ from "lodash";
+import { mapGetters } from "vuex";
+
 export default {
   name: "ItemsProducts",
 
-  props:{
-  },
+  props: {},
 
   data() {
     return {
       paginate: ["productsItem"],
+      query: "",
     };
   },
 
   mounted() {
     this.$store.dispatch("getApiProducts");
+
+    window.Echo.channel("search").listen(".searchResults", (e) => {
+      this.$store.commit("products", e.products);
+    });
   },
 
   computed: {
-    products() {
+    groupedProducts() {
       return this.$store.getters.getProducts;
+    },
+    // ...mapGetters(["getProducts"]),
+    // products() {
+    //   return this.$store.getters.getProducts;
+    // },
+    singleProduct() {
+      return this.$store.getters.detailProduct;
     },
   },
 
   methods: {
+    searchProducts() {
+      this.$store.dispatch("SEARCH_PRODUCTS", this.query);
+    },
+
     getByProduct() {
       if (this.$route.params.id != null) {
         this.$store.dispatch("getProductById", this.$route.params.id);
@@ -95,20 +130,27 @@ export default {
     },
 
     sortLowest() {
-      this.products.sort(function (a, b) {
+      this.groupedProducts.sort(function (a, b) {
         return a.price - b.price;
       });
     },
+
     sortHighest() {
-      this.products.sort(function (a, b) {
+      this.groupedProducts.sort(function (a, b) {
         return b.price - a.price;
       });
     },
   },
 
   watch: {
-    $route(to, from) {
-      this.getByProduct();
+    // $route(to, from) {
+    //   this.getByProduct();
+    // },
+
+    query: {
+      handler: _.debounce(function () {
+        this.searchProducts();
+      }, 100),
     },
   },
 };
@@ -243,4 +285,33 @@ export default {
   --n: 4;
 }
 /* ------------------------------------------ */
+
+
+
+.form_search {
+
+  border-radius: 5px;
+  border: 2px solid #0988ff;
+}
+.form_search .icon_search {
+  color: #0988ff;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.form_search input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.form_search input {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #0988ff;
+  font-weight: 600;
+}
+.form_search input::placeholder {
+  color: #555555;
+}
 </style>

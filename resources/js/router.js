@@ -17,7 +17,16 @@ import Blog from './components/Blog/MainBlog';
 import BlogDetail from './components/Blog/BlogDetail';
 import About from './components/About.vue';
 
-const routes = [{
+import Sign from './components/SignIn/Sign';
+
+
+const routes = [
+
+    {
+        path: '/sign',
+        component: Sign
+    },
+    {
         name: 'header',
         path: '/header',
         component: Header
@@ -35,7 +44,10 @@ const routes = [{
     {
         name: 'MainHome',
         path: '/',
-        component: MainHome
+        component: MainHome,
+        meta: {
+            auth: true
+        }
     },
     {
         name: 'MainInventory',
@@ -83,9 +95,9 @@ const routes = [{
         component: PageNotFound
     },
 
-
-
 ];
+
+
 
 const router = new VueRouter({ mode: 'history', routes: routes });
 export default router

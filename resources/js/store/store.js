@@ -1,6 +1,17 @@
 import axios from "axios";
+import createPersistedState from 'vuex-persistedstate';
+
+const getDefaultState = () => {
+    return {
+        token: "",
+        user: {}
+    };
+};
 
 export default {
+    strict: true,
+    plugins: [createPersistedState()],
+    stateAuth: getDefaultState(),
 
     state: {
         category: [],
@@ -14,8 +25,37 @@ export default {
         productsTag: [],
         posts: [],
         postDetail: [],
+        user: {},
+        token: '',
+        cart: [],
+        product: null,
     },
     getters: {
+        cart(state) {
+            return state.cart;
+        },
+        cartLength(state) {
+            let length = 0;
+            state.cart.forEach(item => {
+                length += item.quantity
+            });
+            return length;
+        },
+        cartTotalPrice(state) {
+            let total = 0;
+            state.cart.forEach(item => {
+                total += item.product.price * item.quantity;
+            });
+            return total;
+        },
+
+        isLoggedIn(state) {
+            return state.token;
+        },
+
+        getUser(state) {
+            return state.user;
+        },
 
         getCategory(state) {
             return state.category;
@@ -53,22 +93,60 @@ export default {
     },
     actions: {
 
+        SEARCH_PRODUCTS({ commit }, query) {
+            let params = {
+                query
+            };
+            axios.get(`/api/search`, { params })
+                .then(res => {
+                    commit('products', res.data.products)
+                }).catch(err => {
+                    console.log(err)
+                })
+        },
+
+        removeProductFromCart(context, product) {
+            context.commit("REMOVE_PRODUCT_FROM_CART", product);
+        },
+
+        removeAllCart(context) {
+            context.commit("REMOVE_ALL");
+        },
+
+        cartQuantity({ commit, dispatch }, { product, quantity }) {
+            commit('UPDATE_CART_QUANTITY', { product, quantity });
+        },
+
+        login: ({ commit, dispatch }, { token, user }) => {
+            commit('SET_TOKEN', token);
+            commit('SET_USER', user);
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        },
+
+        logout: ({ commit }) => {
+            commit('RESET', '');
+        },
+
+        addProductToCart(context, { product, quantity }) {
+            context.commit('ADD_TO_CART', { product, quantity });
+        },
+
         getApiCategory(context) {
-            axios.get("http://127.0.0.1:8000/api/category")
+            axios.get("/api/category")
                 .then((response) => {
                     context.commit('categories', response.data.categories)
                 })
         },
 
         getApiProducts(context) {
-            axios.get("http://127.0.0.1:8000/api/products")
+            axios.get("/api/products")
                 .then((response) => {
                     context.commit('products', response.data.products)
                 })
         },
 
         getApiProductImage(context) {
-            axios.get("http://127.0.0.1:8000/api/product-image")
+            axios.get("/api/product-image")
                 .then((response) => {
                     context.commit('productImage', response.data.productImage)
                 })
@@ -77,13 +155,13 @@ export default {
 
 
         getApiSlideCustomer(context) {
-            axios.get("http://127.0.0.1:8000/api/slide")
+            axios.get("/api/slide")
                 .then((response) => {
                     context.commit('slideCustomer', response.data.slide);
                 })
         },
         getApiLinks(context) {
-            axios.get("http://127.0.0.1:8000/api/links")
+            axios.get("/api/links")
                 .then((response) => {
                     context.commit("links", response.data.links);
                 })
@@ -108,7 +186,7 @@ export default {
         },
 
         getProductById(context, payload) {
-            axios.get("http://127.0.0.1:8000/api/products/" + payload)
+            axios.get("/api/products/" + payload)
                 .then((response) => {
                     context.commit('detailProduct', response.data)
                 })
@@ -133,6 +211,41 @@ export default {
         }
     },
     mutations: {
+        REMOVE_ALL(state) {
+            return state.cart = [];
+        },
+        REMOVE_PRODUCT_FROM_CART(state, product) {
+            state.cart = state.cart.filter(item => {
+                return item.product.id !== product.id
+            })
+        },
+        ADD_TO_CART(state, { product, quantity }) {
+
+            let productInCart = state.cart.find(item => {
+                return item.product.id === product.id;
+            })
+
+            if (productInCart) {
+                productInCart.quantity += quantity;
+                return;
+            }
+
+            return state.cart.push({
+                product,
+                quantity
+            })
+        },
+
+        SET_TOKEN: (stateAuth, token) => {
+            stateAuth.token = token;
+        },
+        SET_USER(state, user) {
+            state.user = user;
+        },
+        RESET: state => {
+            Object.assign(state, getDefaultState());
+        },
+
         categories(state, data) {
             return state.category = data;
         },

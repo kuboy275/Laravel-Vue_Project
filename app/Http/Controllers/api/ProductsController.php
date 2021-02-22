@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Events\SearchEvent;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Resources\Products as ProductsResources;
 use App\Http\Resources\ProductsCollection;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -17,12 +18,26 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::get();
         return new ProductsCollection($products);
     }
-    public function latest(){
+    public function latest()
+    {
         $products = Product::latest()->paginate(8);
         return new ProductsCollection($products);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->query('query');
+        $products = Product::where('name', 'like', '%' . $query . '%')
+            ->orWhere('price', 'like', '%' . $query . '%')
+            ->get();
+
+        //broadcast search results with Pusher channels
+        event(new SearchEvent($products));
+        return new ProductsCollection($products);
+        // return response()->json(['search' => $products] , 200);
     }
 
     /**

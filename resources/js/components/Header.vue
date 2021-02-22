@@ -26,21 +26,21 @@
                   :icon="['fas', 'house-damage']"
                   class="icon_nav_link"
                 />
-                MainInventory
+                Inventory
               </b-nav-item>
               <b-nav-item class="link_nav" to="/MainShop">
                 <font-awesome-icon
                   :icon="['fas', 'house-damage']"
                   class="icon_nav_link"
                 />
-                MainShop
+                Shop
               </b-nav-item>
               <b-nav-item class="link_nav" to="/MainGallery">
                 <font-awesome-icon
                   :icon="['fas', 'house-damage']"
                   class="icon_nav_link"
                 />
-                MainGallery
+                Gallery
               </b-nav-item>
               <b-nav-item class="link_nav" to="/MainBlog">
                 <font-awesome-icon
@@ -59,11 +59,11 @@
             </b-navbar-nav>
           </b-navbar>
         </div>
-        <div class="col-xl-3 col-sm-12 d-flex justify-content-center">
-          <b-nav-form class="form_search">
-            <b-form-input placeholder="Search here"></b-form-input>
-            <font-awesome-icon :icon="['fas', 'search']" class="icon_search" />
-          </b-nav-form>
+        <div class="col-xl-3 col-sm-12">
+          <a href="" @click="logout" class="logout">
+            <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
+            Logout Here
+          </a>
         </div>
         <div class="hambeger" @click="openMenu">
           <font-awesome-icon :icon="['fas', 'hamburger']" />
@@ -107,14 +107,32 @@
 </template>
 
 <script>
+import AuthService from "./services/AuthService";
 export default {
   data() {
-    return {};
+    return {
+      name: "",
+      secretMessage: "",
+    };
   },
-  created() {
+  // computed: {
+  //   name() {
+  //     return this.$store.getters.getUser.name;
+  //   },
+  // },
+  async created() {
     window.addEventListener("scroll", this.handleScroll);
+    if (!this.$store.getters.isLoggedIn) {
+      this.$router.push("/sign");
+    }
+    this.name = this.$store.getters.getUser.name;
+    this.secretMessage = await AuthService.getSecretContent();
   },
   methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/sign");
+    },
     openMenu() {
       const meunLink = document.querySelector(".menu_link");
       meunLink.classList.add("active");
@@ -188,31 +206,6 @@ export default {
   color: #0987ff;
   font-size: 16px;
   display: none;
-}
-.form_search {
-  width: 220px;
-  height: 50px;
-  border-radius: 5px;
-  border: 2px solid white;
-}
-.form_search .icon_search {
-  color: #f4f4f4;
-  font-size: 14px;
-  cursor: pointer;
-}
-.form_search input:focus {
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
-.form_search input {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  color: #f4f4f4;
-}
-.form_search input::placeholder {
-  color: #f4f4f4;
 }
 
 .content .content_text h4 {
@@ -388,5 +381,13 @@ export default {
     left: 40px;
     top: 30px;
   }
+}
+
+.logout{
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  display: block;
+  text-align: center;
 }
 </style>
