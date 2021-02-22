@@ -195,7 +195,7 @@ export default {
   text-align: center;
   padding: 50px 0px;
   background-color: #232628;
-  /* transform: translateY(-50%); */
+  transform: translateY(-50%);
 }
 
 .sub h2 {

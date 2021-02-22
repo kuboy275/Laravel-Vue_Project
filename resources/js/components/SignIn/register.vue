@@ -32,6 +32,7 @@ export default {
         const response = await AuthService.signUp(credentials);
         alert("Đăng ký thành công , vui lòng đăng nhập để truy cập vào trang web");
       } catch (error) {
+        alert("Đăng ký không thành công")
         console.log(error);
       }
     },

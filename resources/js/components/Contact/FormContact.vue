@@ -158,18 +158,32 @@ export default {
         email: null,
         phone: null,
         message: null,
-        type_car: "",
+        type_car: [],
       },
     };
   },
 
   created() {
-    this.$bus.$on("name", (nameProduct) => {
-      this.form.type_car = nameProduct;
-    });
+    // this.$bus.$on("name", (nameProduct) => {
+    //   this.form.type_car = nameProduct;
+    // });
+
+    this.pushName();
+  },
+
+  computed: {
+    productName() {
+      return this.$store.getters.cart;
+    },
   },
 
   methods: {
+    pushName() {
+      for (let i = 0; i < this.productName.length; i++) {
+        this.form.type_car.push(this.productName[i].product.name);
+      }
+    },
+
     getValidationState({ dirty, validated, valid = null }) {
       return dirty || validated ? valid : null;
     },

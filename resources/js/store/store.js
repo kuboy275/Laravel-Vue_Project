@@ -219,9 +219,6 @@ export default {
                 return item.product.id !== product.id
             })
         },
-
-
-
         ADD_TO_CART(state, { product, quantity }) {
 
             let productInCart = state.cart.find(item => {

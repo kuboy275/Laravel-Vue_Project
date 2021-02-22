@@ -32,6 +32,7 @@ export default {
         this.$router.push("/");
         alert("Chào mừng bạn đến với trang speedy car");
       } catch (error) {
+        alert("Đăng nhập thất bại , xin vui lòng đăng nhập lại")
         console.log(error);
       }
     },

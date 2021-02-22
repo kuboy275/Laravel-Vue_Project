@@ -26,21 +26,21 @@
                   :icon="['fas', 'house-damage']"
                   class="icon_nav_link"
                 />
-                MainInventory
+                Inventory
               </b-nav-item>
               <b-nav-item class="link_nav" to="/MainShop">
                 <font-awesome-icon
                   :icon="['fas', 'house-damage']"
                   class="icon_nav_link"
                 />
-                MainShop
+                Shop
               </b-nav-item>
               <b-nav-item class="link_nav" to="/MainGallery">
                 <font-awesome-icon
                   :icon="['fas', 'house-damage']"
                   class="icon_nav_link"
                 />
-                MainGallery
+                Gallery
               </b-nav-item>
               <b-nav-item class="link_nav" to="/MainBlog">
                 <font-awesome-icon
@@ -59,11 +59,11 @@
             </b-navbar-nav>
           </b-navbar>
         </div>
-        <div class="col-xl-3 col-sm-12 d-flex justify-content-center">
-          <!-- <h1>Hi {{ name }}</h1> -->
-          <!-- <p>{{ secretMessage }}</p> -->
-          <input type="button" value="Logout" @click="logout" />
-          <!-- <a href=""  @click="logout"> Logout </a> -->
+        <div class="col-xl-3 col-sm-12">
+          <a href="" @click="logout" class="logout">
+            <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
+            Logout Here
+          </a>
         </div>
         <div class="hambeger" @click="openMenu">
           <font-awesome-icon :icon="['fas', 'hamburger']" />
@@ -107,12 +107,12 @@
 </template>
 
 <script>
-import AuthService from './services/AuthService' ;
+import AuthService from "./services/AuthService";
 export default {
   data() {
     return {
       name: "",
-      secretMessage:"",
+      secretMessage: "",
     };
   },
   // computed: {
@@ -127,7 +127,6 @@ export default {
     }
     this.name = this.$store.getters.getUser.name;
     this.secretMessage = await AuthService.getSecretContent();
-
   },
   methods: {
     logout() {
@@ -382,5 +381,13 @@ export default {
     left: 40px;
     top: 30px;
   }
+}
+
+.logout{
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  display: block;
+  text-align: center;
 }
 </style>

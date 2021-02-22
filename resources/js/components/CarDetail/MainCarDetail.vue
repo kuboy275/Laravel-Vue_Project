@@ -208,7 +208,6 @@ export default {
     // đẩy data name product sang contact components theo cách events bus (no vueX );
 
     addToCart() {
-      console.log(this.singleProduct);
       this.$store.dispatch("addProductToCart", {
         product : this.singleProduct,
         quantity: 1,
