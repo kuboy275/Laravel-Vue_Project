@@ -2,7 +2,7 @@
 
   @section('title')
 
-    <title> Add Product</title>
+    <title>Product</title>
 
   @endsection
 
@@ -55,7 +55,6 @@
                         </td>
 
                         <td style="vertical-align: inherit;" >{{ optional($productItem->category)->name }}</td>
-
                         <td style="vertical-align: inherit">
                             <a href="{{ route('product.edit', ['id'=> $productItem->id])}}" class="btn btn-info">Sửa </a>
                             <a href=""

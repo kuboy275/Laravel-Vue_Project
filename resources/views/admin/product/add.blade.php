@@ -2,7 +2,7 @@
 
   @section('title')
 
-    <title> Products </title>
+    <title> Products</title>
 
   @endsection
 
@@ -78,7 +78,7 @@
                   </div>
 
                   <div class="form-group">
-                      <label>Chọn danh mục </label>
+                      <label>Chọn danh mục</label>
                       <select 
                           class="form-control select2-init @error('category_id') is-invalid @enderror"
                           name="category_id">
@@ -96,7 +96,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label> Nhập tags cho sản phẩm  </label>
+                    <label> Nhập tags cho sản phẩm</label>
                     <select name="tags[]" 
                             class="form-control select-tags  @error('tags[]') is-invalid @enderror" 
                             multiple="multiple">
@@ -114,34 +114,35 @@
                 <div class="col-md-10">
 
                   <div class="form-group">
-                    <label> Content :</label>
-                    <textarea class=" @error('contents') is-invalid @enderror form-control tinymce-editor-init"
-                      name="contents"
-                      aria-label="With textarea"
-                      rows='8'>  {{ old('contents') }}  </textarea>    
-                      
+                    <label> Content  :</label>
+                    <textarea class="form-control tinymce-editor
+                        @error('contents') is-invalid @enderror"
+                        id=""
+                        name="contents"
+                        aria-label="With textarea"
+                        rows='8'
+                        > 
+                          {{ old('contents') }}
+                    </textarea>    
                       <div class="mt-2"> 
                         @error('contents')
                           <div class="alert alert-danger py-1">{{ $message }} !</div>
                         @enderror
                       </div>
                   </div>               
-
                   <button type="submit" class="btn btn-primary mb-2"> Submit</button>
-
                 </div>
             </div>
           </div>
         </div>
       </form>
       </div>
-      
   
   @endsection
 
 
       @section('js')
+      <script src="https://cdn.tiny.cloud/1/z3zhj4cewb25ul981erngb3h50ixs5pqhc9ofuqepx2y6kl0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
-        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
         <script src="{{ asset('admins/product/add/add.js') }}"></script>
       @endsection

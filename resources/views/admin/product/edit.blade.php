@@ -110,7 +110,7 @@
                 <div class="col-md-10">
                   <div class="form-group">
                     <label> Content :</label>
-                    <textarea class=" form-control tinymce-editor-init"
+                    <textarea class=" form-control tinymce-editor"
                       name="contents"
                       aria-label="With textarea"
                       rows='8'> {{$product->content}} </textarea>                   
@@ -128,8 +128,7 @@
 
 
       @section('js')
-        <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
-        <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-        {{-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> --}}
-        <script src="{{ asset('admins/product/add/add.js') }}"></script>
+      <script src="https://cdn.tiny.cloud/1/z3zhj4cewb25ul981erngb3h50ixs5pqhc9ofuqepx2y6kl0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+      <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
+      <script src="{{ asset('admins/product/add/add.js') }}"></script>
       @endsection

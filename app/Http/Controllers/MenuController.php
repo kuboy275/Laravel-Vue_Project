@@ -6,11 +6,16 @@ use App\Components\MenuRecusive;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use App\Http\Requests\menuAddRequest;
+use App\Http\Requests\MenuRequest;
+use App\Traits\DeleteModelTrait;
 
 
 class MenuController extends Controller
 {
+    use DeleteModelTrait;
+
+    private $menu;
+
     public function __construct(MenuRecusive $menuRecusive , Menu $menu)
     {
         $this->menuRecusive = $menuRecusive;
@@ -23,7 +28,7 @@ class MenuController extends Controller
         return view('admin.menus.index', compact('menus'));
     }
 
-    public function store(menuAddRequest $req){
+    public function store(MenuRequest $req){
         $this->menu->create([ 
             'name'=> $req->name ,
             'parent_id' =>$req->parent_id,
@@ -45,7 +50,7 @@ class MenuController extends Controller
         return view('admin.menus.edit', compact('optionSelect','menuShowEdit'));
     }
 
-    public function update($id , menuAddRequest $req){
+    public function update($id , MenuRequest $req){
         $this->menu->find($id)->update([
             'name'=> $req->name ,
             'parent_id' =>$req->parent_id,
@@ -56,19 +61,6 @@ class MenuController extends Controller
 
 
     public function delete($id) {
-        try {
-            $this->menu->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'message' => 'success'
-            ], 200);
-
-        } catch (\Exception $exception) {
-            Log::error('Message: ' . $exception->getMessage() . ' --- Line : ' . $exception->getLine());
-            return response()->json([
-                'code' => 500,
-                'message' => 'fail'
-            ], 500);
-        }
+        return $this->deleteModelTrait($id,$this->menu);
     }
 }

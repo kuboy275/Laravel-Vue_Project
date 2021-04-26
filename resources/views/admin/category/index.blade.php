@@ -19,9 +19,7 @@
           <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 text-right">
-                  @can('category-add')
                     <a href="{{route('categories.create')}}" class="btn btn-success my-2">Add</a>
-                  @endcan
                 </div>
 
                 <div class="col-lg-12">
@@ -47,15 +45,11 @@
                       </td>
                       <td style="vertical-align: inherit">
 
-                        @can('category-edit')
                           <a href="{{ route('categories.edit' , $category->id ) }}" class="btn btn-info">Sửa </a>
-                        @endcan
 
-                        @can('category-delete')
-                          <a href="{{ route('categories.delete' ,$category->id ) }}"
+                          <a href=""
                             data-url="{{route('categories.delete',['id'=>$category->id])}}"
                             class="btn btn-danger action_delete">  Xóa</a>
-                        @endcan
 
                       </td>
                     </tr>

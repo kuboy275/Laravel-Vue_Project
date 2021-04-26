@@ -14,10 +14,7 @@
               <div class="col-lg-3">
                 <button>
                   subscribe
-                  <font-awesome-icon
-                    :icon="['fas', 'angle-double-right']"
-                    class="icon_btn"
-                  />
+                  <i class="fas fa-angle-double-right"></i>
                 </button>
               </div>
             </div>
@@ -32,31 +29,20 @@
                 voluptate consequatur corrupti sint eos reiciendis?
               </p>
               <div class="social d-flex align-items-center">
-
                 <div class="social_item">
-                  <a :href="`${facebook}`">
-                    <font-awesome-icon
-                      :icon="['fab', 'facebook-f']"
-                      class="icon_social"
-                    />
+                  <a href="#">
+                    <i class="fab fa-facebook-f"></i>
                   </a>
                 </div>
                 <div class="social_item">
-                  <a :href="`${twitter}`">
-                    <font-awesome-icon :icon="['fab', 'twitter']" class="icon_social" />
-                  </a>
+                  <a href="#"> <i class="fab fa-twitter"></i> </a>
                 </div>
                 <div class="social_item">
-                  <a :href="`${instagram}`">
-                    <font-awesome-icon :icon="['fab', 'instagram']" class="icon_social" />
-                  </a>
+                  <a href="#"> <i class="fab fa-instagram"></i> </a>
                 </div>
                 <div class="social_item">
-                  <a :href="`${googlePlus}`">
-                    <font-awesome-icon
-                      :icon="['fab', 'google-plus-g']"
-                      class="icon_social"
-                    />
+                  <a href="#">
+                    <i class="fab fa-google-plus-g"></i>
                   </a>
                 </div>
               </div>
@@ -65,8 +51,7 @@
               <h3>Quick Links</h3>
               <ul>
                 <li>
-                  <font-awesome-icon :icon="['fas', 'dot-circle']" class="icon_fter" />
-                  <router-link :to="{ name: 'PageNotFound' }">Create Post</router-link>
+                  <a href="#!"> Create Post </a>
                 </li>
               </ul>
             </div>
@@ -74,35 +59,25 @@
               <h3>Our Services</h3>
               <ul>
                 <li>
-                  <font-awesome-icon :icon="['fas', 'dot-circle']" class="icon_fter" />
-                  <a href="#"> About Companny </a>
+                  <a href="#!"> About Companny </a>
                 </li>
               </ul>
             </div>
             <div class="col-lg-3 item">
               <h3>Contact Us</h3>
               <div class="location_item d-flex align-items-center">
-                <font-awesome-icon
-                  :icon="['fas', 'map-marker-alt']"
-                  class="icon_location"
-                />
                 <div class="text">
                   <span>Message us</span>
                   <h5>support@gmail.com</h5>
                 </div>
               </div>
               <div class="location_item d-flex align-items-center">
-                <font-awesome-icon :icon="['fas', 'phone']" class="icon_location" />
                 <div class="text">
                   <span>Message us</span>
                   <h5>support@gmail.com</h5>
                 </div>
               </div>
               <div class="location_item d-flex align-items-center">
-                <font-awesome-icon
-                  :icon="['fas', 'envelope-open']"
-                  class="icon_location"
-                />
                 <div class="text">
                   <span>Message us</span>
                   <h5>support@gmail.com</h5>
@@ -116,9 +91,7 @@
         <div class="row">
           <div class="coppy_right">
             <hr />
-            <a href="#" class="onTop">
-              <font-awesome-icon :icon="['fas', 'arrow-up']" class="icon_onTop" />
-            </a>
+            <a href="#!" class="onTop"> <i class="fas fa-arrow-up"></i> </a>
           </div>
         </div>
       </div>
@@ -143,49 +116,11 @@
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      facebook: "",
-      twitter: "",
-      instagram: "",
-      googlePlus: "",
-    };
-  },
-
-  mounted() {
-    this.$store.dispatch("getApiLinks");
-  },
-
-  computed: {
-    links() {
-      return this.$store.getters.getLinks;
-    },
-  },
-
-  watch: {
-    links() {
-      for (let i = 0; i < this.links.length; i++) {
-        if (this.links[i].config_key === "facebook") {
-          this.facebook = this.links[i].config_value;
-        }
-        if (this.links[i].config_key === "twitter") {
-          this.twitter = this.links[i].config_value;
-        }
-        if (this.links[i].config_key === "instagram") {
-          this.instagram = this.links[i].config_value;
-        }
-        if (this.links[i].config_key === "googlePlus") {
-          this.googlePlus = this.links[i].config_value;
-        }
-      }
-    },
-  },
-};
+export default {};
 </script>
 <style scoped>
 .footer {
-  background-image: url(/photos/footer/footer-bg-light.jpg);
+  background-image: url(/images/footer-bg-light.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 10px;
@@ -272,6 +207,9 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.footer_main .item:nth-child(1) .social .social_item a i {
+  color: white;
 }
 .footer_main .item:nth-child(1) .social .social_item:hover {
   opacity: 0.8;
@@ -369,7 +307,7 @@ export default {
   text-align: center;
 }
 
-.footer .coppy_right .onTop .icon_onTop {
+.footer .coppy_right .onTop i {
   font-size: 16px;
   color: #ffffff;
 }

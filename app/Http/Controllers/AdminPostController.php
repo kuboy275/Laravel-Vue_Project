@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Traits\StorageImageTrait;
-use App\Http\Requests\postAddRequest;
+use App\Http\Requests\PostRequest;
+use App\Traits\DeleteModelTrait;
 
 class AdminPostController extends Controller
 {
-    use StorageImageTrait;
-    private $post ;
+    
+    use StorageImageTrait , DeleteModelTrait;
+    
+    private $post;
     public function __construct(Post $post){
         $this->post = $post;
         
@@ -25,7 +28,7 @@ class AdminPostController extends Controller
         return view('admin.post.create');
     }
 
-    public function store(postAddRequest $request){
+    public function store(PostRequest $request){
         $dataInsert = [
             'title' => $request->title,
             'body' => $request->body,
@@ -64,19 +67,7 @@ class AdminPostController extends Controller
 
     public function delete($id){
 
-        try {
-            $this->post->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'message' => 'Succes'
-            ]);
-        } catch (\Exception $exception) {
-            Log::error('Message: ' . $exception->getMessage() . ' --- Line : ' . $exception->getLine());
-            return response()->json([
-                'code' => 500,
-                'message' => 'fail'
-            ], 500);
-        }
+        return $this->deleteModelTrait($id,$this->post);
 
     }
 }

@@ -20,7 +20,7 @@
           <div class="row">
               <div class="col-lg-12 mb-5">
                 
-                @can('link-add')
+                {{-- @can('link-add') --}}
                   
                 <div class="btn-group bg-success ">
                   <button class="btn text-white">Add</button>
@@ -34,7 +34,7 @@
                   </ul>
                 </div>
 
-                @endcan
+                {{-- @endcan --}}
 
               </div>
 
@@ -62,13 +62,13 @@
                       @can('link-edit')
                         <a href="{{ route('links.edit' , ['id'=>$link->id]) .'?type='.$link->type }}" class="btn btn-info">Sửa</a>
                       @endcan
-                      @can('link-delete')
+                      {{-- @can('link-delete') --}}
                         
                       <a href="{{ route('links.delete' , ['id'=>$link->id]) }}"
                         data-url="{{ route('links.delete' , ['id'=>$link->id]) }}"
                         class="btn btn-danger action_delete">Xóa</a>
                         
-                      @endcan
+                      {{-- @endcan --}}
                     </td>
                   </tr>
                     <?php $stt++ ; ?>

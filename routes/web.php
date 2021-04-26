@@ -1,48 +1,34 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/home',[
-    'as' => 'home',
-    'uses'=>'App\Http\Controllers\AdminHomeController@index'
-]);
+use App\Http\Controllers\AdminCommentController;
 
 // START ROUTE ADMIN
 
+
+Route::prefix('home')->group(function(){
+    Route::get("/" , [
+        'as' => 'home',
+        'uses'=> 'App\Http\Controllers\AdminHomeController@index',
+    ]);
+});
+
+
 Route::prefix('admin')->group(function () {
 
-    // START ROUTE LOGIN
-
-    Route::get('/', [
-        'as' => 'admin.login',
-        'uses' => 'App\Http\Controllers\AdminController@login'
-    ]);
-    Route::post('/', [
-        'as' => 'admin.postLogin',
-        'uses' => 'App\Http\Controllers\AdminController@postLogin'
-    ]);
-
-    Route::get('/logout', [
-        'as' => 'admin.logout',
-        'uses' => 'App\Http\Controllers\AdminController@logout'
-    ]);
-
-    // END ROUTE LOGIN
-    //---------------------------------
     // START ROUTE CATEGORY
-
     Route::prefix('categories')->group(function () {
             
         Route::get('/index', [
             'as' => 'categories.index' ,
             'uses' => 'App\Http\Controllers\CategoryController@index',
-            'middleware' => 'can:category-list'
+            // 'middleware' => 'can:category-list'
         ]);
 
         Route::get('/create', [
             'as' => 'categories.create' ,
             'uses' => 'App\Http\Controllers\CategoryController@create',
-            'middleware' => 'can:category-add'
+            // 'middleware' => 'can:category-add'
         ]);
 
     
@@ -55,7 +41,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [
             'as' => 'categories.edit' ,
             'uses' => 'App\Http\Controllers\CategoryController@edit',
-            'middleware' => 'can:category-edit'
+            // 'middleware' => 'can:category-edit'
         ]);
 
         Route::post('/update/{id}', [
@@ -66,7 +52,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}', [
             'as' => 'categories.delete' ,
             'uses' => 'App\Http\Controllers\CategoryController@delete',
-            'middleware' => 'can:category-delete'
+            // 'middleware' => 'can:category-delete'
         ]);
     });
 
@@ -81,13 +67,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/index', [
             'as' => 'menus.index' ,
             'uses' => 'App\Http\Controllers\MenuController@index',
-            'middleware' => 'can:menu-list'
+            // 'middleware' => 'can:menu-list'
         ]);
 
         Route::get('/create', [
             'as' => 'menus.create' ,
             'uses' => 'App\Http\Controllers\MenuController@create',
-            'middleware' => 'can:menu-add'
+            // 'middleware' => 'can:menu-add'
         ]);
     
         Route::post('/store', [
@@ -98,7 +84,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [
             'as' => 'menus.edit' ,
             'uses' => 'App\Http\Controllers\MenuController@edit',
-            'middleware' => 'can:menu-edit'
+            // 'middleware' => 'can:menu-edit'
         ]);
     
         Route::post('/update/{id}', [
@@ -109,7 +95,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}', [
             'as' => 'menus.delete' ,
             'uses' => 'App\Http\Controllers\MenuController@delete',
-            'middleware' => 'can:menu-delete'
+            // 'middleware' => 'can:menu-delete'
         ]);
     
     });
@@ -125,13 +111,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/index', [
             'as' => 'product.index' ,
             'uses' => 'App\Http\Controllers\AdminProductController@index',
-            'middleware' => 'can:product-list'
+            // 'middleware' => 'can:product-list'
         ]);
 
         Route::get('/create', [
             'as' => 'product.create' ,
             'uses' => 'App\Http\Controllers\AdminProductController@create',
-            'middleware' => 'can:product-add'
+            // 'middleware' => 'can:product-add'
         ]);
         
         Route::post('/store', [
@@ -142,7 +128,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}', [
             'as' => 'product.edit' ,
             'uses' => 'App\Http\Controllers\AdminProductController@edit',
-            'middleware' => 'can:product-edit,id'
+            // 'middleware' => 'can:product-edit,id'
         ]);
 
         Route::post('/update/{id}', [
@@ -153,7 +139,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}', [
             'as' => 'product.delete' ,
             'uses' => 'App\Http\Controllers\AdminProductController@delete',
-            'middleware' => 'can:product-delete'
+            // 'middleware' => 'can:product-delete'
         ]);
 
     });
@@ -168,13 +154,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/index', [
             'as' => 'slider.index' ,
             'uses' => 'App\Http\Controllers\AdminSliderController@index',
-            'middleware' => 'can:slider-list'
+            // 'middleware' => 'can:slider-list'
         ]);
         
         Route::get('/create', [
             'as' => 'slider.create' ,
             'uses' => 'App\Http\Controllers\AdminSliderController@create',
-            'middleware' => 'can:slider-add'
+            // 'middleware' => 'can:slider-add'
         ]);
 
         Route::post('/store', [
@@ -185,7 +171,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}' , [
             'as' => 'slider.edit',
             'uses' =>  'App\Http\Controllers\AdminSliderController@edit',
-            'middleware' => 'can:slider-edit'
+            // 'middleware' => 'can:slider-edit'
         ]);
 
         Route::post('/update/{id}',[
@@ -196,7 +182,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}',[
             'as' => 'slider.delete',
             'uses' =>   'App\Http\Controllers\AdminSliderController@delete',
-            'middleware' => 'can:slider-delete'
+            // 'middleware' => 'can:slider-delete'
         ]);
 
     });
@@ -212,7 +198,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/index', [
             'as' => 'links.index' ,
             'uses' => 'App\Http\Controllers\AdminLinkController@index',
-            'middleware' => 'can:link-list'
+            // 'middleware' => 'can:link-list'
         ]);
 
         Route::get('/create', [
@@ -355,22 +341,6 @@ Route::prefix('admin')->group(function () {
 
     //----------------------------------------------------------------
 
-
-    // START ROUTE CUSTOMER CONTACT
-
-    Route::prefix('customer')->group(function(){
-        Route::get('/index',[
-            'as' => 'customer.index',
-            'uses'=> 'App\Http\Controllers\AdminCustomerContact@index',
-            'middleware' => 'can:customer-list'
-        ]);
-    });
-
-    // END ROUTE CUSTOMER CONTACT
-
-    //----------------------------------------------------------------
-
-
     // START ROUTE POST BLOG
 
     Route::prefix('post')->group(function(){
@@ -378,13 +348,13 @@ Route::prefix('admin')->group(function () {
         Route::get('/index',[
             'as' => 'post.index',
             'uses' => 'App\Http\Controllers\AdminPostController@index',
-            'middleware' => 'can:post-list'
+            // 'middleware' => 'can:post-list'
 
         ]);
         Route::get('/create',[
             'as' => 'post.create',
             'uses' => 'App\Http\Controllers\AdminPostController@create',
-            'middleware' => 'can:post-add'
+            // 'middleware' => 'can:post-add'
  
         ]);
         Route::post('/store',[
@@ -395,7 +365,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{id}',[
             'as' => 'post.edit',
             'uses' => 'App\Http\Controllers\AdminPostController@edit',
-            'middleware' => 'can:post-edit'
+            // 'middleware' => 'can:post-edit'
 
         ]);
         Route::post('/update/{id}',[
@@ -405,22 +375,50 @@ Route::prefix('admin')->group(function () {
         Route::get('/delete/{id}',[
             'as' => 'post.delete',
             'uses' => 'App\Http\Controllers\AdminPostController@delete',
-            'middleware' => 'can:post-delete'
+            // 'middleware' => 'can:post-delete'
         ]);
 
     });
 
-
     // END ROUTE POST BLOG
 
+    Route::prefix("order")->group(function(){
+        Route::get("/index",[
+            'as' => 'order.index',
+            'uses' =>'App\Http\Controllers\OrderController@index'
+        ]);
+        Route::post("/",[
+            'as' => 'order.store',
+            'uses' =>'App\Http\Controllers\OrderController@store'
+        ]);
+        Route::get("/delete/{id}",[
+            'as' => 'order.delete',
+            'uses' =>'App\Http\Controllers\OrderController@delete'
+        ]);
+    });
+    
+    Route::prefix('comment')->group(function(){
+        Route::get('/index',[
+            'as' => 'comment.index',
+            'uses' => 'App\Http\Controllers\AdminCommentController@index'
+        ]);
+        Route::get('/delete/{id}', [
+            'as' => 'comment.delete',
+            'uses' => 'App\Http\Controllers\AdminCommentController@delete'
+        ]);
+    });
 });
 
 // END ROUTE ADMIN
 
 //-------------------------------------------------------------------------------
 
-Route::get('/{any}',[
-    'as' => 'vue-router',
-    'uses' => 'App\Http\Controllers\VueController@index'
-])->where('any','.*');
+Route::get('/{any}',function(){
+    // phpinfo();
+    return view('exampleVue');
+})->where('any','.*');
 
+// Route::get('/clear-cache', function() {
+//     $exitCode = Artisan::call('config:cache');
+//     return 'DONE'; //Return anything
+// });

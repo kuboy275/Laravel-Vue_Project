@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Components\Recusive;
-use App\Http\Requests\productAddRequest;
+use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductTag;
 use App\Models\Tag;
 use App\Traits\StorageImageTrait;
+use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,8 @@ use Illuminate\Support\Facades\Log;
 
 class AdminProductController extends Controller
 {
-    use StorageImageTrait;
+    use StorageImageTrait,DeleteModelTrait;
+
     private $category;
     private $product;
     private $productImage;
@@ -52,7 +54,7 @@ class AdminProductController extends Controller
         return view('admin.product.add', compact('htmlOption'));
     }
 
-    public function store(productAddRequest $request)
+    public function store(ProductRequest $request)
     {
 
         try {
@@ -61,7 +63,7 @@ class AdminProductController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'content' => $request->contents,
-                'user_id' => auth()->id(),
+                // 'user_id' => auth()->id(),
                 'category_id' => $request->category_id,
             ];
             $dataUploadFeatureImg = $this->storageTraitUpload($request, 'feature_img_path', 'product');
@@ -120,7 +122,7 @@ class AdminProductController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'content' => $request->contents,
-                'user_id' => auth()->id(),
+                // 'user_id' => auth()->id(),
                 'category_id' => $request->category_id,
             ];
             $dataUploadFeatureImg = $this->storageTraitUpload($request, 'feature_img_path', 'product');
@@ -166,20 +168,7 @@ class AdminProductController extends Controller
 
     public function delete($id)
     {
-        try {
-            $this->product->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'message' => 'success',
-            ], 200);
-
-        } catch (\Exception $exception) {
-            Log::error('Message: ' . $exception->getMessage() . ' --- Line : ' . $exception->getLine());
-            return response()->json([
-                'code' => 500,
-                'message' => 'fail',
-            ], 500);
-        }
+        return $this->deleteModelTrait($id,$this->product);
     }
 
 }

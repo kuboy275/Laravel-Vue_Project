@@ -2,7 +2,7 @@
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
           <img src=" {{ asset('adminlte/dist/img/AdminLTELogo.png')}} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">AdminLTE 3</span>
+          <span class="brand-text font-weight-light">Speedy Car</span>
         </a>
 
         <!-- Sidebar -->
@@ -34,21 +34,29 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
               <li class="nav-item">
-                <a href="{{ route('customer.index') }}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
-                  <p>
-                    Customer Contact
-                    <span class="right badge badge-danger ">New</span>
-                  </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href=" {{ route('post.index') }} " class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
                   <p>
                     <span class="right badge badge-danger ">New</span>
                       Blog Post
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href=" {{ route('comment.index') }} " class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    <span class="right badge badge-danger ">New</span>
+                    Comment Blog 
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href=" {{ route('order.index') }} " class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    <span class="right badge badge-danger ">New</span>
+                    Orders 
                   </p>
                 </a>
               </li>
