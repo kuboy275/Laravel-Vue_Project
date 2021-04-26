@@ -19,9 +19,7 @@
         <div class="container-fluid">
           <div class="row">
               <div class="col-lg-12 text-right">
-                @can('category-add')
                   <a href="{{route('permissions.create')}}" class="btn btn-success my-2">Add</a>
-                @endcan
               </div>
 
               <div class="col-lg-12">

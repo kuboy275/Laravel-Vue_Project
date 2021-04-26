@@ -3,13 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
+use App\Models\order;
 use App\Models\User;
+use App\Models\Post;
+use App\Models\CommentBlog;
+use App\Models\Category;
+use App\Models\Link;
 
 class AdminHomeController extends Controller
 {
     public function index(){
-        $users = Auth::user()->name;
-        return view('home',compact('users'));
+        $products = Product::count();
+        $orders = Order::count();
+        $users = User::count();
+        $blogs = Post::count();
+        $comments = CommentBlog::count();
+        $categories= Category::count();
+        $links= Link::count();
+
+        return view('home',
+        compact(['products','orders','users','blogs','comments','categories','links']));
     }
+
 }

@@ -24,7 +24,6 @@ class PermissionGateAndPolicyAccess
         Gate::define('link-add', 'App\Policies\LinkPolicy@create');
         Gate::define('link-edit', 'App\Policies\LinkPolicy@update');
         Gate::define('link-delete', 'App\Policies\LinkPolicy@delete');
-
     }
     public function defineGateSlider(){
         Gate::define('slider-list', 'App\Policies\SliderPolicy@view');
@@ -35,7 +34,6 @@ class PermissionGateAndPolicyAccess
 
     // PERMISSION FOR CATEGORY
     public function defineGateCategory(){
-
         Gate::define('category-list', 'App\Policies\CategoryPolicy@view');
         Gate::define('category-add', 'App\Policies\CategoryPolicy@create');
         Gate::define('category-edit', 'App\Policies\CategoryPolicy@update');

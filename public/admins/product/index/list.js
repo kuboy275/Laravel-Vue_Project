@@ -2,7 +2,7 @@ function actionDelete(event) {
     event.preventDefault();
     let urlRequest = $(this).data('url');
     let that = $(this);
-
+    console.log(urlRequest);
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -17,6 +17,7 @@ function actionDelete(event) {
                 type: 'GET',
                 url: urlRequest,
                 success: function(data) {
+                    console.log(data);
                     if (data.code == 200) {
                         that.parent().parent().remove();
                         Swal.fire(

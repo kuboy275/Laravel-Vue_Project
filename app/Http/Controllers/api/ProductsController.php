@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Events\SearchEvent;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Products as ProductsResources;
-use App\Http\Resources\ProductsCollection;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -16,41 +13,17 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::get();
-        return new ProductsCollection($products);
+        $products = Product::Paginate(3);
+        if ($request->has('name')) {
+            $user->where('name', 'LIKE', '%' . $request->name . '%');
+        }
+        return response()->json([
+            'status'=> 'success',
+            'data'=> $products
+        ]);
     }
-    public function latest()
-    {
-        $products = Product::latest()->paginate(8);
-        return new ProductsCollection($products);
-    }
-
-    public function search(Request $request)
-    {
-        $query = $request->query('query');
-        $products = Product::where('name', 'like', '%' . $query . '%')
-            ->orWhere('price', 'like', '%' . $query . '%')
-            ->get();
-
-        //broadcast search results with Pusher channels
-        event(new SearchEvent($products));
-        return new ProductsCollection($products);
-        // return response()->json(['search' => $products] , 200);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
@@ -59,29 +32,33 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        return new ProductsResources(Product::findOrFail($id));
+        $product = Product::findOrFail($id);
+        return response()->json([
+            'status' => 'success',
+            'data' => $product
+        ]);
+    }
+    public function latest()
+    {
+        $products = Product::latest()->take(8)->get();
+        return response()->json([
+            'status'=> 'success',
+            'data'=> $products
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function search(Request $request)
     {
-        //
+        $query = $request->query('query');
+        $products = Product::where('name', 'like', '%' . $query . '%')
+            ->orWhere('price', 'like', '%' . $query . '%')
+            ->paginate(9);
+
+
+        return response()->json([
+            'status'=> 'success',
+            'data'=> $products 
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

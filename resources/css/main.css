@@ -25,15 +25,6 @@
 }
 
 
-/* .tab-content>.tab-pane.active .img-show .img-block {
-    display: block;
-}
-
-.tab-content>.tab-pane .img-show .img-block {
-    display: none;
-} */
-
-
 /* ------------------------------------------ */
 
 
@@ -283,4 +274,29 @@
 .productsItem .active a {
     background-color: #0988ff;
     color: white!important;
+}
+
+
+/* custome title */
+
+.title-all h1 {
+    font-size: 55px;
+    letter-spacing: -2px;
+    color: #232628;
+    font-weight: 700;
+}
+
+.title-all h1 span {
+    color: #0988FF;
+}
+
+.title-all p {
+    font-size: 16px;
+    line-height: 28px;
+    color: #888888;
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none!important;
 }

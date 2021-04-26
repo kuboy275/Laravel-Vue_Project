@@ -7,10 +7,13 @@ use App\Models\Category;
 use App\Components\Recusive;
 use Illuminate\Support\Str;
 // use App\Repositories\CategoryRepository;
-use App\Http\Requests\categoryAddRequest;
+use App\Http\Requests\CategoryRequest;
+use App\Traits\DeleteModelTrait;
 
 class CategoryController extends Controller
 {   
+    use DeleteModelTrait;
+
     private $category;
     
     public function __construct(Category $category){
@@ -36,7 +39,7 @@ class CategoryController extends Controller
         return view('admin.category.add' , compact('htmlOption'));    
     }
 
-    public function store(categoryAddRequest $req){
+    public function store(CategoryRequest $req){
         $this->category->create([
             'name'=> $req->name,
             'parent_id' => $req->parent_id,
@@ -53,7 +56,7 @@ class CategoryController extends Controller
         return view('admin.category.edit', compact('category', 'htmlOption'));
     }
 
-    public function update(categoryAddRequest $req,$id){
+    public function update(CategoryRequest $req,$id){
         $this->category->find($id)->update([
             'name'=> $req->name,
             'parent_id' => $req->parent_id,
@@ -63,19 +66,7 @@ class CategoryController extends Controller
     }
 
     public function delete($id) {
-        try {
-            $this->category->find($id)->delete();
-            return response()->json([
-                'code' => 200,
-                'message' => 'success'
-            ], 200);
-        } catch (\Exception $exception) {
-            Log::error('Message: ' . $exception->getMessage() . ' --- Line : ' . $exception->getLine());
-            return response()->json([
-                'code' => 500,
-                'message' => 'fail'
-            ], 500);
-        }
+        return $this->deleteModelTrait($id,$this->category);
     }
 
 }

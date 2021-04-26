@@ -89,7 +89,6 @@ class AdminUserController extends Controller
 
     public function delete($id)
     {
-
         return $this->deleteModelTrait($id, $this->user);
     }
 }

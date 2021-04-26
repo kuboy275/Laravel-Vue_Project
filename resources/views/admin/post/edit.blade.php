@@ -39,7 +39,7 @@
 
                           <textarea
                             name="body"
-                            class="form-control"
+                            class="form-control tinymce-editor"
                             cols="40" rows="10"  
                             placeholder="Nhập nội dung miêu tả" >
 
@@ -76,4 +76,15 @@
       </div>
     </div>
 
+@endsection
+
+@section('js')
+  <script src="https://cdn.tiny.cloud/1/z3zhj4cewb25ul981erngb3h50ixs5pqhc9ofuqepx2y6kl0/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+        tinymce.init({
+          selector: 'textarea.tinymce-editor',
+          plugins: 'code',
+          toolbar: 'undo redo | link image | code',
+        })
+  </script>
 @endsection

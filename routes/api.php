@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\CategoryController;
-use App\Http\Controllers\api\CustomerContact;
 use App\Http\Controllers\api\ProductsController;
 use App\Http\Controllers\api\ProductImageController;
 use App\Http\Controllers\api\SlideController;
@@ -10,8 +9,8 @@ use App\Http\Controllers\api\LinksController;
 use App\Http\Controllers\api\TagsController;
 use App\Http\Controllers\api\ProductsTagController;
 use App\Http\Controllers\api\PostController;
-use App\Http\Controllers\PassportAuthController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\CommentBlogController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,38 +22,29 @@ use App\Http\Controllers\CartController;
 |
  */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+// LOCATION
+Route::get('links',[LinksController::class,'index']);
+Route::get('tags',[ TagsController::class,'index']);
 
-// Route::namespace('Api')->group(function() {
-    // Route::get('category',[CategoryController::class,'index'] );
-    // Route::post('category',[CategoryController::class,'store'] );
-    // Route::put('category',[CategoryController::class,'update'] );
-    // Route::delete('category',[CategoryController::class,'destroy'] );
-    //});
+// SHOP
+Route::group(['prefix' => 'products'], function () {
     
-// Route::prefix('v1')->group(function(){
-//     Route::apiResource('category', CategoryController::class);
-// });
+    Route::resource('index',ProductsController::class);
+    Route::resource('images',ProductImageController::class)->only(['index','show']);
+    
+    Route::get('tags', [ProductsTagController::class,'index']);
+    Route::get('latest', [ProductsController::class,'latest']);
+    Route::get('category', [CategoryController::class , 'index']);
+    Route::post('search',[ProductsController::class,'search']);
+    
+});
+//  BLOG
+Route::resource('posts', PostController::class)->only(['index','show']);
+Route::resource('comment' , CommentBlogController::class)->only(['store','show']);
+Route::get('slider',[SlideController::class,'index']);
 
-Route::apiResource('category', CategoryController::class);
-Route::apiResource('customer',CustomerContact::class);
-
-Route::apiResource('products',ProductsController::class);
-Route::get('/search',[ProductsController::class,'search']);
-Route::get('/product-latest', [ProductsController::class,'latest']);
-
-Route::apiResource('product-image',ProductImageController::class);
-Route::apiResource('slide',SlideController::class);
-Route::apiResource('links',LinksController::class);
-Route::resource('tags', TagsController::class);
-Route::resource('product-tag', ProductsTagController::class);
-Route::resource('posts', PostController::class);
-
-
-Route::post('register', [PassportAuthController::class, 'register']);
-Route::post('login', [PassportAuthController::class, 'login']);
-// Route::get('user',[PassportAuthController::class, 'index']);
-
-Route::post('cart',[CartController::class,'store']);
+//  AUTH
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('register' , [AuthController::class,'register']);
+    Route::post('login' , [AuthController::class,'login']);
+});
