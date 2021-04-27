@@ -21,7 +21,7 @@ class UserTableSeeder extends Seeder
         $user->name = 'Admin Heroku';
         $user->email = 'admin@it.com';
         $user->password = bcrypt('admin');
-        $user->is_admin = true;
+        $user->is_admin = 1;
         $user->created_at = new DateTime;
         $user->save();
     }
