@@ -18,8 +18,8 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = 'Admin Heroku';
-        $user->email = 'admin@it.com';
+        $user->name = 'Heroku Admin';
+        $user->email = 'admin@heroku.com';
         $user->password = bcrypt('admin');
         $user->is_admin = 1;
         $user->created_at = new DateTime;

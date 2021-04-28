@@ -57,13 +57,10 @@
           <a href="#" class="nav-link" v-else> Hi: {{ user.name }} </a>
         </li>
         <li v-if="user.is_admin == 1">
-          <!-- <a href="http://127.0.0.1:8000/home" class="nav-link">
-            <i class="fas fa-chart-line mr-1"></i> Dasboard Admin</a
-          > -->
-          <router-link to="/home" class="nav-link">Dash</router-link>
+          <a href="/home" class="nav-link">Dashboard </a>
         </li>
         <li v-else>
-          <a href="/userboard" class="nav-link"> User Dasboard </a>
+          <a href="/home" class="nav-link"> User Dasboard </a>
         </li>
         <li>
           <a href="#" class="nav-link" @click="logout">

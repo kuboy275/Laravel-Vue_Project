@@ -2541,9 +2541,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2879,10 +2876,8 @@ __webpack_require__.r(__webpack_exports__);
         quantity: this.quantity,
         user_id: this.$store.getters.GET_USER.id
       };
-      axios.post("/admin/order/", form).then(function (response) {
+      axios.post("/admin/order", form).then(function (response) {
         _this2.$router.push("/confirm");
-
-        console.log(response);
       })["catch"](function (error) {
         _this2.err = error.response.data.errors;
       });
@@ -53098,24 +53093,17 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _vm.user.is_admin == 1
-                  ? _c(
-                      "li",
-                      [
-                        _c(
-                          "router-link",
-                          { staticClass: "nav-link", attrs: { to: "/home" } },
-                          [_vm._v("Dash")]
-                        )
-                      ],
-                      1
-                    )
+                  ? _c("li", [
+                      _c(
+                        "a",
+                        { staticClass: "nav-link", attrs: { href: "/home" } },
+                        [_vm._v("Dashboard ")]
+                      )
+                    ])
                   : _c("li", [
                       _c(
                         "a",
-                        {
-                          staticClass: "nav-link",
-                          attrs: { href: "/userboard" }
-                        },
+                        { staticClass: "nav-link", attrs: { href: "/home" } },
                         [_vm._v(" User Dasboard ")]
                       )
                     ]),
@@ -54715,7 +54703,7 @@ var render = function() {
               "div",
               {
                 key: product.id,
-                staticClass: "col-lg-3 col-md-3 col-sm-6 col-6 mb-5 mt-3"
+                staticClass: "col-lg-3 col-md-4 col-sm-6 col-12 mb-5 mt-3"
               },
               [
                 _c("div", { staticClass: "item" }, [
@@ -81049,8 +81037,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_About__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/About */ "./resources/js/pages/About.vue");
 /* harmony import */ var _pages_sign_login__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/sign/login */ "./resources/js/pages/sign/login.vue");
 /* harmony import */ var _pages_sign_register__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/sign/register */ "./resources/js/pages/sign/register.vue");
-var _this = undefined;
-
 
 
 
@@ -81079,19 +81065,17 @@ var isAuth = function isAuth(to, from, next) {
       name: 'home'
     });
   }
-};
+}; // const isHomeAdmin = (to, from, next) => {
+//     let checkAuth = store.getters.GET_USER.is_admin;
+//     if (checkAuth !== 1) {
+//         console.log(checkAuth);
+//         console.log(window.location.href);
+//         window.location.replace('/');
+//     } else {
+//         window.location.replace('/home');
+//     }
+// }
 
-var isHomeAdmin = function isHomeAdmin(to, from, next) {
-  var checkAuth = _store_index__WEBPACK_IMPORTED_MODULE_2__["default"].getters.GET_USER.is_admin;
-  console.log(checkAuth);
-
-  if (checkAuth !== 1) {
-    _this.$router.push('www.yoursite.com/blog'); // next({ name: 'notfound' })
-
-  } else {
-    next();
-  }
-};
 
 var routes = [{
   path: "*",
@@ -81142,8 +81126,9 @@ var routes = [{
   beforeEnter: isAuth
 }, {
   name: 'admin-home',
-  path: '/home',
-  beforeEnter: isHomeAdmin
+  path: '/home' // beforeEnter: isAuth,
+  // meta: { requiresAuth: true },
+
 }, {
   name: 'blog-detail',
   path: '/blog-detail/:id',
@@ -81184,8 +81169,7 @@ router.beforeEach(function (to, from, next) {
         if (user.is_admin == 1) {
           next();
         } else {
-          window.location.href = "http://127.0.0.1:8000/home";
-          window.location.replace("http://www.w3schools.com"); // next({ name: 'notfound' })
+          window.location.replace("/");
         }
       }
 

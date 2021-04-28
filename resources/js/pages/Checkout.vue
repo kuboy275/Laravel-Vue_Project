@@ -174,10 +174,9 @@ export default {
       };
 
       axios
-        .post("/admin/order/", form)
+        .post("/admin/order", form)
         .then((response) => {
           this.$router.push("/confirm");
-          console.log(response);
         })
         .catch((error) => {
           this.err = error.response.data.errors;
