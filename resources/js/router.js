@@ -29,16 +29,16 @@ const isAuth = (to, from, next) => {
         next({ name: 'home' })
     }
 };
-const isHomeAdmin = (to, from, next) => {
-    let checkAuth = store.getters.GET_USER.is_admin;
-    console.log(checkAuth);
-    if (checkAuth !== 1) {
-        this.$router.push('www.yoursite.com/blog');
-        // next({ name: 'notfound' })
-    } else {
-        next();
-    }
-}
+// const isHomeAdmin = (to, from, next) => {
+//     let checkAuth = store.getters.GET_USER.is_admin;
+//     if (checkAuth !== 1) {
+//         console.log(checkAuth);
+//         console.log(window.location.href);
+//         window.location.replace('/');
+//     } else {
+//         window.location.replace('/home');
+//     }
+// }
 
 
 
@@ -99,7 +99,8 @@ const routes = [{
     {
         name: 'admin-home',
         path: '/home',
-        beforeEnter: isHomeAdmin,
+        // beforeEnter: isAuth,
+        // meta: { requiresAuth: true },
     },
     {
         name: 'blog-detail',
@@ -137,9 +138,7 @@ router.beforeEach((to, from, next) => {
                 if (user.is_admin == 1) {
                     next()
                 } else {
-                    window.location.href = "http://127.0.0.1:8000/home";
-                    window.location.replace("http://www.w3schools.com");
-                    // next({ name: 'notfound' })
+                    window.location.replace("/")
                 }
             }
             next();
