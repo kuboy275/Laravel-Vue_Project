@@ -13,12 +13,9 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $products = Product::Paginate(3);
-        if ($request->has('name')) {
-            $user->where('name', 'LIKE', '%' . $request->name . '%');
-        }
+        $products = Product::Paginate(9);
         return response()->json([
             'status'=> 'success',
             'data'=> $products
@@ -52,7 +49,7 @@ class ProductsController extends Controller
         $query = $request->query('query');
         $products = Product::where('name', 'like', '%' . $query . '%')
             ->orWhere('price', 'like', '%' . $query . '%')
-            ->paginate(9);
+            ->paginate(12);
 
 
         return response()->json([

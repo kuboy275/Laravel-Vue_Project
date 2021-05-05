@@ -1,17 +1,17 @@
 <template>
   <div class="confirm">
-    <div class="success text-white text-center">
-      <i class="fas fa-gift"></i>
+    <div class="success text-center">
+      <img src="/images/gif-box.gif" width="100%" alt="" />
       <h2>Your order is complete!</h2>
-      <p class="mb-5">You will be receving a confirmation email with order details.</p>
-      <a href="/"> See your orders </a>
+      <p class="mb-2">You will be receving a confirmation email with order details.</p>
+      <router-link :to="{ name: 'user-dash' }">See you orders</router-link>
     </div>
   </div>
 </template>
 
 <style scoped>
 .confirm {
-  background-image: linear-gradient(135deg, #5efce8 10%, #736efe 100%);
+  background: #fff;
   height: 100vh;
   overflow: hidden;
   z-index: 3;
@@ -23,24 +23,29 @@
   width: 100%;
 }
 .success {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 50px 100px;
-  background-image: linear-gradient(135deg, #43cbff 10%, #9708cc 100%);
+  padding-top: 0;
 }
-
-.success i {
-  font-size: 100px;
-  margin-bottom: 30px;
+.success img {
+  height: 300px;
+  object-fit: cover;
 }
 .success h2 {
+  color: #e94662;
   font-size: 40px;
-  margin-bottom: 20px;
 }
+
+.success p {
+  color: #cacaca;
+  font-weight: 500;
+}
+
 a {
   background-image: linear-gradient(to right, #eb3349 0%, #f45c43 51%, #eb3349 100%);
 }

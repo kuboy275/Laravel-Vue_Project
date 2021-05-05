@@ -13,7 +13,9 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row">
-              {{-- <home-admin> Dit mem ay </home-admin> --}}
+              <div class="col-lg-12 mb-3">
+          
+              </div>
             </div>
             <div class="row">
               <div class="col-lg-3 col-6">
@@ -57,7 +59,8 @@
                   <div class="icon">
                     <i class="ion ion-person-add"></i>
                   </div>
-                  <a href="{{ route('users.index') }} " class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  <a href="#" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
+
                 </div>
               </div>
               <!-- ./col -->
@@ -90,9 +93,7 @@
                     <div class="progress" style="height: 5px">
                       <div class="progress-bar" style="width: {{ $links }} %"></div>
                     </div>
-                    <span class="progress-description">
-                      70% Increase in 30 Days
-                    </span>
+                
                   </div>
                   <!-- /.info-box-content -->
                 </div>
@@ -100,7 +101,7 @@
               </div>
               <!-- /.col -->
               <div class="col-md-4 col-sm-6 col-12">
-                <div class="info-box bg-gradient-warning">
+                <div class="info-box bg-gradient-success">
                   <span class="info-box-icon"><i class="fas fa-blog"></i></span>
     
                   <div class="info-box-content">
@@ -110,9 +111,7 @@
                     <div class="progress" style="height: 5px">
                       <div class="progress-bar" style="width: {{ $blogs +10}}% "></div>
                     </div>
-                    <span class="progress-description">
-                      70% Increase in 30 Days
-                    </span>
+                
                   </div>
                   <!-- /.info-box-content -->
                 </div>
@@ -130,9 +129,7 @@
                     <div class="progress" style="height: 5px">
                       <div class="progress-bar" style="width: {{ $comments + 10 }}%"></div>
                     </div>
-                    <span class="progress-description">
-                      70% Increase in 30 Days
-                    </span>
+                
                   </div>
                   <!-- /.info-box-content -->
                 </div>

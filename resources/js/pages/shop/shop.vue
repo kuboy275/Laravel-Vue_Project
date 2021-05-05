@@ -158,8 +158,9 @@ export default {
   methods: {
     searchProducts() {
       axios
-        .post("/api/products/search?query=" + this.query)
+        .get("/api/products/search?query=" + this.query)
         .then((response) => {
+          console.log(response.data.data.data);
           this.products = response.data.data.data;
           this.makePagination(response.data.data);
         })

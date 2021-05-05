@@ -70,7 +70,7 @@
                         <div class="card-header bg-danger ">
                             <h5 class="mb-0">
                                 <label for="">
-                                <input type="checkbox" name="" class="checkbox_wrapper" >
+                                  <input type="checkbox" name="" class="checkbox_wrapper" >
                                 </label>
                                Module  {{ $permissionParent->name }}
                             </h5>

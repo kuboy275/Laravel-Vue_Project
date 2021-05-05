@@ -1,5 +1,6 @@
 <template>
   <div class="checkout">
+    <loading :active="isLoading" />
     <banner v-bind:title="title" />
     <div class="container">
       <div class="row my-5">
@@ -16,8 +17,8 @@
           <div class="item bg-border2">
             <i class="fas fa-map-marker-alt bg1"></i>
             <div class="text">
-              <h2>Location</h2>
-              <span>California</span>
+              <h2>Phone</h2>
+              <span>+84 935571938</span>
             </div>
           </div>
         </div>
@@ -25,8 +26,8 @@
           <div class="item bg-border3">
             <i class="fas fa-map-marker-alt bg2"></i>
             <div class="text">
-              <h2>Location</h2>
-              <span>California</span>
+              <h2>Email</h2>
+              <span>abcadmin@gmail.com</span>
             </div>
           </div>
         </div>
@@ -76,9 +77,9 @@
               ></span>
             </div>
             <div class="form-group">
-              <label for="sel1">Phương thức thanh toán</label>
+              <label for="sel1">Phương thức liên hệ</label>
               <select class="form-control" id="sel1">
-                <option>Giao hàng tận nhà</option>
+                <option>Liên hệ qua số điện thoại</option>
               </select>
             </div>
             <div class="form-group">
@@ -125,9 +126,11 @@
 
 <script>
 import Banner from "@/components/Banner";
+import Loading from "../components/Loading.vue";
 export default {
   components: {
     Banner,
+    Loading,
   },
   props: {
     pid: "",
@@ -144,6 +147,7 @@ export default {
       title: "Checkout",
       err: "",
       isLoggedIn: this.$store.getters.IF_AUTH,
+      isLoading: false,
     };
   },
 
@@ -172,14 +176,20 @@ export default {
         quantity: this.quantity,
         user_id: this.$store.getters.GET_USER.id,
       };
-
+      this.isLoading = true;
       axios
-        .post("/admin/order", form)
+        .post("/api/order", form)
         .then((response) => {
-          this.$router.push("/confirm");
+          setTimeout(() => {
+            this.isLoading = false;
+            this.$router.push("/confirm");
+          }, 1000);
         })
         .catch((error) => {
-          this.err = error.response.data.errors;
+          setTimeout(() => {
+            this.isLoading = false;
+            this.err = error.response.data.errors;
+          }, 500);
         });
     },
   },
@@ -255,9 +265,9 @@ form select:focus {
   box-shadow: #f5f6f7 3px 3px 6px 0px inset, #f5f6f7 -3px -3px 6px 1px inset;
 }
 form h4 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
-  color: #eb4d4b;
+  color: #ee5a58;
 }
 form a {
   font-weight: 500;

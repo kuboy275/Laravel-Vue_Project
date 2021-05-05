@@ -11,6 +11,7 @@ use App\Http\Controllers\api\ProductsTagController;
 use App\Http\Controllers\api\PostController;
 use App\Http\Controllers\api\AuthController;
 use App\Http\Controllers\api\CommentBlogController;
+use App\Http\Controllers\api\OrderController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,17 +26,17 @@ use App\Http\Controllers\api\CommentBlogController;
 // LOCATION
 Route::get('links',[LinksController::class,'index']);
 Route::get('tags',[ TagsController::class,'index']);
+Route::resource('order', OrderController::class);
 
 // SHOP
 Route::group(['prefix' => 'products'], function () {
     
     Route::resource('index',ProductsController::class);
     Route::resource('images',ProductImageController::class)->only(['index','show']);
-    
     Route::get('tags', [ProductsTagController::class,'index']);
     Route::get('latest', [ProductsController::class,'latest']);
     Route::get('category', [CategoryController::class , 'index']);
-    Route::post('search',[ProductsController::class,'search']);
+    Route::get('search',[ProductsController::class,'search']);
     
 });
 //  BLOG

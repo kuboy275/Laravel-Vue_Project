@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Menu;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class MenuPolicy
@@ -13,10 +13,10 @@ class MenuPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(Admin $user)
     {
         //
     }
@@ -24,11 +24,11 @@ class MenuPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Menu  $menu
+     * @param  \App\Models\Admin  $user
+     * @param  \App\Models\Admin  $menu
      * @return mixed
      */
-    public function view(User $user)
+    public function view(Admin $user)
     {
         return $user->checkPermissionAccess('Menus_list');
     }

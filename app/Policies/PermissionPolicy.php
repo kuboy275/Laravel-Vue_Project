@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Post;
+use App\Models\Permission;
 use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PostPolicy
+class PermissionPolicy
 {
     use HandlesAuthorization;
 
@@ -25,12 +25,12 @@ class PostPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Permission  $permission
      * @return mixed
      */
     public function view(Admin $admin)
     {
-        return $admin->checkPermissionAccess('Post_list');
+        return $admin->checkPermissionAccess('Permission_list');
     }
 
     /**
@@ -41,38 +41,39 @@ class PostPolicy
      */
     public function create(Admin $admin)
     {
-        return $admin->checkPermissionAccess('Post_add');
+        return $admin->checkPermissionAccess('Permission_add');
+        
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Permission  $permission
      * @return mixed
      */
     public function update(Admin $admin)
     {
-        return $admin->checkPermissionAccess('Post_edit');
+        return $admin->checkPermissionAccess('Permission_edit');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Permission  $permission
      * @return mixed
      */
     public function delete(Admin $admin)
     {
-        return $admin->checkPermissionAccess('Post_delete');
+        return $admin->checkPermissionAccess('Permission_delete');
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Permission  $permission
      * @return mixed
      */
     public function restore(Admin $admin)
@@ -84,10 +85,10 @@ class PostPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Permission  $permission
      * @return mixed
      */
-    public function forceDelete(Admin $admin, Post $post)
+    public function forceDelete(Admin $admin, Permission $permission)
     {
         //
     }

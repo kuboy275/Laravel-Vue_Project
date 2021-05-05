@@ -59,16 +59,10 @@
                     <td style="vertical-align: inherit;" > {{ $link->config_key }} </td>
                     <td style="vertical-align: inherit;" > {{ $link->config_value }} </td>
                     <td style="vertical-align: inherit">
-                      @can('link-edit')
-                        <a href="{{ route('links.edit' , ['id'=>$link->id]) .'?type='.$link->type }}" class="btn btn-info">Sửa</a>
-                      @endcan
-                      {{-- @can('link-delete') --}}
-                        
+                      <a href="{{ route('links.edit' , ['id'=>$link->id]) .'?type='.$link->type }}" class="btn btn-info">Sửa</a>
                       <a href="{{ route('links.delete' , ['id'=>$link->id]) }}"
                         data-url="{{ route('links.delete' , ['id'=>$link->id]) }}"
                         class="btn btn-danger action_delete">Xóa</a>
-                        
-                      {{-- @endcan --}}
                     </td>
                   </tr>
                     <?php $stt++ ; ?>

@@ -1,161 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 </head>
 
 <style>
-  @import url('https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css');
-  @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
-  html {
-    height: 100vh;
-    overflow: hidden;
-  }
-  body {
-  /* Remember to use the other versions for IE 10 and older browsers! */
+  
+/* BASIC */
+
+html {
+  background-color: #56baed;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+a {
+  color: #92badd;
+  display:inline-block;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+  color: #cccccc;
+}
+
+
+
+/* STRUCTURE */
+
+.wrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
   min-height: 100%;
-  font-family: 'lato', sans-serif;
-  color: #fff;
-  background: #222222;
-  background: #16222A; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #16222A , #3A6073); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #16222A , #3A6073); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 20px;
+}
+
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+#formFooter {
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  text-align: center;
+  -webkit-border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+/* TABS */
+
+h2.inactive {
+  color: #cccccc;
+}
+
+h2.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #5fbae9;
+}
+
+
+
+/* FORM TYPOGRAPHY*/
+
+input[type=button], input[type=submit], input[type=reset]  {
+  background-color: #56baed;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
+  background-color: #39ace7;
+}
+
+input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=text]:placeholder {
+  color: #cccccc;
+}
+
+
+
+/* ANIMATIONS */
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
   }
-  .container {
-    background:rgba(58,63,68,0.5);
-    border-radius: 5px;
-    box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
-    width:450px;
-    display: flex;  
-    flex-direction: column;
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
   }
-  .logo{
-    font-family: "museo-slab";  
-    font-size:20px;
-    text-align: center;
-    padding: 20px 20px 0;
-    margin:0;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
   }
-  .login-item {
-    color: #ffff;
-    padding:25px 25px 0;
-    margin: 20px 20px 0;	
-    border-radius: 3px;
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
   }
-  input {
-    border: 0;
-    color: inherit;
-    font: inherit;
-    margin: 0;
-    outline: 0;
-    padding: 0;
-    -webkit-transition: background-color .3s;
-    transition: background-color .3s;
-  }
-  .user:before {
-    content: '\f007';
-    font: 14px fontawesome;
-    color: #5b5b5b;
-  }
-  .lock:before {
-    content: '\f023';
-    font: 14px fontawesome;
-    color: #5b5b5b;
-  }
-  .form input[type="password"], .form input[type="text"], .form input[type="submit"] {
-    width: 100%;
-  }
-  .form-login label,
-  .form-login input[type="text"],
-  .form-login input[type="password"],
-  .form-login input[type="submit"] {
-    border-radius: 0.25rem;
-    padding: 1rem;
-    color: #3A3F44;  
-  }
-  .form-login label {
-    background-color: #222222;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-  .form-login input[type="text"], .form-login input[type="password"] {
-    background-color: #ffffff;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-  .form-login input[type="text"]:focus, .form-login input[type="text"]:hover, .form-login input[type="password"]:focus, .form-login input[type="password"]:hover {
-    background-color: #eeeeee;
-  }
-  .form-login input[type="submit"] {
-    background-color: #00B9BC;
-    color: #eee;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  .form-login input[type="submit"]:focus, .form-login input[type="submit"]:hover {
-    background-color: #197071;
-  }
-  .form-field {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 2rem;
-  }
-  .hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  .text--center {
-    text-align: center;
-  }
-  .form-login input[type="checkbox"]{
-    margin-left: 10px;
-  }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fadeIn {
+  opacity:0;
+  -webkit-animation:fadeIn ease-in 1;
+  -moz-animation:fadeIn ease-in 1;
+  animation:fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode:forwards;
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:1s;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
+}
+
+.fadeIn.first {
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+
+.fadeIn.second {
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+
+.fadeIn.third {
+  -webkit-animation-delay: 0.8s;
+  -moz-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #56baed;
+  content: "";
+  transition: width 0.2s;
+}
+
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+
+.underlineHover:hover:after{
+  width: 100%;
+}
+
+
+
+/* OTHERS */
+
+*:focus {
+    outline: none;
+} 
+
+#icon {
+  width:60%;
+}
+
 </style>
-
 <body>
-<div class="container">
-    <div class="logo">Admin Login</div>
-    <div class="login-item">
+  
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
 
-      <form  method="post" class="form form-login">
+      <!-- Login Form -->
+      <form class="pt-4" method="POST" action=" {{ route('login') }} ">
         @csrf
-        <div class="form-field">
-          <input name="email" id="email" type="text" class="form-input" placeholder="email" required>
-        </div>
+        <input type="text" 
+          class="fadeIn second"
+          name="email"
+          placeholder="email"
+          autocomplete="off"
+          required
+          >
 
-        <div class="form-field">
-          <input name="password" id="login-password" type="password" class="form-input" placeholder="Password" required>
-        </div>
+          <div class="mt-2"> 
+            @error('email')
+              <div class="alert bg-danger text-white border-0  py-1">{{ $message }} !</div>
+            @enderror
+          </div>
 
-        <div class="form-field">
-            <p> Remember <p>
-          <input  type="checkbox" class="form-input" name="remember_me" >
-        </div>
+        <input type="text" 
+          id="password" 
+          class="fadeIn third" 
+          name="password"
+          placeholder="password"
+          required
+          >
 
-        <div class="form-field">
-          <input type="submit" name="submit" value="Login">
-        </div>
-
+          <div class="mt-2"> 
+            @error('password')
+              <div class="alert bg-danger text-white border-0  py-1">{{ $message }} !</div>
+            @enderror
+          </div>
+          @if(Session::has('msg'))
+            <div class="alert bg-danger text-white border-0  py-1">{{ Session::get('msg') }}</div>
+          @endif
+        <input type="submit" class="fadeIn fourth" value="Log In">
       </form>
-
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="/">Back to shop?</a>
+      </div>
+  
     </div>
-</div>
-
-
+  </div>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
 </html>

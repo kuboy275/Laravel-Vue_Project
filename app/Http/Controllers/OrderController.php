@@ -24,42 +24,7 @@ class OrderController extends Controller
         $orders = Order::paginate(7);
         return view("admin.orders.index" , compact("orders"));
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(OrderRequest $request)
-    {
-        $data = [
-            'fullname' => $request->fullname,
-            'note'=> $request->note,
-            'product_id' => $request->product_id,
-            'user_id' => $request->user_id,
-            'quantity'=> $request->quantity,
-            'address' => $request->address,
-            'phone' =>$request->phone
-        ];
 
-        $order = Order::create($data);
-        return response()->json([
-            'status' => "success",
-            'data' => $order,
-            'message' => $order ? 'Order Created!' : 'Error Creating Order'
-        ]);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-
-    }
 
     public function deliverOrder(Order $order)
     {

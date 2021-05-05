@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
-use DateTime;
-
-
+use Illuminate\Support\Facades\DB;
 
 class UserTableSeeder extends Seeder
 {
@@ -17,12 +14,12 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User();
-        $user->name = 'Heroku Admin';
-        $user->email = 'admin@heroku.com';
-        $user->password = bcrypt('admin');
-        $user->is_admin = 1;
-        $user->created_at = new DateTime;
-        $user->save();
+        DB::table('admins')->insert([
+            [
+                'name' => 'Admin',
+                'email' => 'admin@it.com',
+                'password' => bcrypt('admin'),
+            ]
+        ]);
     }
 }

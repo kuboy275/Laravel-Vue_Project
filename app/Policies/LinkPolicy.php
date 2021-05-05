@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Link;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LinkPolicy
@@ -13,10 +13,10 @@ class LinkPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(Admin $admin)
     {
         //
     }
@@ -24,59 +24,59 @@ class LinkPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Link  $link
      * @return mixed
      */
-    public function view(User $user )
+    public function view(Admin $admin )
     {
-        return $user->checkPermissionAccess('Links_list');
+        return $admin->checkPermissionAccess('Links_list');
 
     }
 
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Admin $admin)
     {
-        return $user->checkPermissionAccess('Links_add');
+        return $admin->checkPermissionAccess('Links_add');
     }
 
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Link  $link
      * @return mixed
      */
-    public function update(User $user)
+    public function update(Admin $admin)
     {
-        return $user->checkPermissionAccess('Links_edit');
+        return $admin->checkPermissionAccess('Links_edit');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Link  $link
      * @return mixed
      */
-    public function delete(User $user)
+    public function delete(Admin $admin)
     {
-        return $user->checkPermissionAccess('Links_delete');
+        return $admin->checkPermissionAccess('Links_delete');
     }
 
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Link  $link
      * @return mixed
      */
-    public function restore(User $user, Link $link)
+    public function restore(Admin $admin, Link $link)
     {
         //
     }
@@ -84,11 +84,11 @@ class LinkPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Link  $link
      * @return mixed
      */
-    public function forceDelete(User $user, Link $link)
+    public function forceDelete(Admin $admin, Link $link)
     {
         //
     }

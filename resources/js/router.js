@@ -18,6 +18,7 @@ import blog from './pages/blog/Blog';
 import BlogDetail from './pages/blog/BlogDetail';
 import gallery from './pages/gallery';
 import about from './pages/About';
+import UserDash from './pages/Dash';
 import login from './pages/sign/login';
 import register from './pages/sign/register';
 
@@ -29,16 +30,7 @@ const isAuth = (to, from, next) => {
         next({ name: 'home' })
     }
 };
-// const isHomeAdmin = (to, from, next) => {
-//     let checkAuth = store.getters.GET_USER.is_admin;
-//     if (checkAuth !== 1) {
-//         console.log(checkAuth);
-//         console.log(window.location.href);
-//         window.location.replace('/');
-//     } else {
-//         window.location.replace('/home');
-//     }
-// }
+
 
 
 
@@ -97,10 +89,12 @@ const routes = [{
         beforeEnter: isAuth,
     },
     {
-        name: 'admin-home',
-        path: '/home',
-        // beforeEnter: isAuth,
-        // meta: { requiresAuth: true },
+        name: 'user-dash',
+        path: '/user-dash',
+        component: UserDash,
+        meta: {
+            requireAuth: true,
+        }
     },
     {
         name: 'blog-detail',
@@ -112,6 +106,8 @@ const routes = [{
         path: '/about',
         component: about
     },
+
+
 
 ];
 

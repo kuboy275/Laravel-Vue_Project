@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Slider;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class SliderPolicy
@@ -13,10 +13,10 @@ class SliderPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(Admin $admin)
     {
         //
     }
@@ -24,58 +24,58 @@ class SliderPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Slider  $slider
      * @return mixed
      */
-    public function view(User $user)
+    public function view(Admin $admin)
     {
-        return $user->checkPermissionAccess('Slider_list');
+        return $admin->checkPermissionAccess('Slider_list');
     }
 
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Admin $admin)
     {
-        return $user->checkPermissionAccess('Slider_add');
+        return $admin->checkPermissionAccess('Slider_add');
     }
 
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Slider  $slider
      * @return mixed
      */
-    public function update(User $user)
+    public function update(Admin $admin)
     {
-        return $user->checkPermissionAccess('Slider_edit');
+        return $admin->checkPermissionAccess('Slider_edit');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Slider  $slider
      * @return mixed
      */
-    public function delete(User $user)
+    public function delete(Admin $admin)
     {
-        return $user->checkPermissionAccess('Slider_delete');
+        return $admin->checkPermissionAccess('Slider_delete');
     }
 
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Slider  $slider
      * @return mixed
      */
-    public function restore(User $user, Slider $slider)
+    public function restore(Admin $admin, Slider $slider)
     {
         //
     }
@@ -83,11 +83,11 @@ class SliderPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Slider  $slider
      * @return mixed
      */
-    public function forceDelete(User $user, Slider $slider)
+    public function forceDelete(Admin $admin, Slider $slider)
     {
         //
     }
