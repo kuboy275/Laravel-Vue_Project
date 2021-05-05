@@ -14,7 +14,7 @@ class AdminRoleController extends Controller
     private $permission;
     public function __construct(Role $role , Permission $permission){
         $this->role = $role;
-        $this->permission =$permission;
+        $this->permission = $permission;
     }
     public function index(){
         $roles = $this->role->paginate(10);
