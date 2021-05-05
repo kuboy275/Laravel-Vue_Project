@@ -30,6 +30,7 @@
                     <th>Product id</th>
                     <th>User id</th>
                     <th>Note</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
 
@@ -46,6 +47,7 @@
                     <td style="vertical-align: inherit;"> {{ $order->product_id }}</td>
                     <td style="vertical-align: inherit;"> {{ $order->user_id }}</td>
                     <td style="vertical-align: inherit;"> {{ $order->note }}</td>
+                    <td style="vertical-align: inherit;"> Kiểm hàng </td>
                     <td style="vertical-align: inherit">
                       <a href=""
                         data-url="{{ route('order.delete',['id'=>$order->id]) }}"

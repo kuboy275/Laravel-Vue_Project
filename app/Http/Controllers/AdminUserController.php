@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Role;
-use App\Models\User;
+use App\Models\Admin;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,19 +13,19 @@ use Illuminate\Support\Facades\Log;
 class AdminUserController extends Controller
 {
     use DeleteModelTrait;
-    private $user;
+    private $admin;
     private $role;
-    public function __construct(User $user, Role $role)
+    public function __construct(Admin $admin, Role $role)
     {
-        $this->user = $user;
+        $this->admin = $admin;
         $this->role = $role;
     }
 
     public function index()
     {
 
-        $users = $this->user->paginate(10);
-        return view('admin.user.index', compact('users'));
+        $admins = $this->admin->paginate(10);
+        return view('admin.user.index', compact('admins'));
 
     }
 
@@ -39,9 +39,8 @@ class AdminUserController extends Controller
     {
 
         try {
-
             DB::beginTransaction();
-            $user = $this->user->create([
+            $user = $this->admin->create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -60,10 +59,10 @@ class AdminUserController extends Controller
     public function edit($id)
     {
         $roles = $this->role->all();
-        $user = $this->user->find($id);
-        $roleOfUser = $user->roles;
+        $admin = $this->admin->find($id);
+        $roleOfUser = $admin->roles;
 
-        return view('admin.user.edit', compact('roles', 'user', 'roleOfUser'));
+        return view('admin.user.edit', compact('roles', 'admin', 'roleOfUser'));
     }
 
     public function update(Request $request, $id)
@@ -71,12 +70,12 @@ class AdminUserController extends Controller
         try {
 
             DB::beginTransaction();
-            $this->user->find($id)->update([
+            $this->admin->find($id)->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-            $user = $this->user->find($id);
+            $user = $this->admin->find($id);
             $user->roles()->sync($request->role_id);
             DB::commit();
             return redirect()->route('users.index');
@@ -89,6 +88,6 @@ class AdminUserController extends Controller
 
     public function delete($id)
     {
-        return $this->deleteModelTrait($id, $this->user);
+        return $this->deleteModelTrait($id, $this->admin);
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Policies;
 
 use App\Models\Product;
-use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProductPolicy
@@ -13,10 +13,10 @@ class ProductPolicy
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(Admin $admin)
     {
         //
     }
@@ -24,66 +24,71 @@ class ProductPolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Product  $product
      * @return mixed
      */
-    public function view(User $user)
+    public function view(Admin $admin)
     {
-        return $user->checkPermissionAccess('Products_list');
+        return $admin->checkPermissionAccess('Products_list');
     }
 
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Admin $admin)
     {
-        return $user->checkPermissionAccess('Products_add');
+        return $admin->checkPermissionAccess('Products_add');
     }
 
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Product  $product
      * @return mixed
      */
-    public function update(User $user ,$id )
+    public function update(Admin $admin)
     {
         
-        $product = Product::find($id);
 
+        // Cách 1 : kiểm tra đúng người tạo product mới được sửa
+
+        // $product = Product::find($id);
         // check permission , if id of user match user_id in product talbe when will licensed edit 
         // Kiểm tra đúng user id tạo sản phẩm phải trùng với id đăng nhập khi đó mới cho  update
-        if( $user->checkPermissionAccess('Products_edit') && $user->id === $product->user_id ){
-            return true;
-        }
-        return  false;
+        // if( $user->checkPermissionAccess('Products_edit') && $user->id === $product->user_id ){
+        //     return true;
+        // }
+        // return  false;
+
+        // cách 2 thông thường 
+        return $admin->checkPermissionAccess('Products_edit');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Product  $product
      * @return mixed
      */
-    public function delete(User $user)
+    public function delete(Admin $admin)
     {
-        return $user->checkPermissionAccess('Products_delete');
+        return $admin->checkPermissionAccess('Products_delete');
     }
 
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Product  $product
      * @return mixed
      */
-    public function restore(User $user, Product $product)
+    public function restore(Admin $admin, Product $product)
     {
         //
     }
@@ -91,11 +96,11 @@ class ProductPolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Admin  $user
      * @param  \App\Models\Product  $product
      * @return mixed
      */
-    public function forceDelete(User $user, Product $product)
+    public function forceDelete(Admin $admin, Product $product)
     {
         //
     }

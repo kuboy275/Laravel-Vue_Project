@@ -37,7 +37,7 @@
                 <tbody>
                 <?php $stt=1; ?>
 
-                @foreach($users  as $user)
+                @foreach($admins  as $user)
 
                   <tr>
                     <td style="vertical-align: inherit;" >{{  $stt }}</td>
@@ -60,7 +60,7 @@
                 </table>
               </div>
 
-                {{ $users->links() }} 
+                {{ $admins->links() }} 
 
           </div>
           <!-- /.row -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\User;
@@ -21,9 +22,29 @@ class AdminHomeController extends Controller
         $comments = CommentBlog::count();
         $categories= Category::count();
         $links= Link::count();
+       
 
-        return view('home',
-        compact(['products','orders','users','blogs','comments','categories','links']));
+        return view('home',compact([
+            'products','orders','users','blogs','comments','categories','links'
+        ]));
+
     }
+
+    public function info(){
+        $user = Auth::user();
+        dd($user);
+        return View::make('partials.hader',['users' => $user]);
+        // return view('partials.header',compact(['user']));
+    }
+
+    public function logout(Request $request){
+
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/loginAdmin');
+
+    }
+
 
 }

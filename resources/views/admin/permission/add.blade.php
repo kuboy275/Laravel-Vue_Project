@@ -19,18 +19,29 @@
                                     <div class="alert alert-danger mt-2 py-2">{{ $message }}</div>
                                 @enderror
                             </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>
+                                      <input type="checkbox" class="check_all">
+                                      Check All
+                                    </label>
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <div class="row">
                                     @foreach (config('permissions.module_childrent') as $moduleItemChilrent)
                                         <div class="col-md-3">
                                             <label for="">
-                                                <input type="checkbox" value="{{ $moduleItemChilrent }}"
+                                                <input class="check_child" 
+                                                    type="checkbox" 
+                                                    value="{{ $moduleItemChilrent }}"
                                                     name="module_chilrent[]">
-                                                {{ $moduleItemChilrent }}
+                                                    {{ $moduleItemChilrent }}
                                             </label>
                                         </div>
                                     @endforeach
-
                                 </div>
                             </div>
                             <div class="form-group">
@@ -47,4 +58,8 @@
             </div><!-- /.container-fluid -->
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('admins\permissions\add.js') }}"></script>
 @endsection

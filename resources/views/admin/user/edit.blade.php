@@ -25,7 +25,7 @@
           <div class="row">
               <div class="col-lg-6"> 
                   
-                  <form action="{{ route('users.update',['id'=>$user->id]) }}" method="post" enctype="multipart/form-data">
+                  <form action="{{ route('users.update',['id'=>$admin->id]) }}" method="post" enctype="multipart/form-data">
                       @csrf
 
                         <div class="form-group">
@@ -35,7 +35,7 @@
                                     class="form-control "
                                     placeholder="nhập tên " 
                                     name="name"
-                                    value="{{ $user->name }}"
+                                    value="{{ $admin->name }}"
                                     autocomplete="off">                   
                         </div>
 
@@ -46,7 +46,7 @@
                                     class="form-control "
                                     placeholder="nhập Email " 
                                     name="email"
-                                    value="{{ $user->email }}"
+                                    value="{{ $admin->email }}"
                                     autocomplete="off">
                         </div>
 

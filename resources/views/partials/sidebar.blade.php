@@ -66,7 +66,6 @@
                   <i class="nav-icon fas fa-th"></i>
                   <p>
                     Danh mục sản phẩm
-                    <span class="right badge badge-danger ">New</span>
                   </p>
                 </a>
               </li>

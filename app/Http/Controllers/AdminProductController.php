@@ -12,7 +12,6 @@ use App\Models\Tag;
 use App\Traits\StorageImageTrait;
 use App\Traits\DeleteModelTrait;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -63,7 +62,7 @@ class AdminProductController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'content' => $request->contents,
-                // 'user_id' => auth()->id(),
+                'user_id' => auth()->id(),
                 'category_id' => $request->category_id,
             ];
             $dataUploadFeatureImg = $this->storageTraitUpload($request, 'feature_img_path', 'product');
@@ -122,7 +121,7 @@ class AdminProductController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'content' => $request->contents,
-                // 'user_id' => auth()->id(),
+                'user_id' => auth()->id(),
                 'category_id' => $request->category_id,
             ];
             $dataUploadFeatureImg = $this->storageTraitUpload($request, 'feature_img_path', 'product');

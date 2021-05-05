@@ -57,10 +57,10 @@
           <a href="#" class="nav-link" v-else> Hi: {{ user.name }} </a>
         </li>
         <li v-if="user.is_admin == 1">
-          <a href="/home" class="nav-link">Dashboard </a>
+          <a href="/loginAdmin" class="nav-link">Dashboard </a>
         </li>
         <li v-else>
-          <a href="/home" class="nav-link"> User Dasboard </a>
+          <router-link to="/user-dash" class="nav-link">Dashboard User</router-link>
         </li>
         <li>
           <a href="#" class="nav-link" @click="logout">
