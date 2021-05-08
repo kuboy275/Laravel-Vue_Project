@@ -45,25 +45,29 @@ class UserTableSeeder extends Seeder
                 'name' => 'Role',
                 'display_name' => 'Role',
                 'parent_id' => 0,
-            ]
+            ],
+
             [
                 'name' => 'list',
                 'display_name' => 'list',
                 'parent_id' => 1,
                 'key_code'=>'Role_list'
-            ]
+            ],
+
             [
                 'name' => 'add',
                 'display_name' => 'add',
                 'parent_id' => 1,
                 'key_code'=>'Role_add'
-            ]
+            ],
+
             [
                 'name' => 'edit',
                 'display_name' => 'edit',
                 'parent_id' => 1,
                 'key_code'=>'Role_edit'
-            ]
+            ],
+
             [
                 'name' => 'delete',
                 'display_name' => 'delete',
@@ -85,15 +89,18 @@ class UserTableSeeder extends Seeder
             [
                 'role_id' => 1,
                 'permission_id' => 1
-            ]
+            ],
+            
             [
                 'role_id' => 1,
                 'permission_id' => 2
-            ]
+            ],
+            
             [
                 'role_id' => 1,
                 'permission_id' => 3
-            ]
+            ],
+            
             [
                 'role_id' => 1,
                 'permission_id' => 4
