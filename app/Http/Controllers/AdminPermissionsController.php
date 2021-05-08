@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Permission;
+use App\Models\permission;
 use App\Components\PermissionRecusive;
 use App\Traits\DeleteModelTrait;
 
@@ -11,7 +11,7 @@ class AdminPermissionsController extends Controller
 {
     use DeleteModelTrait;
     private $permission;
-    public function __construct(Permission $permission , PermissionRecusive $permissionRecusive){
+    public function __construct(permission $permission , PermissionRecusive $permissionRecusive){
         $this->permission = $permission;
         $this->permissionRecusive = $permissionRecusive;
     }
