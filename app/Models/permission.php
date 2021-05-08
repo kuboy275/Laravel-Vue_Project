@@ -4,15 +4,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Permission extends Model
+class permission extends Model
 {
     use HasFactory;
-
-    protected $table = 'permissons';
     protected $guarded=[];
 
     public function permissionChild(){
-        return $this->hasMany(Permission::class , 'parent_id');
+        return $this->hasMany(permission::class , 'parent_id');
     }
     
 }

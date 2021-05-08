@@ -13,7 +13,7 @@
                 sản phẩm trong
                 <span>{{ pagination.last_page }}</span> trang
               </div>
-              <div class="col-lg-5" v-else>khong co san pham</div>
+              <div class="col-lg-5" v-else>Hiện không có sản phẩm nào được tìm kiếm</div>
               <!-- SEARCH PRODUCTS  -->
               <div class="col-lg-5 search text-right">
                 <input

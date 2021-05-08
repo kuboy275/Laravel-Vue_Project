@@ -55771,7 +55771,7 @@ var render = function() {
                           _vm._v(" trang\n            ")
                         ])
                       : _c("div", { staticClass: "col-lg-5" }, [
-                          _vm._v("khong co san pham")
+                          _vm._v("Hiện không có sản phẩm nào được tìm kiếm")
                         ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-5 search text-right" }, [

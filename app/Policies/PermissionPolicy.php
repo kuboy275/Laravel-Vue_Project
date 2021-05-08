@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Permission;
+use App\Models\permission;
 use App\Models\Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,7 +25,7 @@ class PermissionPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\permission  $permission
      * @return mixed
      */
     public function view(Admin $admin)
@@ -49,7 +49,7 @@ class PermissionPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\permission  $permission
      * @return mixed
      */
     public function update(Admin $admin)
@@ -61,7 +61,7 @@ class PermissionPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\permission  $permission
      * @return mixed
      */
     public function delete(Admin $admin)
@@ -73,7 +73,7 @@ class PermissionPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\permission  $permission
      * @return mixed
      */
     public function restore(Admin $admin)
@@ -85,7 +85,7 @@ class PermissionPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Admin  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\permission  $permission
      * @return mixed
      */
     public function forceDelete(Admin $admin, Permission $permission)
