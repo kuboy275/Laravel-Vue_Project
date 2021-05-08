@@ -71,7 +71,7 @@ class PermissionGateAndPolicyAccess
     public function defineGatePermission(){
         Gate::define('per-view', [PermissionPolicy::class,'view']);
         Gate::define('per-create', [PermissionPolicy::class,'create']);
-        Gate::define('per-delete', [PermissionPolicy::class,'videlete']);
+        Gate::define('per-delete', [PermissionPolicy::class,'delete']);
     }
 
     // PERMISSION FOR ADMIN LIST
