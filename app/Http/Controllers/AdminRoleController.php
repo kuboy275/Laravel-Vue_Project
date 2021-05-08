@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
-use App\Models\Permission;
+use App\Models\permission;
 use App\Traits\DeleteModelTrait;
 
 class AdminRoleController extends Controller
