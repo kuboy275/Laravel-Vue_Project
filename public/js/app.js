@@ -52957,26 +52957,22 @@ var staticRenderFns = [
                 _c("ul", [
                   _c("li", [
                     _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" Create Post ")
+                      _vm._v(" Tems & Conditions ")
                     ])
                   ]),
                   _vm._v(" "),
                   _c("li", [
                     _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" Create Post ")
+                      _vm._v(" Privacy Policy ")
                     ])
                   ]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" Create Post ")
-                    ])
+                    _c("a", { attrs: { href: "#!" } }, [_vm._v(" Cookies ")])
                   ]),
                   _vm._v(" "),
                   _c("li", [
-                    _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" Create Post ")
-                    ])
+                    _c("a", { attrs: { href: "#!" } }, [_vm._v(" Learn ")])
                   ])
                 ])
               ]),
@@ -52986,26 +52982,20 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("ul", [
                   _c("li", [
-                    _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" About Companny ")
-                    ])
+                    _c("a", { attrs: { href: "#!" } }, [_vm._v(" Design ")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#!" } }, [_vm._v(" CMS ")])
+                  ]),
+                  _vm._v(" "),
+                  _c("li", [
+                    _c("a", { attrs: { href: "#!" } }, [_vm._v(" Publish ")])
                   ]),
                   _vm._v(" "),
                   _c("li", [
                     _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" About Companny ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" About Companny ")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#!" } }, [
-                      _vm._v(" About Companny ")
+                      _vm._v(" Why BondLayer ")
                     ])
                   ])
                 ])
@@ -81991,8 +81981,8 @@ var mutations = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xamp\htdocs\myproject2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\xamp\htdocs\myproject2\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! C:\xampp\htdocs\myproject2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\myproject2\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })

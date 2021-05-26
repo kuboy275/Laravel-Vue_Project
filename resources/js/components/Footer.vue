@@ -51,16 +51,16 @@
               <h3>Quick Links</h3>
               <ul>
                 <li>
-                  <a href="#!"> Create Post </a>
+                  <a href="#!"> Tems & Conditions </a>
                 </li>
                 <li>
-                  <a href="#!"> Create Post </a>
+                  <a href="#!"> Privacy Policy </a>
                 </li>
                 <li>
-                  <a href="#!"> Create Post </a>
+                  <a href="#!"> Cookies </a>
                 </li>
                 <li>
-                  <a href="#!"> Create Post </a>
+                  <a href="#!"> Learn </a>
                 </li>
               </ul>
             </div>
@@ -68,16 +68,16 @@
               <h3>Our Services</h3>
               <ul>
                 <li>
-                  <a href="#!"> About Companny </a>
+                  <a href="#!"> Design </a>
                 </li>
                 <li>
-                  <a href="#!"> About Companny </a>
+                  <a href="#!"> CMS </a>
                 </li>
                 <li>
-                  <a href="#!"> About Companny </a>
+                  <a href="#!"> Publish </a>
                 </li>
                 <li>
-                  <a href="#!"> About Companny </a>
+                  <a href="#!"> Why BondLayer </a>
                 </li>
               </ul>
             </div>

@@ -92,7 +92,7 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
+input[type=button], input[type=submit], input[type=reset] {
   background-color: #56baed;
   border: none;
   color: white;
@@ -126,7 +126,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text],input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -295,7 +295,7 @@ input[type=text]:placeholder {
             @enderror
           </div>
 
-        <input type="text" 
+        <input type="password" 
           id="password" 
           class="fadeIn third" 
           name="password"
